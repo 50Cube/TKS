@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Update user</title>
+    </h:head>
+    <h:body>
+        Update user
+        <h:form>
+            <br />
+            Login <h:outputText value="#{updateUserController.user.login}" /> <br />
+            Password <h:inputText value="#{updateUserController.user.password}"/> <br />
+            Name <h:inputText value="#{updateUserController.user.name}"/> <br />
+            Surname <h:inputText value="#{updateUserController.user.surname}"/> <br />
+            
+            <br />
+            <h:commandButton value="Update" action="#{updateUserController.updateUser()}" onclick="return window.confirm('Are you sure you want to update this user?')"/>
+            <h:commandButton value="Cancel" action="home" immediate="true" />
+        </h:form>
+    </h:body>
+</html>
+

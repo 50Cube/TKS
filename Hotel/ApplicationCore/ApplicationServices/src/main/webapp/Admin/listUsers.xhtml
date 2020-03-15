@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>List users</title>
+    </h:head>
+    <h:body>
+        List of users
+        <h:form>
+            <br />Search users: 
+            <h:inputText value="#{listUsersController.filter}"/>
+            <h:commandButton value="Search" action="#{listUsersController.getFilteredUsers()}"/> <br /><br />
+            <h:dataTable value="#{listUsersController.users}" var="user" border="1">
+                <h:column><h:outputText value="Role: #{user.value.getType()}"/></h:column>
+                <h:column><h:outputText value="Login: #{user.value.login}"/></h:column>
+                <h:column><h:outputText value="Name: #{user.value.name}"/></h:column>
+                <h:column><h:outputText value="Surname: #{user.value.surname}"/></h:column>
+                <h:column><h:outputText value="#{user.value.activeString()}"/></h:column>
+                <h:column><h:commandButton value="Update" action="#{listUsersController.saveData(user.value)}"/></h:column>
+                <h:column><h:commandButton value="(de)activate" action="#{listUsersController.activate(user.value)}"/></h:column>
+                <h:column><h:commandButton value="Rents" action="#{listRentsController.getRentsForClientPrepare(user.value)}"/></h:column>
+            </h:dataTable>
+        </h:form>
+        <br /><h:link value="Back" outcome="home" />
+    </h:body>
+</html>
+

@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ApplicationServices:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9155f014-404f-49f6-963c-108b15da2abb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Hotel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationCore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/ApplicationServices.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/AddRentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/CustomIdentityStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/DataHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/RestAddRentableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/RestListRentablesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/RestUpdateRentableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/VerifyRecaptcha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/addRentableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/addUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/listRentablesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/listRentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/listUsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/updateRentableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Controllers/updateUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/JAXRSConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Repositories/RentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Repositories/RentableRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/CustomExceptions/ProcessingExceptionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/CustomExceptions/RentableRentedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/CustomExceptions/RentableRentedMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/CustomExceptions/ValidationExceptionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/RentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/RentableService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/RestRentableService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/resources/JavaEE8Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Admin/addUser.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Admin/addUserConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Admin/listRentsForClient.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Admin/listUsers.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Admin/updateUser.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Client/RestRentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Client/addRent.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Client/myRents.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Client/rentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Main/mainPage.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Main/userInfo.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestAddRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestAddRoomConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestAddSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestAddSaunaConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestListRentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestUpdateRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/RestUpdateSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/addRent.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/addRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/addRoomConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/addSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/addSaunaConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/listRentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/listRents.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/listRentsForRentable.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/updateRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/Manager/updateSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/WEB-INF/payara-web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/login.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/loginFailed.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/webapp/register.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Admin/addUser.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Admin/addUserConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Admin/listRentsForClient.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Admin/listUsers.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Admin/updateUser.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Client/RestRentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Client/addRent.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Client/myRents.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Client/rentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Main/mainPage.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Main/userInfo.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestAddRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestAddRoomConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestAddSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestAddSaunaConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestListRentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestUpdateRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/RestUpdateSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/addRent.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/addRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/addRoomConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/addSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/addSaunaConfirm.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/listRentables.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/listRents.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/listRentsForRentable.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/updateRoom.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/Manager/updateSauna.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/WEB-INF/beans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/WEB-INF/faces-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/WEB-INF/payara-web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/login.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/loginFailed.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/register.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/DomainModel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Rent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Rentable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Sauna.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationCore/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/ApplicationPorts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/InfrastructurePorts/DisplayRoomPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/UserPorts/CreateRoomPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationPorts/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hotel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/RepositoriesAdapters.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/AdminRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/ClientRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/ManagerRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RentRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RentableRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RoomRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/SaunaRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/UserRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentRepositoryRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentableRepositoryRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/UserRepositoryRA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoriesAdapters/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/ApplicationCore/target/" />
+    <ignored path="$PROJECT_DIR$/RepositoriesAdapters/target/" />
+    <ignored path="$PROJECT_DIR$/ApplicationPorts/target/" />
+    <ignored path="$PROJECT_DIR$/ApplicationCore/DomainModel/target/" />
+    <ignored path="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ApplicationCore/DomainModel/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Room.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Room.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Room.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Admin.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Client.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Manager.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Sauna.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/User.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Rentable.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/ClientRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/AdminRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RoomRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/SaunaRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/ManagerRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/UserRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/Rent.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentableRepository.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentableRepositoryRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/UserRepository.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/UserRepositoryRA.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentRepository.java" />
+        <option value="$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentRepositoryRA.java" />
+        <option value="$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/UserPorts/CreateRoom.java" />
+        <option value="$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/UserPorts/CreateRoomPort.java" />
+        <option value="$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/InfrastructurePorts/DisplayRoomPort.java" />
+        <option value="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Rentable.java" />
+        <option value="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Room.java" />
+        <option value="$PROJECT_DIR$/ApplicationCore/DomainModel/src/main/java/com/mycompany/store/Model/Sauna.java" />
+        <option value="$PROJECT_DIR$/ApplicationPorts/pom.xml" />
+        <option value="$PROJECT_DIR$/ApplicationCore/pom.xml" />
+        <option value="$PROJECT_DIR$/ApplicationCore/DomainModel/pom.xml" />
+        <option value="$PROJECT_DIR$/ApplicationCore/ApplicationServices/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hotel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="ApplicationCore" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584282837984" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2229885" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\50Cube.DESKTOP-673AQGF\Desktop\Studia\Studia\Przedmioty\Technologie komponentów sieciowych\TKS\Hotel\RepositoriesAdapters\src\main\java\pl\lodz\p\it\RA" />
+      <recent name="C:\Users\50Cube.DESKTOP-673AQGF\Desktop\Studia\Studia\Przedmioty\Technologie komponentów sieciowych\TKS\Hotel\RepositoriesAdapters\src\main\java\ModelRA" />
+      <recent name="C:\Users\50Cube.DESKTOP-673AQGF\Desktop\Studia\Studia\Przedmioty\Technologie komponentów sieciowych\TKS\Hotel\RepositoriesAdapters\src\main\java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="GlassFish 5.201.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.201.0" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="https://localhost:8181/Store" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="ApplicationServices:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="PASSWORD" value="" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ApplicationServices:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9155f014-404f-49f6-963c-108b15da2abb" name="Default Changelist" comment="" />
+      <created>1583856162698</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583856162698</updated>
+      <workItem from="1583856166283" duration="216000" />
+      <workItem from="1583937767832" duration="7937000" />
+      <workItem from="1583946619642" duration="287000" />
+      <workItem from="1583951355639" duration="80000" />
+      <workItem from="1584115223468" duration="2408000" />
+      <workItem from="1584275640231" duration="587000" />
+      <workItem from="1584276251717" duration="250000" />
+      <workItem from="1584277016880" duration="544000" />
+      <workItem from="1584277634248" duration="302000" />
+      <workItem from="1584278285713" duration="243000" />
+      <workItem from="1584279880119" duration="1019000" />
+      <workItem from="1584280907496" duration="276000" />
+      <workItem from="1584281519005" duration="1533000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15682000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info id="Persistence" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.22946176" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.41218132" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Duplicate detector" order="14" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.27620396" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="JSF" order="6" />
+      <window_info anchor="right" id="SciView" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="CDI" order="11" />
+      <window_info anchor="right" id="Bean Validation" order="12" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Sauna.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/User.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Admin.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Rentable.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Client.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Rent.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Manager.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/Model/Room.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Sauna.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/User.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Admin.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Rentable.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Client.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Rent.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Manager.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/ModelRA/Model/Room.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/AdminRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/ClientRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/UserRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RentRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RentableRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/ManagerRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/SaunaRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/UserRepositoryRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentRepositoryRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="111" column="40" lean-forward="true" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/src/main/java/com/mycompany/store/Repositories/RentRepository.java" />
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Model/RoomRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/UserPorts/CreateRoomPort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RepositoriesAdapters/src/main/java/pl/lodz/p/it/RA/Repositories/RentableRepositoryRA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationPorts/src/main/java/pl/lodz/p/it/InfrastructurePorts/DisplayRoomPort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Admin.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Client.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Manager.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Rent.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Rentable.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Room.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/Sauna.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/src/main/java/com/mycompany/store/Model/User.java" />
+    <entry file="file://$PROJECT_DIR$/ApplicationPorts/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/DomainModel/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>ApplicationServices:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2229885" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ApplicationCore</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>13</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.sun.mail:javax.mail:1.6.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

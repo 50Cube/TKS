@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Main page</title>
+    </h:head>
+    <h:body>
+        <h:outputText rendered="#{request.isUserInRole('Manager')}" value ="Hello Manager #{request.userPrincipal.name}"></h:outputText>
+        <h:outputText rendered="#{request.isUserInRole('Client')}" value="Hello Client #{request.userPrincipal.name}"></h:outputText>
+        <h:outputText rendered="#{request.isUserInRole('Admin')}" value="Hello Admin #{request.userPrincipal.name}"></h:outputText>
+        <h:form>
+            <h:commandButton value="Logout" action="#{loginController.logout()}"/> 
+        </h:form>      
+            <ul>
+                <li><h:link value="Display user info" outcome="userInfo.xhtml" /></li>
+                <h:panelGroup rendered="#{request.isUserInRole('Manager')}">
+                    <li><h:link value="List rooms and saunas" outcome="RestListRentables.xhtml" /></li>
+                    <li ><h:link value="List rents" outcome="listRents.xhtml" /></li>
+                    <li><h:link value="Add room" outcome="RestAddRoom.xhtml"/></li>
+                    <li> <h:link value="Add sauna" outcome="RestAddSauna.xhtml" /></li>
+                </h:panelGroup> 
+                 <h:panelGroup rendered="#{request.isUserInRole('Client')}">
+                    <li><h:link value="My rents" outcome="#{listRentsController.getRentsForClientPrepare(listUsersController.getUsers()[request.userPrincipal.name])}" /></li>
+                    <li><h:link value="List rooms and saunas" outcome="RestRentables.xhtml" /></li>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{request.isUserInRole('Admin')}">
+                    <li><h:link value="Add user" outcome="addUser.xhtml" /></li>
+                    <li><h:link value="List users" outcome="listUsers.xhtml" /></li>
+                </h:panelGroup>
+            </ul>
+   
+
+    </h:body>
+</html>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ApplicationCore/ApplicationCore.iml" filepath="$PROJECT_DIR$/ApplicationCore/ApplicationCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApplicationPorts/ApplicationPorts.iml" filepath="$PROJECT_DIR$/ApplicationPorts/ApplicationPorts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApplicationCore/ApplicationServices/ApplicationServices.iml" filepath="$PROJECT_DIR$/ApplicationCore/ApplicationServices/ApplicationServices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApplicationCore/DomainModel/DomainModel.iml" filepath="$PROJECT_DIR$/ApplicationCore/DomainModel/DomainModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Hotel.iml" filepath="$PROJECT_DIR$/.idea/Hotel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RepositoriesAdapters/RepositoriesAdapters.iml" filepath="$PROJECT_DIR$/RepositoriesAdapters/RepositoriesAdapters.iml" />
+    </modules>
+  </component>
+</project>

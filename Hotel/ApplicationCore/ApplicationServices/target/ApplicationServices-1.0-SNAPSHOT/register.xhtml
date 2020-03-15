@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+    Create new account
+        <h:form>
+            <br />
+            Login <h:inputText value="#{addUserController.login}" required="true" /> <br />
+            Password <h:inputSecret value="#{addUserController.password}" required="true"/> <br />
+            Name <h:inputText value="#{addUserController.name}" required="true"/> <br />
+            Surname <h:inputText value="#{addUserController.surname}" required="true"/> <br />
+             <div class="g-recaptcha" data-sitekey="6LcdPsoUAAAAAKjYRDEU2Kf_kPFxfiPCMzcwc2-c"></div>
+            <h:commandButton value="Register" action="#{addUserController.register()}" />
+        </h:form>
+    <h:link value="Go back" outcome="login.xhtml"></h:link> 
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    </h:body>
+</html>

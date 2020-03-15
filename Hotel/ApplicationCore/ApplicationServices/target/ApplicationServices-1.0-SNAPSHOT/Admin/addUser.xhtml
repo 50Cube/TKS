@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add user</title>
+    </h:head>
+    <h:body>
+        Add user
+        <h:form>
+            <br />
+            Type 
+            <h:selectOneMenu value="#{addUserController.userType}">
+                <f:selectItem itemValue="Client" />
+                <f:selectItem itemValue="Manager" />  
+                <f:selectItem itemValue="Admin" />  
+            </h:selectOneMenu> <br />
+            Login <h:inputText value="#{addUserController.login}" required="true" /> <br />
+            Password <h:inputText value="#{addUserController.password}" /> <br />
+            Name <h:inputText value="#{addUserController.name}"/> <br />
+            Surname <h:inputText value="#{addUserController.surname}"/> <br />
+            Active 
+            <h:selectOneMenu value="#{addUserController.activeString}">
+                <f:selectItem itemValue="true" itemLabel="Active" />
+                <f:selectItem itemValue="false" itemLabel="Inactive" />
+            </h:selectOneMenu> <br />
+            
+            <h:commandButton value="Add" action="#{addUserController.addUser()}" />
+            <h:commandButton value="Cancel" action="home" immediate="true" />
+        </h:form>
+    </h:body>
+</html>
+

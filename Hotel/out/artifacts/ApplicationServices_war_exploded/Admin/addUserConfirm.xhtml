@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Add user confirm</title>
+    </h:head>
+    <h:body>
+        Confirm user
+        <h:form>
+            Type: <h:outputText value="#{addUserController.userType}" /><br />
+            Login: <h:outputText value="#{addUserController.login}" /><br />
+            Password: <h:outputText value="#{addUserController.password}" /><br />
+            Name: <h:outputText value="#{addUserController.name}" /><br />
+            Surname: <h:outputText value="#{addUserController.surname}" /><br />
+            Is active: <h:outputText value="#{addUserController.activeString}" /><br />
+            
+            <h:commandButton value="Confirm" action="#{addUserController.addUserConfirm()}" onclick="return window.confirm('Are you sure you want to add this user?')"/>
+            <h:commandButton value="Cancel" action="home" immediate="true" />
+        </h:form>
+    </h:body>
+</html>
+
