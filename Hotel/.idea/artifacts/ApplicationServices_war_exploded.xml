@@ -1,14 +1,33 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="ApplicationServices:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/ApplicationServices_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>ApplicationServices</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="ApplicationServices" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="DomainModel-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="DomainModel" />
+          </element>
+          <element id="archive" name="ApplicationPorts-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ApplicationPorts" />
+          </element>
+          <element id="archive" name="RepositoriesAdapters-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="RepositoriesAdapters" />
+          </element>
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.12" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ApplicationCore/ApplicationServices/target/ApplicationServices-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="ApplicationServices/web/Web" />
     </root>

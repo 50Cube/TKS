@@ -24,7 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ApplicationServices" options="-endorseddirs &quot;C:\Users\50Cube.DESKTOP-673AQGF\Desktop\Studia\Studia\Przedmioty\Technologie komponentów sieciowych\TKS\Hotel\ApplicationCore\ApplicationServices\target/endorsed&quot;" />
+      <module name="ApplicationServices" options="-endorseddirs C:\Users\50Cube.DESKTOP-673AQGF\Desktop\Studia\Studia\Przedmioty\TKS\TKS\Hotel\ApplicationCore\ApplicationServices\target/endorsed" />
     </option>
   </component>
 </project>
