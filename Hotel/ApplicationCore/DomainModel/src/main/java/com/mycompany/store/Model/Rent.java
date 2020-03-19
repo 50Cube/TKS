@@ -1,15 +1,27 @@
 package com.mycompany.store.Model;
 
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
 
+@Data
 public class Rent {
 
     private UUID id = UUID.randomUUID();
+
+    @NotNull
     private Rentable rentable;
+
+    @NotNull
     private Client client;
+
+    @NotNull
     private Calendar rentStart;
+
+    @NotNull
     private Calendar rentStop;
     
     public Rent() {}
@@ -21,61 +33,18 @@ public class Rent {
         this.rentStop = stop;
     }
     
-    public UUID getId()
-    {
-        return this.id;
-    }
-    
-    public Rentable getRentable()
-    {
-        return this.rentable;
-    }
-    
-    public void setRentable(Rentable rentable) {
-        this.rentable = rentable;
-    }
-    
-    public Client getClient()
-    {
-        return this.client;
-    }
-    
-    public void setClient(Client client) {
-        this.client = client;
-    }
-    
-    public Calendar getRentStart()
-    {
-        return this.rentStart;
-    }
-    
-    public void setRentStart(Calendar date)
-    {
-        this.rentStart = date;
-    }
-    
-    public Calendar getRentStop()
-    {
-        return this.rentStop;
-    }
-    
-    public void setRentStop(Calendar date)
-    {
-        this.rentStop = date;
-    }
-    
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-        String tmp = "";
+        String tmp;
         if(this.rentable instanceof Room) tmp = "Room";
         else tmp = "Sauna";
-        return tmp + " no. " + Integer.toString(this.rentable.getNumber()) + " is rent by " + this.client.getName() + " " + this.client.getSurname() + " from " + sdf.format(this.rentStart.getTime()) + " to " + sdf.format(this.rentStop.getTime());
+        return tmp + " no. " + this.rentable.getNumber() + " is rent by " + this.client.getName() + " " + this.client.getSurname() + " from " + sdf.format(this.rentStart.getTime()) + " to " + sdf.format(this.rentStop.getTime());
     }
     
     public String toFilterString() {
-        return this.id.toString() + " " + this.client.toFilterString() + " " + Integer.toString(this.rentable.getNumber());
+        return this.id.toString() + " " + this.client.toFilterString() + " " + this.rentable.getNumber();
     }
     
     public String getRentableType() {
