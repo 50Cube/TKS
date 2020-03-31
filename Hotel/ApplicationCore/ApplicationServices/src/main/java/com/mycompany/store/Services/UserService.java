@@ -3,8 +3,9 @@ package com.mycompany.store.Services;
 import com.mycompany.store.Model.Admin;
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Manager;
-import com.mycompany.store.Repositories.UserRepository;
 import com.mycompany.store.Model.User;
+import pl.lodz.p.it.Aggregates.UserAdapter;
+
 import java.io.Serializable;
 import java.util.Map;
 import javax.inject.Named;
@@ -17,7 +18,7 @@ import javax.inject.Inject;
 public class UserService implements Serializable{
 
     @Inject
-    private UserRepository userRepository;
+    private UserAdapter userAdapter;
     
     public UserService() {
     }
@@ -25,59 +26,54 @@ public class UserService implements Serializable{
     
     public Map<String, User> getUsers()
     {
-        return userRepository.getUsers();
+        return userAdapter.getUsers();
     }
     
     public User getUser(String login)
     {
-        return userRepository.getUser(login);
+        return userAdapter.getUser(login);
     }
-    
-    public int getUsersAmount()
-    {
-        return userRepository.getUsersAmount();
-    }
-    
+
     public void addClient(String login, String password, String name, String surname, boolean active) throws Exception {
-        if(!userRepository.getUsers().containsKey(login))
-            userRepository.addUser(new Client(login,password,name,surname,active));
+        if(!userAdapter.getUsers().containsKey(login))
+            userAdapter.addUser(new Client(login,password,name,surname,active));
         else throw new Exception("User already exists");
     }
     
     public void addManager(String login, String password, String name, String surname, boolean active) throws Exception {
-        if(!userRepository.getUsers().containsKey(login))
-            userRepository.addUser(new Manager(login,password,name,surname,active));
+        if(!userAdapter.getUsers().containsKey(login))
+            userAdapter.addUser(new Manager(login,password,name,surname,active));
          else throw new Exception("User already exists");
     }
     
     public void addAdmin(String login, String password, String name, String surname, boolean active) throws Exception {
-        if(!userRepository.getUsers().containsKey(login))
-            userRepository.addUser(new Admin(login,password,name,surname,active));
+        if(!userAdapter.getUsers().containsKey(login))
+            userAdapter.addUser(new Admin(login,password,name,surname,active));
         else throw new Exception("User already exists");
     }
     
     public void updateUser(String login, String newPassword, String newName, String newSurname)
     {
-        userRepository.updateUser(userRepository.getUser(login), newPassword, newName, newSurname);
+        userAdapter.updateUser(userAdapter.getUser(login), newPassword, newName, newSurname);
     }
     
     public void activateUser(String login)
     {
-        if(!userRepository.getUser(login).getIsActive())
-            userRepository.activateUser(userRepository.getUser(login));
+        if(!userAdapter.getUser(login).getIsActive())
+            userAdapter.activateUser(userAdapter.getUser(login));
     }
     
     public void deactivateUser(String login)
     {
-        if(userRepository.getUser(login).getIsActive())
-            userRepository.deactivateUser(userRepository.getUser(login));
+        if(userAdapter.getUser(login).getIsActive())
+            userAdapter.deactivateUser(userAdapter.getUser(login));
     }
     
     public Map<String, User> getFilterUsers(String input) {
-        return userRepository.getFilteredUsers(input);
+        return userAdapter.getFilteredUsers(input);
     }
     
     public Map<String, Client> getClients() {
-        return userRepository.getClients();
+        return userAdapter.getClients();
     }
 }

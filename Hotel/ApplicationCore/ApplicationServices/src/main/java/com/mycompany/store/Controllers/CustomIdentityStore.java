@@ -6,7 +6,8 @@
 package com.mycompany.store.Controllers;
 
 import com.mycompany.store.Model.User;
-import com.mycompany.store.Repositories.UserRepository;
+import pl.lodz.p.it.Aggregates.UserAdapter;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import javax.enterprise.context.ApplicationScoped;
@@ -20,7 +21,7 @@ import javax.security.enterprise.identitystore.IdentityStore;
 public class CustomIdentityStore implements IdentityStore {
     
     @Inject
-    private UserRepository users;
+    private UserAdapter users;
     
     @Override
     public CredentialValidationResult validate(Credential credential) {
