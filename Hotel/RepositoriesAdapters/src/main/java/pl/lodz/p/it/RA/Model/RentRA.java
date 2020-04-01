@@ -22,7 +22,15 @@ public class RentRA {
         this.rentStart = start;
         this.rentStop = stop;
     }
-    
+
+    public RentRA(UUID id, RentableRA rentable, ClientRA client, Calendar rentStart, Calendar rentStop) {
+        this.id = id;
+        this.rentable = rentable;
+        this.client = client;
+        this.rentStart = rentStart;
+        this.rentStop = rentStop;
+    }
+
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");

@@ -25,16 +25,18 @@ public class RentConverter {
         RentableRA rentableRA = rentableConverter.convertToRepository(rent.getRentable());
         ClientRA clientRA = (ClientRA) userConverter.convertToRepository(rent.getClient());
         return new RentRA(
+                rent.getId(),
                 rentableRA,
                 clientRA,
                 rent.getRentStart(),
                 rent.getRentStop());
     }
 
-    public Rent convertToRepository(RentRA rent){
+    public Rent convertToDomain(RentRA rent){
         Rentable rentable = rentableConverter.convertToDomain(rent.getRentable());
         Client client = (Client) userConverter.convertToDomain(rent.getClient());
         return new Rent(
+                rent.getId(),
                 rentable,
                 client,
                 rent.getRentStart(),

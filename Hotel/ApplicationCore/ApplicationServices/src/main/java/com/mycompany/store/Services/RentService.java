@@ -4,8 +4,7 @@ import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.User;
 import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
-import com.mycompany.store.Repositories.RentRepository;
-import com.mycompany.store.Repositories.RentableRepository;
+import pl.lodz.p.it.Aggregates.RentAdapter;
 import pl.lodz.p.it.Aggregates.RentableAdapter;
 
 import java.io.Serializable;
@@ -21,7 +20,7 @@ import javax.inject.Inject;
 public class RentService implements Serializable {
 
     @Inject
-    private RentRepository rentRepository;
+    private RentAdapter rentRepository;
     
     @Inject
     private RentableAdapter rentableRepository;

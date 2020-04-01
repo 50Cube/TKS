@@ -3,9 +3,8 @@ package com.mycompany.store.Services;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
-import com.mycompany.store.Repositories.RentRepository;
-import com.mycompany.store.Repositories.RentableRepository;
 import com.mycompany.store.Services.CustomExceptions.RentableRentedException;
+import pl.lodz.p.it.Aggregates.RentAdapter;
 import pl.lodz.p.it.Aggregates.RentableAdapter;
 
 import java.util.Map;
@@ -35,7 +34,7 @@ public class RestRentableService {
     private RentableAdapter rentableRepository;
     
     @Inject
-    private RentRepository rentRepository;
+    private RentAdapter rentRepository;
 
     public RestRentableService() {
     }

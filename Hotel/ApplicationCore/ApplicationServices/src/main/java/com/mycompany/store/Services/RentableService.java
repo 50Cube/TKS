@@ -3,8 +3,7 @@ package com.mycompany.store.Services;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
-import com.mycompany.store.Repositories.RentRepository;
-import com.mycompany.store.Repositories.RentableRepository;
+import pl.lodz.p.it.Aggregates.RentAdapter;
 import pl.lodz.p.it.Aggregates.RentableAdapter;
 
 import java.io.Serializable;
@@ -21,7 +20,7 @@ public class RentableService implements Serializable{
     private RentableAdapter rentableRepository;
 
     @Inject
-    private RentRepository rentRepository;
+    private RentAdapter rentRepository;
 
     public RentableService() {
     }
