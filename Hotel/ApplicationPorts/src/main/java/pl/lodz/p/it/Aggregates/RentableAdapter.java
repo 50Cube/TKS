@@ -3,7 +3,7 @@ package pl.lodz.p.it.Aggregates;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
-import pl.lodz.p.it.Converters.RentableConverter;
+import pl.lodz.p.it.Converters.Repository.RentableConverterRepository;
 import pl.lodz.p.it.InfrastructurePorts.RentablePorts.GetFilteredRentablesPort;
 import pl.lodz.p.it.InfrastructurePorts.RentablePorts.GetRentablePort;
 import pl.lodz.p.it.InfrastructurePorts.RentablePorts.GetRentablesPort;
@@ -25,7 +25,7 @@ import java.util.Map;
 @Dependent
 public class RentableAdapter implements GetRentablePort, GetRentablesPort, GetFilteredRentablesPort, AddRentablePort, DeleteRentablePort, UpdateRentablePort {
     @Inject
-    RentableConverter converter;
+    RentableConverterRepository converter;
     @Inject
     RentableRepositoryRA repositoryRA;
 

@@ -1,4 +1,4 @@
-package pl.lodz.p.it.Converters;
+package pl.lodz.p.it.Converters.Repository;
 
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
@@ -12,7 +12,7 @@ import javax.inject.Named;
 
 @Named
 @ApplicationScoped
-public class RentableConverter {
+public class RentableConverterRepository {
     public Rentable convertToDomain(RentableRA rentableRA){
         if(rentableRA instanceof RoomRA){
             return new Room(

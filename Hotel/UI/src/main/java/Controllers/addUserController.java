@@ -1,4 +1,4 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
 import com.mycompany.store.Services.UserService;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;

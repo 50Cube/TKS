@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.UserUI;
 import com.mycompany.store.Model.User;
 import pl.lodz.p.it.Aggregates.UserAdapter;
 
@@ -27,7 +28,7 @@ public class CustomIdentityStore implements IdentityStore {
     public CredentialValidationResult validate(Credential credential) {
 
         UsernamePasswordCredential login = (UsernamePasswordCredential) credential;
-        User caller = users.getUser(login.getCaller());
+        UserUI caller = users.getUser(login.getCaller());
         if (caller == null || !caller.getIsActive()) {
             return CredentialValidationResult.NOT_VALIDATED_RESULT;
         }

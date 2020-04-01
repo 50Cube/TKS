@@ -1,5 +1,8 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.RentableUI;
+import Model.RoomUI;
+import Model.SaunaUI;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
@@ -28,9 +31,9 @@ public class RestListRentablesController implements Serializable {
     @Inject
     private RestRentableService rentableService;
     
-    private Map<Integer, Rentable> rentables;
-    private Map<Integer, Room> rooms;
-    private Map<Integer, Sauna> saunas;
+    private Map<Integer, RentableUI> rentables;
+    private Map<Integer, RoomUI> rooms;
+    private Map<Integer, SaunaUI> saunas;
     private String filter;
     
     private HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -44,21 +47,21 @@ public class RestListRentablesController implements Serializable {
     @PostConstruct
     public void loadRentables()
     {
-        rooms = webTarget.path("rooms").request(MediaType.APPLICATION_JSON).get(new GenericType<Map<Integer, Room>>() {});
-        saunas = webTarget.path("saunas").request(MediaType.APPLICATION_JSON).get(new GenericType<Map<Integer, Sauna>>() {});
+        rooms = webTarget.path("rooms").request(MediaType.APPLICATION_JSON).get(new GenericType<Map<Integer, RoomUI>>() {});
+        saunas = webTarget.path("saunas").request(MediaType.APPLICATION_JSON).get(new GenericType<Map<Integer, SaunaUI>>() {});
     }
     
-    public Map<Integer, Rentable> getRentables()
+    public Map<Integer, RentableUI> getRentables()
     {
         return rentables;
     }
     
-    public Map<Integer, Room> getRooms()
+    public Map<Integer, RoomUI> getRooms()
     {
         return rooms;
     }
     
-    public Map<Integer, Sauna> getSaunas()
+    public Map<Integer, SaunaUI> getSaunas()
     {
         return saunas;
     }
@@ -71,23 +74,23 @@ public class RestListRentablesController implements Serializable {
         loadRentables();
     }
     
-    public String saveRoom(Room room) {
+    public String saveRoom(RoomUI room) {
         dh.setRoom(room);
-        dh.setSauna(new Sauna(0,0));
+        dh.setSauna(new SaunaUI(0,0));
         return "RestUpdateRoom.xhtml";
     }
     
-    public String saveSauna(Sauna sauna) {
+    public String saveSauna(SaunaUI sauna) {
         dh.setSauna(sauna);
-        dh.setRoom(new Room(0,0,0));
+        dh.setRoom(new RoomUI(0,0,0));
         return "RestUpdateSauna.xhtml";
     }
     
     public void getFilteredRentables() {
         rooms = webTarget.path("rooms/{filter}").resolveTemplate("filter", this.filter).request(MediaType.APPLICATION_JSON)
-                  .get(new GenericType<Map<Integer, Room>>() {});
+                  .get(new GenericType<Map<Integer, RoomUI>>() {});
         saunas = webTarget.path("saunas/{filter}").resolveTemplate("filter", this.filter).request(MediaType.APPLICATION_JSON)
-                .get(new GenericType<Map<Integer, Sauna>>() {});
+                .get(new GenericType<Map<Integer, SaunaUI>>() {});
     }
     
     public String getFilter() {

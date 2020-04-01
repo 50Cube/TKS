@@ -1,24 +1,18 @@
-package pl.lodz.p.it.Converters;
+package pl.lodz.p.it.Converters.UI;
 
-
+import Model.AdminUI;
+import Model.ClientUI;
+import Model.ManagerUI;
+import Model.UserUI;
 import com.mycompany.store.Model.Admin;
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Manager;
 import com.mycompany.store.Model.User;
-import pl.lodz.p.it.RA.Model.AdminRA;
-import pl.lodz.p.it.RA.Model.ClientRA;
-import pl.lodz.p.it.RA.Model.ManagerRA;
-import pl.lodz.p.it.RA.Model.UserRA;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
-
-@Named
-@ApplicationScoped
-public class UserConverter {
-    public UserRA convertToRepository(User user){
+public class UserConverterUI {
+    public UserUI convertToUI(User user){
         if (user instanceof Admin) {
-            return new AdminRA(
+            return new AdminUI(
                     user.getLogin(),
                     user.getPassword(),
                     user.getName(),
@@ -28,7 +22,7 @@ public class UserConverter {
         }
 
         if (user instanceof Manager) {
-            return new ManagerRA(
+            return new ManagerUI(
                     user.getLogin(),
                     user.getPassword(),
                     user.getName(),
@@ -38,7 +32,7 @@ public class UserConverter {
         }
 
         if (user instanceof Client) {
-            return new ClientRA(
+            return new ClientUI(
                     user.getLogin(),
                     user.getPassword(),
                     user.getName(),
@@ -49,8 +43,8 @@ public class UserConverter {
         return null;
     }
 
-    public User convertToDomain(UserRA user){
-        if (user instanceof AdminRA) {
+    public User convertToDomain(UserUI user){
+        if (user instanceof AdminUI) {
             return new Admin(
                     user.getLogin(),
                     user.getPassword(),
@@ -60,7 +54,7 @@ public class UserConverter {
             );
         }
 
-        if (user instanceof ManagerRA) {
+        if (user instanceof ManagerUI) {
             return new Manager(
                     user.getLogin(),
                     user.getPassword(),
@@ -70,7 +64,7 @@ public class UserConverter {
             );
         }
 
-        if (user instanceof ClientRA) {
+        if (user instanceof ClientUI) {
             return new Client(
                     user.getLogin(),
                     user.getPassword(),
@@ -82,4 +76,3 @@ public class UserConverter {
         return null;
     }
 }
-

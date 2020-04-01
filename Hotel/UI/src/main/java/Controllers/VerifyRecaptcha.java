@@ -1,4 +1,4 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

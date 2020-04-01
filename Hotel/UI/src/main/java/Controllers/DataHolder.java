@@ -1,5 +1,9 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.RentableUI;
+import Model.RoomUI;
+import Model.SaunaUI;
+import Model.UserUI;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
@@ -12,43 +16,43 @@ import java.io.Serializable;
 @SessionScoped
 public class DataHolder implements Serializable {
 
-    private Rentable rentable;
-    private Room room;
-    private Sauna sauna;
-    private User user;
+    private RentableUI rentable;
+    private RoomUI room;
+    private SaunaUI sauna;
+    private UserUI user;
     
-    public Rentable getRentable() {
+    public RentableUI getRentable() {
         return this.rentable;
     }
     
-    public void setRentable(Rentable rentable) {
+    public void setRentable(RentableUI rentable) {
         this.rentable = rentable;
     }
     
     
-    public Room getRoom() {
+    public RoomUI getRoom() {
         return this.room;
     }
     
-    public void setRoom(Room room) {
+    public void setRoom(RoomUI room) {
         this.room = room;
     }
 
     
-    public Sauna getSauna() {
+    public SaunaUI getSauna() {
         return this.sauna;
     }
     
-    public void setSauna(Sauna sauna) {
+    public void setSauna(SaunaUI sauna) {
         this.sauna = sauna;
     }
 
  
-    public User getUser() {
+    public UserUI getUser() {
         return this.user;
     }
     
-    public void setUser(User user) {
+    public void setUser(UserUI user) {
         this.user = user;
     }
 }

@@ -3,7 +3,7 @@ package pl.lodz.p.it.Aggregates;
 import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.User;
-import pl.lodz.p.it.Converters.RentConverter;
+import pl.lodz.p.it.Converters.Repository.RentConverterRepository;
 import pl.lodz.p.it.InfrastructurePorts.RentPorts.GetFilteredRentsPort;
 import pl.lodz.p.it.InfrastructurePorts.RentPorts.GetRentPort;
 import pl.lodz.p.it.InfrastructurePorts.RentPorts.GetRentsForResourcePort;
@@ -25,7 +25,7 @@ import java.util.UUID;
 @Dependent
 public class RentAdapter implements GetRentPort, GetFilteredRentsPort, GetRentsForResourcePort, GetRentsPort , AddRentPort, DeleteRentPort {
     @Inject
-    RentConverter converter;
+    RentConverterRepository converter;
     @Inject
     RentRepositoryRA repositoryRA;
 

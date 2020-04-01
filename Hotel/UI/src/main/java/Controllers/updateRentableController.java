@@ -1,4 +1,4 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
 import com.mycompany.store.Services.RentableService;
 import java.io.Serializable;

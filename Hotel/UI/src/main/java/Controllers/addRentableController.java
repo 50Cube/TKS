@@ -1,36 +1,29 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.RoomUI;
+import Model.SaunaUI;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
+import com.mycompany.store.Services.RentableService;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-@Named(value = "restAddRentableController")
+@Named(value = "addRentableController")
 @ConversationScoped
-public class RestAddRentableController implements Serializable {
+public class addRentableController implements Serializable{
 
+    @Inject
+    private RentableService rentableService;
+    
     @Inject
     private Conversation conversation;
     
-    private HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-    private Client client = ClientBuilder.newClient();
-    private WebTarget webTarget = client.target(request.getRequestURL()
-           .substring(0, (request.getRequestURL().length() - request.getServletPath().length())).concat("/resources/model"));
-    
-    private Room room;
-    private Sauna sauna;
+    private RoomUI room;
+    private SaunaUI sauna;
     
     private String number;
     private String area;
@@ -70,21 +63,22 @@ public class RestAddRentableController implements Serializable {
         this.price = price;
     }
     
-    public RestAddRentableController() {
+    
+    public addRentableController() {
     }
     
     @PostConstruct
     private void init()
     {
-        room = new Room();
-        sauna = new Sauna();
+        room = new RoomUI();
+        sauna = new SaunaUI();
     }
     
-    public Room getRoom() {
+    public RoomUI getRoom() {
         return room;
     }
     
-    public Sauna getSauna() {
+    public SaunaUI getSauna() {
         return sauna;
     }
     
@@ -95,11 +89,11 @@ public class RestAddRentableController implements Serializable {
         room.setNumber(Integer.parseInt(number));
         room.setArea(Double.parseDouble(area));
         room.setBeds(Integer.parseInt(beds));
-        return "RestAddRoom";
+        return "addRoom";
     }
     
     public String addRoomConfirm() {
-        webTarget.path("room").request(MediaType.APPLICATION_JSON).post(Entity.json(this.room), Response.class);
+    rentableService.addRentable(room);
         conversation.end();
         return "home";
     }
@@ -110,11 +104,11 @@ public class RestAddRentableController implements Serializable {
         conversation.begin();
         sauna.setNumber(Integer.parseInt(number));
         sauna.setPricePerHour(Double.parseDouble(price));
-        return "RestAddSauna";
+        return "addSauna";
     }
     
     public String addSaunaConfirm() {
-        webTarget.path("sauna").request(MediaType.APPLICATION_JSON).post(Entity.json(this.sauna), Response.class);
+        rentableService.addRentable(sauna);
         conversation.end();
         return "home";
     }

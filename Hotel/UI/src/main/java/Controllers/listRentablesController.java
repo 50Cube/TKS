@@ -1,5 +1,8 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.RentableUI;
+import Model.RoomUI;
+import Model.SaunaUI;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
@@ -22,9 +25,9 @@ public class listRentablesController implements Serializable{
     @Inject
     private DataHolder dh;
     
-    private Map<Integer, Rentable> rentables;
-    private Map<Integer, Room> rooms;
-    private Map<Integer, Sauna> saunas;
+    private Map<Integer, RentableUI> rentables;
+    private Map<Integer, RoomUI> rooms;
+    private Map<Integer, SaunaUI> saunas;
     private String filter;
     
     public listRentablesController() {
@@ -38,17 +41,17 @@ public class listRentablesController implements Serializable{
         saunas = rentableService.getSaunas();
     }
     
-    public Map<Integer, Rentable> getRentables()
+    public Map<Integer, RentableUI> getRentables()
     {
         return rentables;
     }
     
-    public Map<Integer, Room> getRooms()
+    public Map<Integer, RoomUI> getRooms()
     {
         return rooms;
     }
     
-    public Map<Integer, Sauna> getSaunas()
+    public Map<Integer, SaunaUI> getSaunas()
     {
         return saunas;
     }
@@ -59,15 +62,15 @@ public class listRentablesController implements Serializable{
         loadRentables();
     }
     
-    public String saveRoom(Room room) {
+    public String saveRoom(RoomUI room) {
         dh.setRoom(room);
-        dh.setSauna(new Sauna(0,0));
+        dh.setSauna(new SaunaUI(0,0));
         return "updateRoom.xhtml";
     }
     
-    public String saveSauna(Sauna sauna) {
+    public String saveSauna(SaunaUI sauna) {
         dh.setSauna(sauna);
-        dh.setRoom(new Room(0,0,0));
+        dh.setRoom(new RoomUI(0,0,0));
         return "updateSauna.xhtml";
     }
     

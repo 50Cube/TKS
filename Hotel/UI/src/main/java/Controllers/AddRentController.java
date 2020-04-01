@@ -1,5 +1,8 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.ClientUI;
+import Model.RentUI;
+import Model.RentableUI;
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
@@ -29,10 +32,10 @@ public class AddRentController implements Serializable {
     
     @Inject
     private Conversation conversation;
-    private Rent rent;
+    private RentUI rent;
     private Date start;
     private Date stop;
-    private Map<String, Client> clients;
+    private Map<String, ClientUI> clients;
     private String clientLogin;
     
     public AddRentController() {
@@ -40,15 +43,15 @@ public class AddRentController implements Serializable {
     
     @PostConstruct
     private void init() {
-        rent = new Rent();
+        rent = new RentUI();
         clients = userService.getClients();
     }
     
-    public Rent getRent() {
+    public RentUI getRent() {
         return rent;
     }
     
-    public String addRent(Rentable rentable) {
+    public String addRent(RentableUI rentable) {
         if(!conversation.isTransient())
             conversation.end();
         conversation.begin();
@@ -93,7 +96,7 @@ public class AddRentController implements Serializable {
         return TimeZone.getDefault();
     }
     
-    public Map<String, Client> getClients() {
+    public Map<String, ClientUI> getClients() {
         return this.clients;
     }
     
@@ -107,7 +110,7 @@ public class AddRentController implements Serializable {
     
     private void chooseClient() {
         if(userService.getUser(clientLogin) != null)
-            if(userService.getUser(clientLogin) instanceof Client)
+            if(userService.getUser(clientLogin) instanceof ClientUI)
                 if(userService.getUser(clientLogin).getIsActive())
                     rent.setClient((Client) userService.getUser(clientLogin));
                 else throw new IllegalArgumentException("Client is inactive");

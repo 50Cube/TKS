@@ -1,5 +1,6 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.UserUI;
 import com.mycompany.store.Services.UserService;
 import com.mycompany.store.Model.User;
 import java.io.Serializable;
@@ -21,7 +22,7 @@ public class listUsersController implements Serializable{
     @Inject
     private DataHolder dh;
     
-    private Map<String,User> users;
+    private Map<String,UserUI> users;
     private String filter;
     
     public listUsersController() {
@@ -33,17 +34,17 @@ public class listUsersController implements Serializable{
         users = userService.getUsers();
     }
     
-    public Map<String, User> getUsers()
+    public Map<String, UserUI> getUsers()
     {
         return users;
     }
     
-    public User getUser(String name)
+    public UserUI getUser(String name)
     {
         return this.userService.getUser(name);
     }
     
-    public String saveData(User user) {
+    public String saveData(UserUI user) {
         dh.setUser(user);
         return "updateUser.xhtml";
     }
@@ -60,7 +61,7 @@ public class listUsersController implements Serializable{
         this.filter = filter;
     }
     
-    public void activate(User user) {
+    public void activate(UserUI user) {
         if(user.getIsActive())
             userService.deactivateUser(user.getLogin());
         else userService.activateUser(user.getLogin());

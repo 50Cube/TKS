@@ -2,7 +2,7 @@ package pl.lodz.p.it.Aggregates;
 
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.User;
-import pl.lodz.p.it.Converters.UserConverter;
+import pl.lodz.p.it.Converters.Repository.UserConverterRepository;
 import pl.lodz.p.it.InfrastructurePorts.UserPorts.GetFilteredUsersPort;
 import pl.lodz.p.it.InfrastructurePorts.UserPorts.GetUserPort;
 import pl.lodz.p.it.InfrastructurePorts.UserPorts.GetUsersPort;
@@ -25,7 +25,7 @@ public class UserAdapter implements AddUserPort, ChangeUserActivenessPort, Updat
     @Inject
     private UserRepositoryRA userRepository;
     @Inject
-    private UserConverter converter;
+    private UserConverterRepository converter;
 
     @Override
     public Map<String, User> getFilteredUsers(String input) {

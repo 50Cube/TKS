@@ -1,4 +1,4 @@
-package pl.lodz.p.it.Converters;
+package pl.lodz.p.it.Converters.Repository;
 
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Rent;
@@ -10,16 +10,16 @@ import pl.lodz.p.it.RA.Model.RentableRA;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.Calendar;
+
 @Named
 @ApplicationScoped
-public class RentConverter {
+public class RentConverterRepository {
 
     @Inject
-    RentableConverter rentableConverter;
+    RentableConverterRepository rentableConverter;
 
     @Inject
-    UserConverter userConverter;
+    UserConverterRepository userConverter;
 
     public RentRA convertToRepository(Rent rent){
         RentableRA rentableRA = rentableConverter.convertToRepository(rent.getRentable());

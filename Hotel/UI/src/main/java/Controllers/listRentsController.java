@@ -1,5 +1,8 @@
-package com.mycompany.store.Controllers;
+package Controllers;
 
+import Model.RentUI;
+import Model.RentableUI;
+import Model.UserUI;
 import com.mycompany.store.Model.User;
 import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
@@ -22,15 +25,15 @@ public class listRentsController implements Serializable {
     @Inject
     private DataHolder dh;
     
-    private Rentable rentable;
-    private User user;
+    private RentableUI rentable;
+    private UserUI user;
     private String filterPast;
     private String filterCurrent;
     
-    private Map<UUID, Rent> pastRents;
-    private Map<UUID, Rent> currentRents;
-    private Map<UUID, Rent> rentsForClient;
-    private Map<UUID, Rent> rentsForRentable;
+    private Map<UUID, RentUI> pastRents;
+    private Map<UUID, RentUI> currentRents;
+    private Map<UUID, RentUI> rentsForClient;
+    private Map<UUID, RentUI> rentsForRentable;
     
     public listRentsController() {
     }
@@ -41,11 +44,11 @@ public class listRentsController implements Serializable {
         currentRents = rentService.getCurrentRents();
     }
     
-    public Map<UUID, Rent> getPastRents() {
+    public Map<UUID, RentUI> getPastRents() {
         return pastRents;
     }
     
-    public Map<UUID, Rent> getCurrentRents() {
+    public Map<UUID, RentUI> getCurrentRents() {
         return currentRents;
     }
     
@@ -53,35 +56,35 @@ public class listRentsController implements Serializable {
         rentService.deleteRent(id);
         loadRents();
     }
-    
-    public String getRentsForRentablePrepare(Rentable rentable) {
+
+    public String getRentsForRentablePrepare(RentableUI rentable) {
         dh.setRentable(rentable);
         return "listRentsForRentable.xhtml";
     }
 
-    public Map<UUID, Rent> getRentsForRentable() {
+    public Map<UUID, RentUI> getRentsForRentable() {
         this.rentable = dh.getRentable();
         rentsForRentable = rentService.getRentsForRentable(rentable);
         return rentsForRentable;
     }
     
-    public Rentable getRentable() {
+    public RentableUI getRentable() {
         this.rentable = dh.getRentable();
         return this.rentable;
     }
     
-    public String getRentsForClientPrepare(User user) {
+    public String getRentsForClientPrepare(UserUI user) {
         dh.setUser(user);
         return "listRentsForClient.xhtml";
     }
     
-    public Map<UUID, Rent> getRentsForClient() {
+    public Map<UUID, RentUI> getRentsForClient() {
         this.user = dh.getUser();
         rentsForClient = rentService.getRentsForClient(user);
         return rentsForClient;
     }
 
-    public User getUser() {
+    public UserUI getUser() {
         this.user = dh.getUser();
         return this.user;
     }
