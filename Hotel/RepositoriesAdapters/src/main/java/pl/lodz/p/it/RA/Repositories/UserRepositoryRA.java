@@ -43,19 +43,22 @@ public class UserRepositoryRA {
     
     public synchronized void updateUser(UserRA user, String newPassword, String newName, String newSurname)
     {
-        user.setPassword(newPassword);
-        user.setName(newName);
-        user.setSurname(newSurname);
+        UserRA localUser = getUser(user.getLogin());
+        localUser.setPassword(newPassword);
+        localUser.setName(newName);
+        localUser.setSurname(newSurname);
     }
     
     public void activateUser(UserRA user)
     {
-        user.setIsActive(true);
+        UserRA localUser = getUser(user.getLogin());
+        localUser.setIsActive(true);
     }
     
     public void deactivateUser(UserRA user)
     {
-        user.setIsActive(false);
+        UserRA localUser = getUser(user.getLogin());
+        localUser.setIsActive(false);
     }
     
     public Map<String, UserRA> getFilteredUsers(String input) {

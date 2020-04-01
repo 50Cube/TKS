@@ -64,5 +64,6 @@ public class listUsersController implements Serializable{
         if(user.getIsActive())
             userService.deactivateUser(user.getLogin());
         else userService.activateUser(user.getLogin());
+        loadUsers();
     }
 }
