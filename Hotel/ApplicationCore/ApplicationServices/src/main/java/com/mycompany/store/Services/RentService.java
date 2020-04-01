@@ -6,6 +6,8 @@ import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Repositories.RentRepository;
 import com.mycompany.store.Repositories.RentableRepository;
+import pl.lodz.p.it.Aggregates.RentableAdapter;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class RentService implements Serializable {
     private RentRepository rentRepository;
     
     @Inject
-    private RentableRepository rentableRepository;
+    private RentableAdapter rentableRepository;
     
     public RentService() {
     }

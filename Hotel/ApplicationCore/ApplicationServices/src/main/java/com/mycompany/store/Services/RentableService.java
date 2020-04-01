@@ -5,6 +5,8 @@ import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
 import com.mycompany.store.Repositories.RentRepository;
 import com.mycompany.store.Repositories.RentableRepository;
+import pl.lodz.p.it.Aggregates.RentableAdapter;
+
 import java.io.Serializable;
 import java.util.Map;
 import javax.inject.Named;
@@ -16,7 +18,7 @@ import javax.inject.Inject;
 public class RentableService implements Serializable{
 
     @Inject
-    private RentableRepository rentableRepository;
+    private RentableAdapter rentableRepository;
 
     @Inject
     private RentRepository rentRepository;

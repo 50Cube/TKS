@@ -6,6 +6,8 @@ import com.mycompany.store.Model.Sauna;
 import com.mycompany.store.Repositories.RentRepository;
 import com.mycompany.store.Repositories.RentableRepository;
 import com.mycompany.store.Services.CustomExceptions.RentableRentedException;
+import pl.lodz.p.it.Aggregates.RentableAdapter;
+
 import java.util.Map;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -30,7 +32,7 @@ import javax.ws.rs.core.Response;
 public class RestRentableService {
     
     @Inject
-    private RentableRepository rentableRepository;
+    private RentableAdapter rentableRepository;
     
     @Inject
     private RentRepository rentRepository;
