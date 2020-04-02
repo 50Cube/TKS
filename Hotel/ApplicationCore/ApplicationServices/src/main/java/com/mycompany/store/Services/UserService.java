@@ -8,13 +8,14 @@ import pl.lodz.p.it.Aggregates.UserAdapter;
 
 import java.io.Serializable;
 import java.util.Map;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 
 @Named(value = "userService")
-@Dependent
+@ApplicationScoped
 public class UserService implements Serializable{
 
     @Inject

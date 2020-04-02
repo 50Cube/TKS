@@ -8,12 +8,13 @@ import pl.lodz.p.it.Aggregates.RentableAdapter;
 
 import java.io.Serializable;
 import java.util.Map;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 @Named(value = "rentableService")
-@Dependent
+@ApplicationScoped
 public class RentableService implements Serializable{
 
     @Inject

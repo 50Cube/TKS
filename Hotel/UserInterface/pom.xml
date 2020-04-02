@@ -12,7 +12,6 @@
     <artifactId>UserInterface</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>com.mycompany.store.UIModel.UIModel</module>
         <module>UIControllers</module>
         <module>UIModel2</module>
     </modules>
