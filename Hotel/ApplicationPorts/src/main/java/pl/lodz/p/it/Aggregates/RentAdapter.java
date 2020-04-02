@@ -10,8 +10,8 @@ import pl.lodz.p.it.InfrastructurePorts.RentPorts.GetRentsForResourcePort;
 import pl.lodz.p.it.InfrastructurePorts.RentPorts.GetRentsPort;
 import pl.lodz.p.it.RA.Model.RentRA;
 import pl.lodz.p.it.RA.Repositories.RentRepositoryRA;
-import pl.lodz.p.it.UIPorts.RentPorts.AddRentPort;
-import pl.lodz.p.it.UIPorts.RentPorts.DeleteRentPort;
+import pl.lodz.p.it.InfrastructurePorts.RentPorts.AddRentPort;
+import pl.lodz.p.it.InfrastructurePorts.RentPorts.DeleteRentPort;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;

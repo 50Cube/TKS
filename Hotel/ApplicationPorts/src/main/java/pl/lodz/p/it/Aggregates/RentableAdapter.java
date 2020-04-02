@@ -11,9 +11,9 @@ import pl.lodz.p.it.RA.Model.RentableRA;
 import pl.lodz.p.it.RA.Model.RoomRA;
 import pl.lodz.p.it.RA.Model.SaunaRA;
 import pl.lodz.p.it.RA.Repositories.RentableRepositoryRA;
-import pl.lodz.p.it.UIPorts.RentablePorts.AddRentablePort;
-import pl.lodz.p.it.UIPorts.RentablePorts.DeleteRentablePort;
-import pl.lodz.p.it.UIPorts.RentablePorts.UpdateRentablePort;
+import pl.lodz.p.it.InfrastructurePorts.RentablePorts.AddRentablePort;
+import pl.lodz.p.it.InfrastructurePorts.RentablePorts.DeleteRentablePort;
+import pl.lodz.p.it.InfrastructurePorts.RentablePorts.UpdateRentablePort;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;

@@ -1,14 +1,22 @@
 package pl.lodz.p.it.Converters.UI;
 
-import Model.ClientUI;
-import Model.RentUI;
-import Model.RentableUI;
+
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
+import pl.lodz.p.it.UIModel.ClientUI;
+import pl.lodz.p.it.UIModel.RentUI;
+import pl.lodz.p.it.UIModel.RentableUI;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
+@Named
+@ApplicationScoped
 public class RentConverterUI {
     @Inject
     RentableConverterUI rentableConverter;
@@ -36,5 +44,16 @@ public class RentConverterUI {
                 client,
                 rent.getRentStart(),
                 rent.getRentStop());
+    }
+
+    public Map<UUID,RentUI> convertRentMapToUI(Map<UUID,Rent> userMap){
+        Map<UUID,RentUI> userUIMap = new HashMap<>();
+        for (Map.Entry<UUID,Rent> entry : userMap.entrySet()
+        ) {
+            RentUI userUI = (RentUI) convertToUI(entry.getValue());
+            userUIMap.put(entry.getKey(),userUI);
+        }
+
+        return userUIMap;
     }
 }
