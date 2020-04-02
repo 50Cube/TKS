@@ -11,12 +11,13 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Map;
 import java.util.UUID;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 @Named(value = "rentService")
-@Dependent
+@ApplicationScoped
 public class RentService implements Serializable {
 
     @Inject

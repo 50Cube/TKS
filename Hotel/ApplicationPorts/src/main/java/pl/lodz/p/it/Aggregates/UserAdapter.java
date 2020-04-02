@@ -9,9 +9,9 @@ import pl.lodz.p.it.InfrastructurePorts.UserPorts.GetUsersPort;
 import pl.lodz.p.it.RA.Model.ClientRA;
 import pl.lodz.p.it.RA.Model.UserRA;
 import pl.lodz.p.it.RA.Repositories.UserRepositoryRA;
-import pl.lodz.p.it.UIPorts.UserPorts.AddUserPort;
-import pl.lodz.p.it.UIPorts.UserPorts.ChangeUserActivenessPort;
-import pl.lodz.p.it.UIPorts.UserPorts.UpdateUserPort;
+import pl.lodz.p.it.InfrastructurePorts.UserPorts.AddUserPort;
+import pl.lodz.p.it.InfrastructurePorts.UserPorts.ChangeUserActivenessPort;
+import pl.lodz.p.it.InfrastructurePorts.UserPorts.UpdateUserPort;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
