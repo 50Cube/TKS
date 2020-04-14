@@ -1,7 +1,6 @@
 package UIControllers;
 
-import com.mycompany.store.Services.UserService;
-import pl.lodz.p.it.UIPorts.Converters.UI.UserConverterUI;
+import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 import pl.lodz.p.it.UIModel.UserUI;
 
 import java.io.Serializable;
@@ -18,13 +17,10 @@ public class listUsersController implements Serializable{
     
         
     @Inject
-    private UserService userService;
+    private UserAdapterUI userService;
     
     @Inject
     private DataHolder dh;
-
-    @Inject
-    private UserConverterUI converterUI;
 
     private Map<String, UserUI> users;
     private String filter;
@@ -35,7 +31,7 @@ public class listUsersController implements Serializable{
     @PostConstruct
     public void loadUsers()
     {
-        users = converterUI.convertUserMapToUI(userService.getUsers());
+        users = userService.getUsers();
     }
     
     public Map<String, UserUI> getUsers()
@@ -45,7 +41,7 @@ public class listUsersController implements Serializable{
     
     public UserUI getUser(String name)
     {
-        return converterUI.convertToUI(this.userService.getUser(name));
+        return this.userService.getUser(name);
     }
     
     public String saveData(UserUI user) {
@@ -54,7 +50,7 @@ public class listUsersController implements Serializable{
     }
     
     public void getFilteredUsers() {
-        users = converterUI.convertUserMapToUI(userService.getFilterUsers(this.filter));
+        users = userService.getFilterUsers(this.filter);
     }
     
     public String getFilter() {

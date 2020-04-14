@@ -2,6 +2,7 @@ package UIControllers;
 
 
 import com.mycompany.store.Services.RentService;
+import pl.lodz.p.it.UIPorts.Aggregates.RentAdapterUI;
 import pl.lodz.p.it.UIPorts.Converters.UI.RentConverterUI;
 import pl.lodz.p.it.UIPorts.Converters.UI.RentableConverterUI;
 import pl.lodz.p.it.UIPorts.Converters.UI.UserConverterUI;
@@ -22,20 +23,11 @@ import javax.inject.Inject;
 public class listRentsController implements Serializable {
 
     @Inject
-    private RentService rentService;
+    private RentAdapterUI rentService;
     
     @Inject
     private DataHolder dh;
 
-    @Inject
-    private RentConverterUI converterUI;
-
-    @Inject
-    private RentableConverterUI rentableConverterUI;
-
-    @Inject
-    private UserConverterUI userConverterUI;
-    
     private RentableUI rentable;
     private UserUI user;
     private String filterPast;
@@ -51,8 +43,8 @@ public class listRentsController implements Serializable {
     
     @PostConstruct
     public void loadRents() {
-        pastRents = converterUI.convertRentMapToUI(rentService.getPastRents());
-        currentRents = converterUI.convertRentMapToUI(rentService.getCurrentRents());
+        pastRents = rentService.getPastRents();
+        currentRents = rentService.getCurrentRents();
     }
     
     public Map<UUID, RentUI> getPastRents() {
@@ -75,7 +67,7 @@ public class listRentsController implements Serializable {
 
     public Map<UUID, RentUI> getRentsForRentable() {
         this.rentable = dh.getRentable();
-        rentsForRentable = converterUI.convertRentMapToUI(rentService.getRentsForRentable(rentableConverterUI.convertToDomain(rentable)));
+        rentsForRentable = rentService.getRentsForRentable(rentable);
         return rentsForRentable;
     }
     
@@ -91,7 +83,7 @@ public class listRentsController implements Serializable {
     
     public Map<UUID, RentUI> getRentsForClient() {
         this.user = dh.getUser();
-        rentsForClient = converterUI.convertRentMapToUI(rentService.getRentsForClient(userConverterUI.convertToDomain(user)));
+        rentsForClient = rentService.getRentsForClient(user);
         return rentsForClient;
     }
 
@@ -101,11 +93,11 @@ public class listRentsController implements Serializable {
     }
     
     public void getFilteredPastRents() {
-        pastRents = converterUI.convertRentMapToUI(rentService.getFilteredPastRents(this.filterPast));
+        pastRents = rentService.getFilteredPastRents(this.filterPast);
     }
     
     public void getFilteredCurrentRents() {
-        currentRents = converterUI.convertRentMapToUI(rentService.getFilteredCurrentRents(this.filterCurrent));
+        currentRents = rentService.getFilteredCurrentRents(this.filterCurrent);
     }
     
     public String getFilterPast() {

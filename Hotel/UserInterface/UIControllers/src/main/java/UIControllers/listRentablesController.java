@@ -2,6 +2,7 @@ package UIControllers;
 
 
 import com.mycompany.store.Services.RentableService;
+import pl.lodz.p.it.UIPorts.Aggregates.RentableAdapterUI;
 import pl.lodz.p.it.UIPorts.Converters.UI.RentableConverterUI;
 import pl.lodz.p.it.UIModel.RentableUI;
 import pl.lodz.p.it.UIModel.RoomUI;
@@ -20,13 +21,12 @@ import javax.inject.Inject;
 public class listRentablesController implements Serializable{
 
     @Inject
-    private RentableService rentableService;
+    private RentableAdapterUI rentableService;
     
     @Inject
     private DataHolder dh;
 
-    @Inject
-    private RentableConverterUI converterUI;
+
     
     private Map<Integer, RentableUI> rentables;
     private Map<Integer, RoomUI> rooms;
@@ -39,9 +39,9 @@ public class listRentablesController implements Serializable{
     @PostConstruct
     public void loadRentables()
     {
-        rentables = converterUI.convertRentableMapToUI(rentableService.getRentables());
-        rooms = converterUI.convertRoomMapToUI(rentableService.getRooms());
-        saunas =converterUI.convertSaunaMapToUI(rentableService.getSaunas()) ;
+        rentables = rentableService.getRentables();
+        rooms = rentableService.getRooms();
+        saunas = rentableService.getSaunas() ;
     }
     
     public Map<Integer, RentableUI> getRentables()
@@ -78,9 +78,9 @@ public class listRentablesController implements Serializable{
     }
     
     public void getFilteredRentables() {
-        rentables = converterUI.convertRentableMapToUI(rentableService.getFilteredRentables(this.filter));
-        rooms = converterUI.convertRoomMapToUI(rentableService.getFilteredRooms(this.filter));
-        saunas = converterUI.convertSaunaMapToUI(rentableService.getFilteredSaunas(this.filter));
+        rentables = rentableService.getFilteredRentables(this.filter);
+        rooms = rentableService.getFilteredRooms(this.filter);
+        saunas = rentableService.getFilteredSaunas(this.filter);
     }
     
     public String getFilter() {

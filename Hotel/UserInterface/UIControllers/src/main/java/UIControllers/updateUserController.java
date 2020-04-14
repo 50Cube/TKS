@@ -5,6 +5,7 @@ import pl.lodz.p.it.UIModel.AdminUI;
 import pl.lodz.p.it.UIModel.ClientUI;
 import pl.lodz.p.it.UIModel.ManagerUI;
 import pl.lodz.p.it.UIModel.UserUI;
+import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
@@ -20,7 +21,7 @@ public class updateUserController implements Serializable {
     DataHolder dh;
     
     @Inject
-    private UserService userService;
+    private UserAdapterUI userService;
    
     private UserUI user;
     

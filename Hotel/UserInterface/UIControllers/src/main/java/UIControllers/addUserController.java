@@ -1,6 +1,9 @@
 package UIControllers;
 
 import com.mycompany.store.Services.UserService;
+import pl.lodz.p.it.Aggregates.UserAdapter;
+import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
+
 import java.io.Serializable;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -23,7 +26,7 @@ public class addUserController implements Serializable{
     private boolean isActive;
     
     @Inject
-    private UserService userService;
+    private UserAdapterUI userService;
     
     @Inject
     private Conversation conversation;

@@ -3,6 +3,8 @@ package UIControllers;
 
 import com.mycompany.store.Services.RentService;
 import com.mycompany.store.Services.UserService;
+import pl.lodz.p.it.UIPorts.Aggregates.RentAdapterUI;
+import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 import pl.lodz.p.it.UIPorts.Converters.UI.RentableConverterUI;
 import pl.lodz.p.it.UIPorts.Converters.UI.UserConverterUI;
 import pl.lodz.p.it.UIModel.ClientUI;
@@ -25,19 +27,13 @@ import javax.inject.Named;
 @ConversationScoped
 public class AddRentController implements Serializable {
     @Inject
-    private RentService rentService;
+    private RentAdapterUI rentService;
     
     @Inject
-    private UserService userService;
+    private UserAdapterUI userService;
     
     @Inject
     private Conversation conversation;
-
-    @Inject
-    private UserConverterUI converterUI;
-
-    @Inject
-    private RentableConverterUI rentableConverterUI;
 
     private RentUI rent;
     private Date start;
@@ -51,7 +47,7 @@ public class AddRentController implements Serializable {
     @PostConstruct
     private void init() {
         rent = new RentUI();
-        clients = converterUI.convertClientMapToUI(userService.getClients());
+        clients = userService.getClients();
     }
     
     public RentUI getRent() {
@@ -78,7 +74,7 @@ public class AddRentController implements Serializable {
         if(stop.before(start)) throw new IllegalArgumentException("Beginning date must be earlier than end date");
         if(!rentService.checkIfRented(tmp1,tmp2)) throw new IllegalArgumentException("Room is already rent");
         
-        rentService.addRent(rentableConverterUI.convertToDomain(rent.getRentable()), converterUI.convertClientToDomain((rent.getClient())), tmp1, tmp2);
+        rentService.addRent(rent.getRentable(), rent.getClient(), tmp1, tmp2);
         conversation.end();
         return "home";
     }
@@ -117,9 +113,9 @@ public class AddRentController implements Serializable {
     
     private void chooseClient() {
         if(userService.getUser(clientLogin) != null)
-            if(converterUI.convertToUI(userService.getUser(clientLogin)) instanceof ClientUI)
+            if(userService.getUser(clientLogin) instanceof ClientUI)
                 if(userService.getUser(clientLogin).getIsActive())
-                    rent.setClient((ClientUI) converterUI.convertToUI(userService.getUser(clientLogin)));
+                    rent.setClient((ClientUI) userService.getUser(clientLogin));
                 else throw new IllegalArgumentException("Client is inactive");
             else throw new IllegalArgumentException("Only clients can rent rooms");
         else throw new IllegalArgumentException("Client with this login does not exists");

@@ -5,8 +5,8 @@
  */
 package UIControllers;
 
-import pl.lodz.p.it.Aggregates.UserAdapter;
 import pl.lodz.p.it.UIModel.UserUI;
+import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -21,14 +21,13 @@ import javax.security.enterprise.identitystore.IdentityStore;
 public class CustomIdentityStore implements IdentityStore {
     
     @Inject
-    private UserAdapter users;
-    @Inject
-    private UserConverterUI converterUI;
+    private UserAdapterUI users;
+
     @Override
     public CredentialValidationResult validate(Credential credential) {
 
         UsernamePasswordCredential login = (UsernamePasswordCredential) credential;
-        UserUI caller = converterUI.convertToUI(users.getUser(login.getCaller()));
+        UserUI caller = users.getUser(login.getCaller());
         if (caller == null || !caller.getIsActive()) {
             return CredentialValidationResult.NOT_VALIDATED_RESULT;
         }

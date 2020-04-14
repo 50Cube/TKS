@@ -1,6 +1,8 @@
 package UIControllers;
 
 import com.mycompany.store.Services.RentableService;
+import pl.lodz.p.it.UIPorts.Aggregates.RentableAdapterUI;
+
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -16,7 +18,7 @@ public class updateRentableController implements Serializable {
     DataHolder dh;
     
     @Inject
-    private RentableService rentableService;
+    private RentableAdapterUI rentableService;
     
     private String roomNumber;
     private String saunaNumber;
