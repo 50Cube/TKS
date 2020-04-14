@@ -15,14 +15,14 @@ import pl.lodz.p.it.InfrastructurePorts.RentablePorts.AddRentablePort;
 import pl.lodz.p.it.InfrastructurePorts.RentablePorts.DeleteRentablePort;
 import pl.lodz.p.it.InfrastructurePorts.RentablePorts.UpdateRentablePort;
 
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 
 @Named(value = "rentableAdapter")
-@Dependent
+@ApplicationScoped
 public class RentableAdapter implements GetRentablePort, GetRentablesPort, GetFilteredRentablesPort, AddRentablePort, DeleteRentablePort, UpdateRentablePort {
     @Inject
     RentableConverterRepository converter;

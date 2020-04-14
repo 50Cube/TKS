@@ -6,7 +6,6 @@
 package UIControllers;
 
 import pl.lodz.p.it.Aggregates.UserAdapter;
-import pl.lodz.p.it.Converters.UI.UserConverterUI;
 import pl.lodz.p.it.UIModel.UserUI;
 
 import java.util.Arrays;

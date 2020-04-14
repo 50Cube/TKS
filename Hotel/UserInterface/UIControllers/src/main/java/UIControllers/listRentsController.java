@@ -2,9 +2,9 @@ package UIControllers;
 
 
 import com.mycompany.store.Services.RentService;
-import pl.lodz.p.it.Converters.UI.RentConverterUI;
-import pl.lodz.p.it.Converters.UI.RentableConverterUI;
-import pl.lodz.p.it.Converters.UI.UserConverterUI;
+import pl.lodz.p.it.UIPorts.Converters.UI.RentConverterUI;
+import pl.lodz.p.it.UIPorts.Converters.UI.RentableConverterUI;
+import pl.lodz.p.it.UIPorts.Converters.UI.UserConverterUI;
 import pl.lodz.p.it.UIModel.RentUI;
 import pl.lodz.p.it.UIModel.RentableUI;
 import pl.lodz.p.it.UIModel.UserUI;

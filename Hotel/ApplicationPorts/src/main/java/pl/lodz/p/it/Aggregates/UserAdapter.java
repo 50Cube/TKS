@@ -13,14 +13,14 @@ import pl.lodz.p.it.InfrastructurePorts.UserPorts.AddUserPort;
 import pl.lodz.p.it.InfrastructurePorts.UserPorts.ChangeUserActivenessPort;
 import pl.lodz.p.it.InfrastructurePorts.UserPorts.UpdateUserPort;
 
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 
 @Named(value = "userAdapter")
-@Dependent
+@ApplicationScoped
 public class UserAdapter implements AddUserPort, ChangeUserActivenessPort, UpdateUserPort, GetUserPort, GetUsersPort, GetFilteredUsersPort {
     @Inject
     private UserRepositoryRA userRepository;

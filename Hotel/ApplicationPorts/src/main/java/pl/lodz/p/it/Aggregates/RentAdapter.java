@@ -13,7 +13,7 @@ import pl.lodz.p.it.RA.Repositories.RentRepositoryRA;
 import pl.lodz.p.it.InfrastructurePorts.RentPorts.AddRentPort;
 import pl.lodz.p.it.InfrastructurePorts.RentPorts.DeleteRentPort;
 
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 
 @Named(value = "rentAdapter")
-@Dependent
+@ApplicationScoped
 public class RentAdapter implements GetRentPort, GetFilteredRentsPort, GetRentsForResourcePort, GetRentsPort , AddRentPort, DeleteRentPort {
     @Inject
     RentConverterRepository converter;

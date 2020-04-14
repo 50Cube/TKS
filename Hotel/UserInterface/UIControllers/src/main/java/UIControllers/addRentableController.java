@@ -2,7 +2,8 @@ package UIControllers;
 
 
 import com.mycompany.store.Services.RentableService;
-import pl.lodz.p.it.Converters.UI.RentableConverterUI;
+import pl.lodz.p.it.UIPorts.Aggregates.RentableAdapterUI;
+import pl.lodz.p.it.UIPorts.Converters.UI.RentableConverterUI;
 import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;
 
@@ -18,14 +19,11 @@ import javax.inject.Inject;
 public class addRentableController implements Serializable{
 
     @Inject
-    private RentableService rentableService;
+    private RentableAdapterUI rentableService;
     
     @Inject
     private Conversation conversation;
 
-    @Inject
-    private RentableConverterUI converterUI;
-    
     private RoomUI room;
     private SaunaUI sauna;
     
@@ -97,7 +95,7 @@ public class addRentableController implements Serializable{
     }
     
     public String addRoomConfirm() {
-    rentableService.addRentable(converterUI.convertToDomain(room));
+    rentableService.addRentable(room);
         conversation.end();
         return "home";
     }
@@ -112,7 +110,7 @@ public class addRentableController implements Serializable{
     }
     
     public String addSaunaConfirm() {
-        rentableService.addRentable(converterUI.convertToDomain(sauna));
+        rentableService.addRentable(sauna);
         conversation.end();
         return "home";
     }

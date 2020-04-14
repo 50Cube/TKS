@@ -9,6 +9,7 @@
         <module>RepositoriesAdapters</module>
         <module>ApplicationPorts</module>
         <module>UserInterface</module>
+        <module>UIPorts</module>
     </modules>
     <packaging>pom</packaging>
     <name>Hotel-1.0-SNAPSHOT</name>

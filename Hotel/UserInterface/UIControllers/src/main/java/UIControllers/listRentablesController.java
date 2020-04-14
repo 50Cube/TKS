@@ -2,7 +2,7 @@ package UIControllers;
 
 
 import com.mycompany.store.Services.RentableService;
-import pl.lodz.p.it.Converters.UI.RentableConverterUI;
+import pl.lodz.p.it.UIPorts.Converters.UI.RentableConverterUI;
 import pl.lodz.p.it.UIModel.RentableUI;
 import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;

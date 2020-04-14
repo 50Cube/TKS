@@ -1,4 +1,4 @@
-package pl.lodz.p.it.Converters.UI;
+package pl.lodz.p.it.UIPorts.Converters.UI;
 
 
 import com.mycompany.store.Model.Client;
