@@ -3,14 +3,13 @@ package com.mycompany.store.Services;
 import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
-import pl.lodz.p.it.Aggregates.RentAdapter;
-import pl.lodz.p.it.Aggregates.RentableAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.RentAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.RentableAdapter;
 
 import java.io.Serializable;
 import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 @Named(value = "rentableService")

@@ -4,8 +4,8 @@ import com.mycompany.store.Model.Rentable;
 import com.mycompany.store.Model.Room;
 import com.mycompany.store.Model.Sauna;
 import com.mycompany.store.Services.CustomExceptions.RentableRentedException;
-import pl.lodz.p.it.Aggregates.RentAdapter;
-import pl.lodz.p.it.Aggregates.RentableAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.RentAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.RentableAdapter;
 
 import java.util.Map;
 import javax.inject.Named;

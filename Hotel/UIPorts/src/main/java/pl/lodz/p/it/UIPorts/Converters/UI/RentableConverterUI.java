@@ -8,6 +8,7 @@ import pl.lodz.p.it.UIModel.RentableUI;
 import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;
 
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import java.util.HashMap;

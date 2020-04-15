@@ -1,7 +1,5 @@
 package UIControllers;
 
-import com.mycompany.store.Services.UserService;
-import pl.lodz.p.it.Aggregates.UserAdapter;
 import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.io.Serializable;

@@ -4,8 +4,8 @@ import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.User;
 import com.mycompany.store.Model.Rent;
 import com.mycompany.store.Model.Rentable;
-import pl.lodz.p.it.Aggregates.RentAdapter;
-import pl.lodz.p.it.Aggregates.RentableAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.RentAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.RentableAdapter;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 @Named(value = "rentService")

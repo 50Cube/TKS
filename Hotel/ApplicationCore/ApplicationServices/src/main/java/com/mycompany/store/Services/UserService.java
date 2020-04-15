@@ -4,13 +4,12 @@ import com.mycompany.store.Model.Admin;
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Manager;
 import com.mycompany.store.Model.User;
-import pl.lodz.p.it.Aggregates.UserAdapter;
+import pl.lodz.p.it.applicationPorts.Aggregates.UserAdapter;
 
 import java.io.Serializable;
 import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 
