@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ApplicationPorts" />
-        <module name="ApplicationServices" />
-        <module name="DomainModel" />
         <module name="RepositoriesAdapters" />
+        <module name="DomainModel" />
+        <module name="ApplicationServices" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,11 +20,12 @@
       <module name="DomainModel" target="1.8" />
       <module name="Hotel" target="1.8" />
       <module name="RepositoriesAdapters" target="1.8" />
+      <module name="RestAdapter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ApplicationServices" options="-endorseddirs C:\Users\50Cube.DESKTOP-673AQGF\Desktop\Studia\Studia\Przedmioty\TKS\TKS\Hotel\ApplicationCore\ApplicationServices\target/endorsed" />
+      <module name="ApplicationServices" options="" />
     </option>
   </component>
 </project>

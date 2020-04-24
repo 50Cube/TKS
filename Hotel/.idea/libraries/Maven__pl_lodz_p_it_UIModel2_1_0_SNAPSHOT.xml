@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: pl.lodz.p.it:UIModel2:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/pl/lodz/p/it/UIModel2/1.0-SNAPSHOT/UIModel2-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/pl/lodz/p/it/UIModel2/1.0-SNAPSHOT/UIModel2-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/pl/lodz/p/it/UIModel2/1.0-SNAPSHOT/UIModel2-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

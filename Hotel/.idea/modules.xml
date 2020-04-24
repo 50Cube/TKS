@@ -8,6 +8,12 @@
       <module fileurl="file://$PROJECT_DIR$/ApplicationCore/DomainModel/DomainModel.iml" filepath="$PROJECT_DIR$/ApplicationCore/DomainModel/DomainModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Hotel.iml" filepath="$PROJECT_DIR$/.idea/Hotel.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepositoriesAdapters/RepositoriesAdapters.iml" filepath="$PROJECT_DIR$/RepositoriesAdapters/RepositoriesAdapters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestModel/RestModel.iml" filepath="$PROJECT_DIR$/RestModel/RestModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestPorts/RestPorts.iml" filepath="$PROJECT_DIR$/RestPorts/RestPorts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestServices/RestServices.iml" filepath="$PROJECT_DIR$/RestServices/RestServices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SoapModel/SoapModel.iml" filepath="$PROJECT_DIR$/SoapModel/SoapModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SoapPorts/SoapPorts.iml" filepath="$PROJECT_DIR$/SoapPorts/SoapPorts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UIPorts/UIPorts.iml" filepath="$PROJECT_DIR$/UIPorts/UIPorts.iml" />
     </modules>
   </component>
 </project>
