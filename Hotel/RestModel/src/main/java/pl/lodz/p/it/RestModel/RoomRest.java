@@ -3,15 +3,22 @@ package pl.lodz.p.it.RestModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.json.bind.annotation.JsonbProperty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class RoomRest extends RentableRest implements Serializable {
-
+    @NotNull
+    @Positive
+    @JsonbProperty
     private double area;
 
-
+    @NotNull
+    @Positive
+    @JsonbProperty
     private int beds;
 
     public RoomRest() {

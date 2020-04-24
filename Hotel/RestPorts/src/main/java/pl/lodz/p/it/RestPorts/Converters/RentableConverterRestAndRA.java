@@ -8,9 +8,13 @@ import pl.lodz.p.it.RestModel.RoomRest;
 import pl.lodz.p.it.RestModel.SaunaRest;
 
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 
+@ApplicationScoped
+@Named
 public class RentableConverterRestAndRA {
     public RentableRest convertToRest(RentableRA rentableUI){
         if(rentableUI instanceof RoomRA){

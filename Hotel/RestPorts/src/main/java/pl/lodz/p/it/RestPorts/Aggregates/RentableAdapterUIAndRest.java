@@ -8,7 +8,6 @@ import pl.lodz.p.it.UIPorts.Ports.RentablePorts.AddRentablePort;
 import pl.lodz.p.it.UIPorts.Ports.RentablePorts.DeleteRentablePort;
 import pl.lodz.p.it.UIPorts.Ports.RentablePorts.GetRentablePort;
 import pl.lodz.p.it.UIPorts.Ports.RentablePorts.UpdateRentablePort;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 import javax.enterprise.context.ApplicationScoped;
@@ -59,7 +58,7 @@ public class RentableAdapterUIAndRest implements AddRentablePort, DeleteRentable
 
     @Override
     public Map<Integer, RentableUI> getFilteredRentables(String input) {
-        throw new NotImplementedException();
+       return null;
     }
 
     @Override
@@ -74,12 +73,12 @@ public class RentableAdapterUIAndRest implements AddRentablePort, DeleteRentable
 
     @Override
     public void updateRoom(int number, double newArea, int newBeds) {
-        throw new NotImplementedException();
+
     }
 
     @Override
     public void updateSauna(int number, double newCost) {
-        throw new NotImplementedException();
+
     }
 
     public void updateRentable(int number, RentableUI rentable) {

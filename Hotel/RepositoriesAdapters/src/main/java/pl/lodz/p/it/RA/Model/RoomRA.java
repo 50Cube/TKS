@@ -3,19 +3,14 @@ package pl.lodz.p.it.RA.Model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class RoomRA extends RentableRA implements Serializable {
-    @NotNull
-    @Positive
+
     private double area;
-    
-    @NotNull
-    @Positive
+
     private int beds;
 
     public RoomRA () {
