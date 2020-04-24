@@ -1,9 +1,9 @@
 package UIControllers;
 
 
-import com.mycompany.store.Services.RestRentableService;
 import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;
+import pl.lodz.p.it.RestRentableService;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;

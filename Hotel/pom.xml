@@ -10,6 +10,11 @@
         <module>ApplicationPorts</module>
         <module>UserInterface</module>
         <module>UIPorts</module>
+        <module>RestModel</module>
+        <module>SoapModel</module>
+        <module>RestPorts</module>
+        <module>SoapPorts</module>
+        <module>RestServices</module>
     </modules>
     <packaging>pom</packaging>
     <name>Hotel-1.0-SNAPSHOT</name>

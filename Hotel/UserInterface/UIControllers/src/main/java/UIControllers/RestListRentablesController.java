@@ -1,9 +1,10 @@
 package UIControllers;
 
-import com.mycompany.store.Services.RestRentableService;
+
 import pl.lodz.p.it.UIModel.RentableUI;
 import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;
+import pl.lodz.p.it.RestRentableService;
 
 import java.io.Serializable;
 import java.util.Map;
