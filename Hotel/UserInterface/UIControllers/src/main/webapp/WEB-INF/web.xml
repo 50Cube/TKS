@@ -18,7 +18,7 @@
             30
         </session-timeout>
     </session-config>
-    
+
     <security-constraint>
       <web-resource-collection>
          <web-resource-name>All</web-resource-name>
@@ -46,7 +46,7 @@
       </user-data-constraint>
 
     </security-constraint>
-   
+
     <security-constraint>
       <web-resource-collection>
          <web-resource-name>AdminPages</web-resource-name>
@@ -60,7 +60,7 @@
       </user-data-constraint>
 
     </security-constraint>
-    
+
     <security-constraint>
       <web-resource-collection>
          <web-resource-name>ManagerPages</web-resource-name>
@@ -74,7 +74,7 @@
       </user-data-constraint>
 
     </security-constraint>
-    
+
     <security-constraint>
       <web-resource-collection>
          <web-resource-name>ClientPages</web-resource-name>
@@ -91,11 +91,11 @@
     <security-role>
         <role-name>Admin</role-name>
     </security-role>
-    
+
     <security-role>
         <role-name>Client</role-name>
     </security-role>
-    
+
     <security-role>
         <role-name>Manager</role-name>
     </security-role>
