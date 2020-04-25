@@ -1,8 +1,0 @@
-pl\lodz\p\it\RestPorts\Converters\RentableConverterRestAndRA.class
-pl\lodz\p\it\RestPorts\Converters\RentableConverterUIAndRest.class
-pl\lodz\p\it\RestPorts\Aggregates\RentableAdapterRestAndRA.class
-pl\lodz\p\it\RestPorts\Ports\UpdateRentablePort.class
-pl\lodz\p\it\RestPorts\Ports\AddRentablePort.class
-pl\lodz\p\it\RestPorts\Ports\DeleteRentablePort.class
-pl\lodz\p\it\RestPorts\Ports\GetRentablePort.class
-pl\lodz\p\it\RestPorts\Aggregates\RentableAdapterUIAndRest.class

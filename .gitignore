@@ -21,3 +21,23 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.idea
+*.iml
+
+Hotel/ApplicationCore/ApplicationServices/target/
+
+Hotel/ApplicationCore/DomainModel/target/
+
+Hotel/ApplicationPorts/target/
+
+Hotel/UserInterface/UIControllers/target/
+
+Hotel/UIPorts/target/
+
+Hotel/SoapPorts/target/
+
+Hotel/RestServices/target/
+
+Hotel/RestPorts/target/
+
+Hotel/RepositoriesAdapters/target/

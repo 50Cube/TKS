@@ -2,8 +2,13 @@ package pl.lodz.p.it.Aggregates;
 
 import pl.lodz.p.it.Converters.UserConverterSoapAndRA;
 import pl.lodz.p.it.Ports.Soap.*;
+import pl.lodz.p.it.RA.Model.AdminRA;
+import pl.lodz.p.it.RA.Model.ClientRA;
+import pl.lodz.p.it.RA.Model.ManagerRA;
 import pl.lodz.p.it.RA.Repositories.UserRepositoryRA;
+import pl.lodz.p.it.SoapModel.AdminSoap;
 import pl.lodz.p.it.SoapModel.ClientSoap;
+import pl.lodz.p.it.SoapModel.ManagerSoap;
 import pl.lodz.p.it.SoapModel.UserSoap;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -24,6 +29,18 @@ public class UserAdapterSoapAndRA implements AddUserPort, ChangeUserActivenessPo
     @Override
     public void addUser(UserSoap user) {
         userRepository.addUser(converter.convertToRA(user));
+    }
+
+    public void addClient(ClientSoap client) {
+        userRepository.addClient((ClientRA) converter.convertToRA(client));
+    }
+
+    public void addManager(ManagerSoap manager) {
+        userRepository.addManager((ManagerRA) converter.convertToRA(manager));
+    }
+
+    public void addAdmin(AdminSoap admin) {
+        userRepository.addAdmin((AdminRA) converter.convertToRA(admin));
     }
 
     @Override

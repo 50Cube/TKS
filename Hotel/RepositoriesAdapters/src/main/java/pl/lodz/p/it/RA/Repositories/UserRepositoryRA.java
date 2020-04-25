@@ -40,6 +40,18 @@ public class UserRepositoryRA {
     {
         users.put(user.getLogin(), user);
     }
+
+    public synchronized void addClient(ClientRA client) {
+        users.put(client.getLogin(), client);
+    }
+
+    public synchronized void addAdmin(AdminRA admin) {
+        users.put(admin.getLogin(), admin);
+    }
+
+    public synchronized void addManager(ManagerRA manager) {
+        users.put(manager.getLogin(), manager);
+    }
     
     public synchronized void updateUser(UserRA user, String newPassword, String newName, String newSurname)
     {

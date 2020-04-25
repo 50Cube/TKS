@@ -5,7 +5,12 @@ import pl.lodz.p.it.Ports.UI.AddUserPort;
 import pl.lodz.p.it.Ports.UI.ChangeUserActivenessPort;
 import pl.lodz.p.it.Ports.UI.GetUserPort;
 import pl.lodz.p.it.Ports.UI.UpdateUserPort;
+import pl.lodz.p.it.SoapModel.AdminSoap;
+import pl.lodz.p.it.SoapModel.ClientSoap;
+import pl.lodz.p.it.SoapModel.ManagerSoap;
+import pl.lodz.p.it.UIModel.AdminUI;
 import pl.lodz.p.it.UIModel.ClientUI;
+import pl.lodz.p.it.UIModel.ManagerUI;
 import pl.lodz.p.it.UIModel.UserUI;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -25,27 +30,32 @@ public class UserAdapterUIAndSoap implements AddUserPort, ChangeUserActivenessPo
 
     @Override
     public void addClient(String login, String password, String name, String surname, boolean active) {
-
+        userAdapter.addClient((ClientSoap) converter.convertToSoap(new UserUI(login, password, name, surname, active) {
+            @Override
+            public String getType() {
+                return "Client";
+            }
+        }));
     }
 
     @Override
     public void addManager(String login, String password, String name, String surname, boolean active) {
-
+        userAdapter.addManager((ManagerSoap) converter.convertToSoap(new ManagerUI(login, password, name, surname, active)));
     }
 
     @Override
     public void addAdmin(String login, String password, String name, String surname, boolean active) {
-
+        userAdapter.addAdmin((AdminSoap) converter.convertToSoap(new AdminUI(login, password, name, surname, active)));
     }
 
     @Override
     public void activateUser(String login) {
-
+        userAdapter.activateUser(userAdapter.getUser(login));
     }
 
     @Override
     public void deactivateUser(String login) {
-
+        userAdapter.deactivateUser(userAdapter.getUser(login));
     }
 
     @Override
@@ -65,11 +75,11 @@ public class UserAdapterUIAndSoap implements AddUserPort, ChangeUserActivenessPo
 
     @Override
     public Map<String, UserUI> getFilterUsers(String input) {
-        return null;
+        return converter.convertUserMapToUI(userAdapter.getFilteredUsers(input));
     }
 
     @Override
     public void updateUser(String login, String newPassword, String newName, String newSurname) {
-
+        userAdapter.updateUser(userAdapter.getUser(login), newPassword, newName, newSurname);
     }
 }

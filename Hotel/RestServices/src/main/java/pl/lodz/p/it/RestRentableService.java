@@ -127,7 +127,7 @@ public class RestRentableService {
     
     @POST
     @Path("/sauna")
-    public Response addSauna( @Valid SaunaUI sauna) {
+    public Response addSauna(@Valid SaunaUI sauna) {
         if(rentableAdapter.getRentables().containsKey(sauna.getNumber())){
              return Response.status(Response.Status.FORBIDDEN).entity("Room or sauna with number:" + sauna.getNumber() + " already exists").build(); 
         }
