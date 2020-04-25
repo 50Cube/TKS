@@ -1,6 +1,9 @@
 package pl.lod.p.it.RentTests;
 
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -52,8 +55,101 @@ public class RentableTests {
     RestAssured.get("rentables")
             .then()
             .assertThat()
-            .body("size()", is(7));
+            .statusCode(is(200));
     }
+
+    @Test
+    public void testGetRentable() {
+        RestAssured.get("rentable/2")
+                .then()
+                .assertThat()
+                .body("number", is(2))
+                .body("area", is(30.0f))
+                .body("beds", is(1));
+    }
+
+    @Test
+    public void testGetNonexistentRentable() {
+        Response r = RestAssured
+                .get("rentable/1232");
+
+        Assert.assertEquals(r.getStatusCode(),404);
+    }
+
+    @Test
+    public void testAddRoom() {
+        JSONObject requestParams = new JSONObject();
+        requestParams.put("number",31);
+        requestParams.put("area",200);
+        requestParams.put("beds",4);
+
+        Response r = RestAssured
+                .given()
+                .contentType("application/json")
+                .body(requestParams.toString())
+                .post("room");
+
+        Assert.assertEquals(r.statusCode(),200);
+
+        Response r2 = RestAssured
+                .given()
+                .contentType("application/json")
+                .body(requestParams.toString())
+                .post("room");
+        Assert.assertEquals(r2.statusCode(),403);
+    }
+
+    @Test
+    public void testDeleteRentable() {
+        Response r = RestAssured
+                .given()
+                .contentType("application/json")
+                .delete("rentable/20");
+
+        Assert.assertEquals(r.statusCode(),200);
+
+        Response r2 = RestAssured
+                .given()
+                .contentType("application/json")
+                .delete("rentable/20");
+
+        Assert.assertEquals(r2.statusCode(),404);
+    }
+
+    @Test
+    public void testUpdateRoom() {
+        JSONObject requestParams = new JSONObject();
+        requestParams.put("number",3);
+        requestParams.put("area",200);
+        requestParams.put("beds",4);
+
+        Response r = RestAssured
+                .given()
+                .contentType("application/json")
+                .body(requestParams.toString())
+                .put("room/3");
+
+        Assert.assertEquals(r.statusCode(),200);
+    }
+
+    @Test
+    public void testTryUpdateNonexistentRoom() {
+        JSONObject requestParams = new JSONObject();
+        requestParams.put("number",122);
+        requestParams.put("area",200);
+        requestParams.put("beds",4);
+
+        Response r = RestAssured
+                .given()
+                .contentType("application/json")
+                .body(requestParams.toString())
+                .put("room/122");
+
+        Assert.assertEquals(r.asString(),"Room doesn't exist");
+        Assert.assertEquals(r.statusCode(),404);
+    }
+
+
 
     @AfterAll
     public static void closeDocker(){
