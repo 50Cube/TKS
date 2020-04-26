@@ -37,13 +37,13 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>LambdaLogic</groupId>
-            <artifactId>LambdaLogic</artifactId>
-            <version>1.0</version>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
             <scope>test</scope>
         </dependency>
 
-        </dependencies>
+    </dependencies>
 <properties>
 <maven.compiler.source>1.8</maven.compiler.source>
 <maven.compiler.target>1.8</maven.compiler.target>

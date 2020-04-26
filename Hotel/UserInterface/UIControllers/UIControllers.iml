@@ -27,7 +27,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: org.microshed:microshed-testing-testcontainers:0.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.microshed:microshed-testing-core:0.4.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: cglib:cglib-nodep:3.2.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.cxf:cxf-rt-rs-client:3.3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.cxf:cxf-rt-transports-http:3.3.0" level="project" />
@@ -67,7 +66,7 @@
     <orderEntry type="module" module-name="RestPorts" />
     <orderEntry type="module" module-name="RestModel" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: LambdaLogic:LambdaLogic:1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.json:json:20180813" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:8.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
