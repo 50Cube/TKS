@@ -2,7 +2,9 @@ package pl.lodz.p.it.SoapModel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ClientSoap extends UserSoap
 {

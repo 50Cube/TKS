@@ -1,7 +1,7 @@
 package pl.lodz.p.it.Aggregates;
 
 import pl.lodz.p.it.Converters.UserConverterSoapAndRA;
-import pl.lodz.p.it.Ports.Soap.*;
+import pl.lodz.p.it.Ports.*;
 import pl.lodz.p.it.RA.Model.AdminRA;
 import pl.lodz.p.it.RA.Model.ClientRA;
 import pl.lodz.p.it.RA.Model.ManagerRA;
