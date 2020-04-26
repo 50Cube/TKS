@@ -1,10 +1,11 @@
 package pl.lodz.p.it;
 
 
-import pl.lodz.p.it.RestPorts.Aggregates.RentableAdapterUIAndRest;
-import pl.lodz.p.it.UIModel.RentableUI;
-import pl.lodz.p.it.UIModel.RoomUI;
-import pl.lodz.p.it.UIModel.SaunaUI;
+import com.mycompany.store.Services.CustomExceptions.RentableRentedException;
+import pl.lodz.p.it.RestModel.RentableRest;
+import pl.lodz.p.it.RestModel.RoomRest;
+import pl.lodz.p.it.RestModel.SaunaRest;
+import pl.lodz.p.it.RestPorts.Aggregates.RentableAdapterRestAndRA;
 import pl.lodz.p.it.applicationPorts.Aggregates.RentAdapter;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Map;
 
-@Named(value = "restRentableService") //uh
+@Named(value = "restRentableService")
 @ApplicationScoped
 @Path("model")
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,7 +25,7 @@ import java.util.Map;
 public class RestRentableService {
     
     @Inject
-    private RentableAdapterUIAndRest rentableAdapter;
+    private RentableAdapterRestAndRA rentableAdapter;
     
     @Inject
     private RentAdapter rentRepository;
@@ -35,7 +36,7 @@ public class RestRentableService {
     @GET
     @Path("/rentables")
     public Response getRentables() {
-        Map<Integer, RentableUI> rentables = rentableAdapter.getRentables();
+        Map<Integer, RentableRest> rentables = rentableAdapter.getRentables();
         if(rentables != null){
             return Response.ok(rentables).build();
         }
@@ -45,7 +46,7 @@ public class RestRentableService {
     @GET
     @Path("/rooms")
     public Response getRooms() {
-        Map<Integer, RoomUI> rooms = rentableAdapter.getRooms();
+        Map<Integer, RoomRest> rooms = rentableAdapter.getRooms();
         if(rooms != null){
             return Response.ok(rooms).build();
         }
@@ -55,7 +56,7 @@ public class RestRentableService {
     @GET
     @Path("rooms/{filter}")
     public Response getFilteredRooms(@PathParam("filter") @Valid String filter) {
-        Map<Integer, RoomUI> rooms = rentableAdapter.getFilteredRooms(filter);
+        Map<Integer, RoomRest> rooms = rentableAdapter.getFilteredRooms(filter);
         if(rooms != null) {
             return Response.ok(rooms).build();
         }
@@ -65,7 +66,7 @@ public class RestRentableService {
     @GET
     @Path("/saunas")
     public Response getSaunas() {
-        Map<Integer, SaunaUI> saunas = rentableAdapter.getSaunas();
+        Map<Integer, SaunaRest> saunas = rentableAdapter.getSaunas();
         if(saunas != null){
             return Response.ok(saunas).build();
         }
@@ -75,7 +76,7 @@ public class RestRentableService {
     @GET
     @Path("/saunas/{filter}")
     public Response getFilteredSaunas(@PathParam("filter") @Valid String filter) {
-        Map<Integer, SaunaUI> saunas = rentableAdapter.getFilteredSaunas(filter);
+        Map<Integer, SaunaRest> saunas = rentableAdapter.getFilteredSaunas(filter);
         if(saunas != null) {
             return Response.ok(saunas).build();
         }
@@ -85,7 +86,7 @@ public class RestRentableService {
     @GET
     @Path("/rentable/{number}")
     public Response getRentable(@PathParam("number") @Valid int number) {
-        RentableUI r = rentableAdapter.getRentable(number);
+        RentableRest r = rentableAdapter.getRentable(number);
         if(r != null){
             return Response.ok(r).build();
         }
@@ -94,9 +95,9 @@ public class RestRentableService {
     
     @DELETE
     @Path("/rentable/{number}")
-    public Response deleteRentable(@PathParam("number") @Valid int number) //throws RentableRentedException
+    public Response deleteRentable(@PathParam("number") @Valid int number) throws RentableRentedException
     {
-        RentableUI r = rentableAdapter.getRentable(number);
+        RentableRest r = rentableAdapter.getRentable(number);
         if(r != null) {
             if(checkIfIsNotRented(number)){
                 rentableAdapter.deleteRentable(number);
@@ -117,7 +118,7 @@ public class RestRentableService {
     
     @POST
     @Path("/room")
-    public Response addRoom(@Valid RoomUI room) {
+    public Response addRoom(@Valid RoomRest room) {
         if(rentableAdapter.getRentables().containsKey(room.getNumber())){
             return Response.status(Response.Status.FORBIDDEN).entity("Room or sauna with number:" + room.getNumber() + " already exists").build(); 
         }
@@ -127,7 +128,7 @@ public class RestRentableService {
     
     @POST
     @Path("/sauna")
-    public Response addSauna(@Valid SaunaUI sauna) {
+    public Response addSauna(@Valid SaunaRest sauna) {
         if(rentableAdapter.getRentables().containsKey(sauna.getNumber())){
              return Response.status(Response.Status.FORBIDDEN).entity("Room or sauna with number:" + sauna.getNumber() + " already exists").build(); 
         }
@@ -137,10 +138,10 @@ public class RestRentableService {
     
     @PUT
     @Path("/room/{number}")
-    public Response updateRoom(@PathParam("number") @Valid int number, @Valid RoomUI room) {
+    public Response updateRoom(@PathParam("number") @Valid int number, @Valid RoomRest room) {
         if(rentableAdapter.getRentables().containsKey(number)) {
             if(number == room.getNumber()) {
-                if(rentableAdapter.getRentable(number) instanceof RoomUI){
+                if(rentableAdapter.getRentable(number) instanceof RoomRest){
                   rentableAdapter.updateRentable(number, room);
                   return Response.ok("Room " + room.getNumber()  + " updated").build();
                 }
@@ -153,10 +154,10 @@ public class RestRentableService {
     
     @PUT
     @Path("/sauna/{number}")
-    public Response updateSauna(@PathParam("number") @Valid int number, @Valid SaunaUI sauna) {
+    public Response updateSauna(@PathParam("number") @Valid int number, @Valid SaunaRest sauna) {
         if(rentableAdapter.getRentables().containsKey(number)) {
             if(number == sauna.getNumber()) {
-                if(rentableAdapter.getRentable(number) instanceof SaunaUI){
+                if(rentableAdapter.getRentable(number) instanceof SaunaRest){
                     rentableAdapter.updateRentable(number, sauna);
                     return Response.ok("Room " + sauna.getNumber()  + " updated").build();
                 }

@@ -87,7 +87,7 @@ public class UserConverterUIAndSoap {
         Map<String, UserUI> userUIMap = new HashMap<>();
         for (Map.Entry<String, UserSoap> entry : map.entrySet()
         ) {
-            UserUI userUI = (UserUI) convertToUI(entry.getValue());
+            UserUI userUI = convertToUI(entry.getValue());
             userUIMap.put(entry.getKey(), userUI);
         }
 

@@ -1,15 +1,12 @@
 package UIControllers;
 
-
 import pl.lodz.p.it.UIModel.RentableUI;
 import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;
-import pl.lodz.p.it.RestRentableService;
 
 import java.io.Serializable;
 import java.util.Map;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -27,8 +24,6 @@ public class RestListRentablesController implements Serializable {
     
     @Inject
     private DataHolder dh;
-    @Inject
-    private RestRentableService rentableService;
     
     private Map<Integer, RentableUI> rentables;
     private Map<Integer, RoomUI> rooms;
@@ -67,8 +62,6 @@ public class RestListRentablesController implements Serializable {
     
     public void deleteRentable(int number)
     {
-        if(!this.rentableService.checkIfIsNotRented(number))
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cannot delete rented room or sauna"));
         webTarget.path("rentable/{number}").resolveTemplate("number", number).request().delete();
         loadRentables();
     }
