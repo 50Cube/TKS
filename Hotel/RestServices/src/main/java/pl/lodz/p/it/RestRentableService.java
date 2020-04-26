@@ -7,7 +7,7 @@ import pl.lodz.p.it.UIModel.RoomUI;
 import pl.lodz.p.it.UIModel.SaunaUI;
 import pl.lodz.p.it.applicationPorts.Aggregates.RentAdapter;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.Valid;
@@ -16,8 +16,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Map;
 
-@Named(value = "restRentableService")
-@RequestScoped
+@Named(value = "restRentableService") //uh
+@ApplicationScoped
 @Path("model")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
