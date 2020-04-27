@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SoapUserServiceService" targetNamespace="http://impl.it.p.lodz.pl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://impl.it.p.lodz.pl/" xmlns:ns1="http://it.p.lodz.pl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://it.p.lodz.pl/" location="SoapUserServiceInterface.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="SoapUserServiceServiceSoapBinding" type="ns1:SoapUserServiceInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getFilteredUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFilteredUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFilteredUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addManager">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addManager">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addManagerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClients">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getClients">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getClientsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAdmin">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAdmin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addAdminResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClient">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addClient">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addClientResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SoapUserServiceService">
+    <wsdl:port name="SoapUserServicePort" binding="tns:SoapUserServiceServiceSoapBinding">
+      <soap:address location="http://localhost:9090/SoapUserServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

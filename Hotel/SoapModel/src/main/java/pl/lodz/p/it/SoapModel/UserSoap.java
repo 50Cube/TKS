@@ -2,10 +2,7 @@ package pl.lodz.p.it.SoapModel;
 
 import lombok.Data;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 @Data
 @XmlRootElement
@@ -31,17 +28,17 @@ public abstract class UserSoap {
         this.password = password;
         this.isActive = active;
     }
-    
+
     public abstract String getType();
 
     @Override
     public String toString()
     {
-        return "User details:\nName: " + this.getName() + "\nSurname: " + this.getSurname() + "\nLogin: " + this.getLogin() + "\nActive: " + this.getIsActive();
+        return "User details:\nName: ".concat(this.getName()).concat("\nSurname: ").concat(this.getSurname()).concat("\nLogin: ").concat(this.getLogin()).concat("\nActive: ").concat(this.getIsActive().toString());
     }
     
     public String toFilterString() {
-        return this.login + " " + this.name + " " + this.surname;
+        return this.login.concat(this.name).concat(this.surname);
     }
     
     public String activeString() {

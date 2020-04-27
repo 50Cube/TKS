@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ManagerSoap" targetNamespace="http://SoapModel.it.p.lodz.pl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://SoapModel.it.p.lodz.pl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xsd:schema xmlns:tns="http://SoapModel.it.p.lodz.pl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://SoapModel.it.p.lodz.pl/">
+  <xsd:element name="activeString" type="tns:activeString"/>
+  <xsd:complexType name="activeString">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="activeStringResponse" type="tns:activeStringResponse"/>
+  <xsd:complexType name="activeStringResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setName" type="tns:setName"/>
+  <xsd:complexType name="setName">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="name" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setNameResponse" type="tns:setNameResponse"/>
+  <xsd:complexType name="setNameResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="setPassword" type="tns:setPassword"/>
+  <xsd:complexType name="setPassword">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="password" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setPasswordResponse" type="tns:setPasswordResponse"/>
+  <xsd:complexType name="setPasswordResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="toFilterString" type="tns:toFilterString"/>
+  <xsd:complexType name="toFilterString">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="toFilterStringResponse" type="tns:toFilterStringResponse"/>
+  <xsd:complexType name="toFilterStringResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getName" type="tns:getName"/>
+  <xsd:complexType name="getName">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getNameResponse" type="tns:getNameResponse"/>
+  <xsd:complexType name="getNameResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getType" type="tns:getType"/>
+  <xsd:complexType name="getType">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getTypeResponse" type="tns:getTypeResponse"/>
+  <xsd:complexType name="getTypeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setSurname" type="tns:setSurname"/>
+  <xsd:complexType name="setSurname">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="surname" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setSurnameResponse" type="tns:setSurnameResponse"/>
+  <xsd:complexType name="setSurnameResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="hashCode" type="tns:hashCode"/>
+  <xsd:complexType name="hashCode">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="hashCodeResponse" type="tns:hashCodeResponse"/>
+  <xsd:complexType name="hashCodeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setLogin" type="tns:setLogin"/>
+  <xsd:complexType name="setLogin">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="login" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setLoginResponse" type="tns:setLoginResponse"/>
+  <xsd:complexType name="setLoginResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="equals" type="tns:equals"/>
+  <xsd:complexType name="equals">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="o" type="xsd:anyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="equalsResponse" type="tns:equalsResponse"/>
+  <xsd:complexType name="equalsResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLogin" type="tns:getLogin"/>
+  <xsd:complexType name="getLogin">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getLoginResponse" type="tns:getLoginResponse"/>
+  <xsd:complexType name="getLoginResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getIsActive" type="tns:getIsActive"/>
+  <xsd:complexType name="getIsActive">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getIsActiveResponse" type="tns:getIsActiveResponse"/>
+  <xsd:complexType name="getIsActiveResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getPassword" type="tns:getPassword"/>
+  <xsd:complexType name="getPassword">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getPasswordResponse" type="tns:getPasswordResponse"/>
+  <xsd:complexType name="getPasswordResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setIsActive" type="tns:setIsActive"/>
+  <xsd:complexType name="setIsActive">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="isActive" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="setIsActiveResponse" type="tns:setIsActiveResponse"/>
+  <xsd:complexType name="setIsActiveResponse">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getSurname" type="tns:getSurname"/>
+  <xsd:complexType name="getSurname">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="getSurnameResponse" type="tns:getSurnameResponse"/>
+  <xsd:complexType name="getSurnameResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="toString" type="tns:toString"/>
+  <xsd:complexType name="toString">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:element name="toStringResponse" type="tns:toStringResponse"/>
+  <xsd:complexType name="toStringResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getNameResponse">
+    <wsdl:part name="parameters" element="tns:getNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setNameResponse">
+    <wsdl:part name="parameters" element="tns:setNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTypeResponse">
+    <wsdl:part name="parameters" element="tns:getTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setSurnameResponse">
+    <wsdl:part name="parameters" element="tns:setSurnameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setLoginResponse">
+    <wsdl:part name="parameters" element="tns:setLoginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getType">
+    <wsdl:part name="parameters" element="tns:getType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setLogin">
+    <wsdl:part name="parameters" element="tns:setLogin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="equals">
+    <wsdl:part name="parameters" element="tns:equals">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLogin">
+    <wsdl:part name="parameters" element="tns:getLogin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIsActive">
+    <wsdl:part name="parameters" element="tns:getIsActive">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPassword">
+    <wsdl:part name="parameters" element="tns:getPassword">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setIsActive">
+    <wsdl:part name="parameters" element="tns:setIsActive">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSurnameResponse">
+    <wsdl:part name="parameters" element="tns:getSurnameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSurname">
+    <wsdl:part name="parameters" element="tns:getSurname">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activeStringResponse">
+    <wsdl:part name="parameters" element="tns:activeStringResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPasswordResponse">
+    <wsdl:part name="parameters" element="tns:getPasswordResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="toString">
+    <wsdl:part name="parameters" element="tns:toString">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setPasswordResponse">
+    <wsdl:part name="parameters" element="tns:setPasswordResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activeString">
+    <wsdl:part name="parameters" element="tns:activeString">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setName">
+    <wsdl:part name="parameters" element="tns:setName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setPassword">
+    <wsdl:part name="parameters" element="tns:setPassword">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="toFilterString">
+    <wsdl:part name="parameters" element="tns:toFilterString">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getName">
+    <wsdl:part name="parameters" element="tns:getName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="toFilterStringResponse">
+    <wsdl:part name="parameters" element="tns:toFilterStringResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setSurname">
+    <wsdl:part name="parameters" element="tns:setSurname">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hashCode">
+    <wsdl:part name="parameters" element="tns:hashCode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hashCodeResponse">
+    <wsdl:part name="parameters" element="tns:hashCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIsActiveResponse">
+    <wsdl:part name="parameters" element="tns:getIsActiveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoginResponse">
+    <wsdl:part name="parameters" element="tns:getLoginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setIsActiveResponse">
+    <wsdl:part name="parameters" element="tns:setIsActiveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="equalsResponse">
+    <wsdl:part name="parameters" element="tns:equalsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="toStringResponse">
+    <wsdl:part name="parameters" element="tns:toStringResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ManagerSoapPortType">
+    <wsdl:operation name="activeString">
+      <wsdl:input name="activeString" message="tns:activeString">
+    </wsdl:input>
+      <wsdl:output name="activeStringResponse" message="tns:activeStringResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setName">
+      <wsdl:input name="setName" message="tns:setName">
+    </wsdl:input>
+      <wsdl:output name="setNameResponse" message="tns:setNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPassword">
+      <wsdl:input name="setPassword" message="tns:setPassword">
+    </wsdl:input>
+      <wsdl:output name="setPasswordResponse" message="tns:setPasswordResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toFilterString">
+      <wsdl:input name="toFilterString" message="tns:toFilterString">
+    </wsdl:input>
+      <wsdl:output name="toFilterStringResponse" message="tns:toFilterStringResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <wsdl:input name="getName" message="tns:getName">
+    </wsdl:input>
+      <wsdl:output name="getNameResponse" message="tns:getNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getType">
+      <wsdl:input name="getType" message="tns:getType">
+    </wsdl:input>
+      <wsdl:output name="getTypeResponse" message="tns:getTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setSurname">
+      <wsdl:input name="setSurname" message="tns:setSurname">
+    </wsdl:input>
+      <wsdl:output name="setSurnameResponse" message="tns:setSurnameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hashCode">
+      <wsdl:input name="hashCode" message="tns:hashCode">
+    </wsdl:input>
+      <wsdl:output name="hashCodeResponse" message="tns:hashCodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setLogin">
+      <wsdl:input name="setLogin" message="tns:setLogin">
+    </wsdl:input>
+      <wsdl:output name="setLoginResponse" message="tns:setLoginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="equals">
+      <wsdl:input name="equals" message="tns:equals">
+    </wsdl:input>
+      <wsdl:output name="equalsResponse" message="tns:equalsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLogin">
+      <wsdl:input name="getLogin" message="tns:getLogin">
+    </wsdl:input>
+      <wsdl:output name="getLoginResponse" message="tns:getLoginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIsActive">
+      <wsdl:input name="getIsActive" message="tns:getIsActive">
+    </wsdl:input>
+      <wsdl:output name="getIsActiveResponse" message="tns:getIsActiveResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPassword">
+      <wsdl:input name="getPassword" message="tns:getPassword">
+    </wsdl:input>
+      <wsdl:output name="getPasswordResponse" message="tns:getPasswordResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setIsActive">
+      <wsdl:input name="setIsActive" message="tns:setIsActive">
+    </wsdl:input>
+      <wsdl:output name="setIsActiveResponse" message="tns:setIsActiveResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSurname">
+      <wsdl:input name="getSurname" message="tns:getSurname">
+    </wsdl:input>
+      <wsdl:output name="getSurnameResponse" message="tns:getSurnameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toString">
+      <wsdl:input name="toString" message="tns:toString">
+    </wsdl:input>
+      <wsdl:output name="toStringResponse" message="tns:toStringResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManagerSoapSoapBinding" type="tns:ManagerSoapPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="activeString">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="activeString">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="activeStringResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPassword">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setPassword">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setPasswordResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toFilterString">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="toFilterString">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="toFilterStringResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setSurname">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setSurname">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setSurnameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hashCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="hashCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="hashCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setLogin">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setLogin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setLoginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="equals">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="equals">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="equalsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLogin">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLogin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLoginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIsActive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getIsActive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getIsActiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPassword">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPassword">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPasswordResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setIsActive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setIsActive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setIsActiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSurname">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSurname">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSurnameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toString">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="toString">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="toStringResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManagerSoap">
+    <wsdl:port name="ManagerSoapPort" binding="tns:ManagerSoapSoapBinding">
+      <soap:address location="http://localhost:9090/ManagerSoapPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
