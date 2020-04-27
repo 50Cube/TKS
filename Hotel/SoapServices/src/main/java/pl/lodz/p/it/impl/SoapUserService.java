@@ -12,6 +12,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jws.WebService;
+import java.util.HashMap;
 import java.util.Map;
 
 @Named
@@ -30,8 +31,8 @@ public class SoapUserService implements SoapUserServiceInterface {
     }
 
     @Override
-    public Map<String, UserSoap> getFilteredUsers(String input) {
-        return userAdapter.getFilteredUsers(input);
+    public HashMap<String, UserSoap> getFilteredUsers(String input) {
+        return (HashMap<String, UserSoap>) userAdapter.getFilteredUsers(input);
     }
 
     @Override
