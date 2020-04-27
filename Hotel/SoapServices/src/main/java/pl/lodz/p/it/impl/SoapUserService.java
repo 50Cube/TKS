@@ -5,55 +5,62 @@ import pl.lodz.p.it.SoapModel.AdminSoap;
 import pl.lodz.p.it.SoapModel.ClientSoap;
 import pl.lodz.p.it.SoapModel.ManagerSoap;
 import pl.lodz.p.it.SoapModel.UserSoap;
+import pl.lodz.p.it.SoapUserServiceInterface;
 
+
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.jws.WebMethod;
+import javax.inject.Named;
 import javax.jws.WebService;
+import java.util.HashMap;
+import java.util.Map;
 
-
-@WebService
-public class SoapUserService  {
+@Named
+@ApplicationScoped
+@WebService(endpointInterface = "pl.lodz.p.it.SoapUserServiceInterface")
+public class SoapUserService implements SoapUserServiceInterface {
 
     @Inject
     UserAdapterSoapAndRA userAdapter;
 
+    public SoapUserService() { }
 
-//    @WebMethod
+//    @Override
 //    public Map<String, UserSoap> getUsers() {
 //        return userAdapter.getUsers();
 //    }
-
-//    @WebMethod
+//
+//    @Override
 //    public HashMap<String, UserSoap> getFilteredUsers(String input) {
 //        return (HashMap<String, UserSoap>) userAdapter.getFilteredUsers(input);
 //    }
 //
-//    @WebMethod
+//    @Override
 //    public Map<String, ClientSoap> getClients() {
 //        return userAdapter.getClients();
 //    }
 //
-//    @WebMethod
+//    @Override
 //    public UserSoap getUser(String login) {
 //        return userAdapter.getUser(login);
 //    }
 
-    @WebMethod
+    @Override
     public void addClient(ClientSoap client) {
         userAdapter.addClient(client);
     }
 
-    @WebMethod
+    @Override
     public void addAdmin(AdminSoap admin) {
         userAdapter.addAdmin(admin);
     }
 
-    @WebMethod
+    @Override
     public void addManager(ManagerSoap manager) {
         userAdapter.addManager(manager);
     }
 
-    @WebMethod
+    @Override
     public void updateUser(UserSoap user) {
         userAdapter.updateUser(user, user.getPassword(), user.getName(), user.getSurname());
     }
