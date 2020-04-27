@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+<!--    <security-constraint>-->
+<!--      <web-resource-collection>-->
+<!--         <web-resource-name>All</web-resource-name>-->
+<!--         <url-pattern>/*</url-pattern>-->
+<!--      </web-resource-collection>-->
+
+<!--      <user-data-constraint>-->
+<!--          <transport-guarantee>  CONFIDENTIAL  </transport-guarantee>-->
+<!--      </user-data-constraint>-->
+
+<!--   </security-constraint>-->
+
+<!--    <security-constraint>-->
+<!--      <web-resource-collection>-->
+<!--         <web-resource-name>AfterLogin</web-resource-name>-->
+<!--         <url-pattern>/Main/*</url-pattern>-->
+<!--      </web-resource-collection>-->
+<!--      <auth-constraint>-->
+<!--        <role-name>Admin</role-name>-->
+<!--        <role-name>Client</role-name>-->
+<!--        <role-name>Manager</role-name>-->
+<!--      </auth-constraint>-->
+<!--      <user-data-constraint>-->
+<!--          <transport-guarantee>  CONFIDENTIAL  </transport-guarantee>-->
+<!--      </user-data-constraint>-->
+
+<!--    </security-constraint>-->
+
+<!--    <security-constraint>-->
+<!--      <web-resource-collection>-->
+<!--         <web-resource-name>AdminPages</web-resource-name>-->
+<!--         <url-pattern>/Admin/*</url-pattern>-->
+<!--      </web-resource-collection>-->
+<!--      <auth-constraint>-->
+<!--        <role-name>Admin</role-name>-->
+<!--      </auth-constraint>-->
+<!--      <user-data-constraint>-->
+<!--          <transport-guarantee>  CONFIDENTIAL  </transport-guarantee>-->
+<!--      </user-data-constraint>-->
+
+<!--    </security-constraint>-->
+
+<!--    <security-constraint>-->
+<!--      <web-resource-collection>-->
+<!--         <web-resource-name>ManagerPages</web-resource-name>-->
+<!--         <url-pattern>/Manager/*</url-pattern>-->
+<!--      </web-resource-collection>-->
+<!--      <auth-constraint>-->
+<!--        <role-name>Manager</role-name>-->
+<!--      </auth-constraint>-->
+<!--      <user-data-constraint>-->
+<!--          <transport-guarantee>  CONFIDENTIAL  </transport-guarantee>-->
+<!--      </user-data-constraint>-->
+
+<!--    </security-constraint>-->
+
+<!--    <security-constraint>-->
+<!--      <web-resource-collection>-->
+<!--         <web-resource-name>ClientPages</web-resource-name>-->
+<!--         <url-pattern>/Client/*</url-pattern>-->
+<!--      </web-resource-collection>-->
+<!--      <auth-constraint>-->
+<!--        <role-name>Client</role-name>-->
+<!--      </auth-constraint>-->
+<!--      <user-data-constraint>-->
+<!--          <transport-guarantee>  CONFIDENTIAL  </transport-guarantee>-->
+<!--      </user-data-constraint>-->
+
+<!--    </security-constraint>-->
+    <security-role>
+        <role-name>Admin</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>Client</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>Manager</role-name>
+    </security-role>
+    <welcome-file-list>
+        <welcome-file>Main/mainPage.xhtml</welcome-file>
+    </welcome-file-list>
+</web-app>

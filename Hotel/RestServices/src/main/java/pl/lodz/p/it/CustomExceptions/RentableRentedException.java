@@ -1,4 +1,4 @@
-package com.mycompany.store.Services.CustomExceptions;
+package pl.lodz.p.it.CustomExceptions;
 
 import javax.ws.rs.WebApplicationException;
 

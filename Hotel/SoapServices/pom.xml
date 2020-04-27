@@ -11,6 +11,18 @@
     <packaging>pom</packaging>
 
     <artifactId>SoapServices</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>pl.lodz.p.it</groupId>
@@ -18,11 +30,11 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.sun.xml.ws</groupId>
-            <artifactId>jaxws-maven-plugin</artifactId>
-            <version>2.3.3-b01</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.sun.xml.ws</groupId>-->
+<!--            <artifactId>jaxws-maven-plugin</artifactId>-->
+<!--            <version>2.3.3-b01</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 

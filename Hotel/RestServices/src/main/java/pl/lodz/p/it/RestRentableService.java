@@ -1,7 +1,7 @@
 package pl.lodz.p.it;
 
 
-import com.mycompany.store.Services.CustomExceptions.RentableRentedException;
+//import com.mycompany.store.Services.CustomExceptions.RentableRentedException;
 import pl.lodz.p.it.RestModel.RentableRest;
 import pl.lodz.p.it.RestModel.RoomRest;
 import pl.lodz.p.it.RestModel.SaunaRest;
@@ -95,7 +95,7 @@ public class RestRentableService {
     
     @DELETE
     @Path("/rentable/{number}")
-    public Response deleteRentable(@PathParam("number") @Valid int number) throws RentableRentedException
+    public Response deleteRentable(@PathParam("number") @Valid int number)// throws RentableRentedException
     {
         RentableRest r = rentableAdapter.getRentable(number);
         if(r != null) {

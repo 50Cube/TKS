@@ -5,62 +5,55 @@ import pl.lodz.p.it.SoapModel.AdminSoap;
 import pl.lodz.p.it.SoapModel.ClientSoap;
 import pl.lodz.p.it.SoapModel.ManagerSoap;
 import pl.lodz.p.it.SoapModel.UserSoap;
-import pl.lodz.p.it.SoapUserServiceInterface;
 
-
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
-import java.util.HashMap;
-import java.util.Map;
 
-@Named
-@ApplicationScoped
-@WebService(endpointInterface = "pl.lodz.p.it.SoapUserServiceInterface")
-public class SoapUserService implements SoapUserServiceInterface {
+
+@WebService
+public class SoapUserService  {
 
     @Inject
     UserAdapterSoapAndRA userAdapter;
 
-    public SoapUserService() { }
 
-    @Override
-    public Map<String, UserSoap> getUsers() {
-        return userAdapter.getUsers();
-    }
+//    @WebMethod
+//    public Map<String, UserSoap> getUsers() {
+//        return userAdapter.getUsers();
+//    }
 
-    @Override
-    public HashMap<String, UserSoap> getFilteredUsers(String input) {
-        return (HashMap<String, UserSoap>) userAdapter.getFilteredUsers(input);
-    }
+//    @WebMethod
+//    public HashMap<String, UserSoap> getFilteredUsers(String input) {
+//        return (HashMap<String, UserSoap>) userAdapter.getFilteredUsers(input);
+//    }
+//
+//    @WebMethod
+//    public Map<String, ClientSoap> getClients() {
+//        return userAdapter.getClients();
+//    }
+//
+//    @WebMethod
+//    public UserSoap getUser(String login) {
+//        return userAdapter.getUser(login);
+//    }
 
-    @Override
-    public Map<String, ClientSoap> getClients() {
-        return userAdapter.getClients();
-    }
-
-    @Override
-    public UserSoap getUser(String login) {
-        return userAdapter.getUser(login);
-    }
-
-    @Override
+    @WebMethod
     public void addClient(ClientSoap client) {
         userAdapter.addClient(client);
     }
 
-    @Override
+    @WebMethod
     public void addAdmin(AdminSoap admin) {
         userAdapter.addAdmin(admin);
     }
 
-    @Override
+    @WebMethod
     public void addManager(ManagerSoap manager) {
         userAdapter.addManager(manager);
     }
 
-    @Override
+    @WebMethod
     public void updateUser(UserSoap user) {
         userAdapter.updateUser(user, user.getPassword(), user.getName(), user.getSurname());
     }

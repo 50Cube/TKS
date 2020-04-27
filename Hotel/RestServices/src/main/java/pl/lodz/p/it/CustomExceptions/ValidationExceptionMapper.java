@@ -1,11 +1,12 @@
-package com.mycompany.store.Services.CustomExceptions;
+package pl.lodz.p.it.CustomExceptions;
 
+import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class RentableRentedMapper implements ExceptionMapper<RentableRentedException> {
+public class ValidationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {
 
     public static class ErrorMessage {
         public final String error;
@@ -15,10 +16,10 @@ public class RentableRentedMapper implements ExceptionMapper<RentableRentedExcep
     }
 
     @Override
-    public Response toResponse(RentableRentedException exception) {
+    public Response toResponse(ConstraintViolationException exception) {
         return Response
                 .status(Response.Status.FORBIDDEN)
-                .entity("Rentable is rented")
+                .entity(exception.getMessage())
                 .build();
     }
 }
