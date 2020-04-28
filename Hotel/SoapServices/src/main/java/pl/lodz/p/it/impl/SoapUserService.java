@@ -12,6 +12,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jws.WebService;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,25 +26,25 @@ public class SoapUserService implements SoapUserServiceInterface {
 
     public SoapUserService() { }
 
-//    @Override
-//    public Map<String, UserSoap> getUsers() {
-//        return userAdapter.getUsers();
-//    }
-//
-//    @Override
-//    public HashMap<String, UserSoap> getFilteredUsers(String input) {
-//        return (HashMap<String, UserSoap>) userAdapter.getFilteredUsers(input);
-//    }
-//
-//    @Override
-//    public Map<String, ClientSoap> getClients() {
-//        return userAdapter.getClients();
-//    }
-//
-//    @Override
-//    public UserSoap getUser(String login) {
-//        return userAdapter.getUser(login);
-//    }
+    @Override
+    public ArrayList<UserSoap> getUsers() {
+        return new ArrayList<>(userAdapter.getUsers().values());
+    }
+
+    @Override
+    public ArrayList<UserSoap>getFilteredUsers(String input) {
+        return new ArrayList<>(userAdapter.getFilteredUsers(input).values());
+    }
+
+    @Override
+    public ArrayList<ClientSoap> getClients() {
+        return new ArrayList<>(userAdapter.getClients().values());
+    }
+
+    @Override
+    public UserSoap getUser(String login) {
+        return userAdapter.getUser(login);
+    }
 
     @Override
     public void addClient(ClientSoap client) {

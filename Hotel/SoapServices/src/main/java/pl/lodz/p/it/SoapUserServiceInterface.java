@@ -7,22 +7,23 @@ import pl.lodz.p.it.SoapModel.UserSoap;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import java.util.ArrayList;
 import java.util.Map;
 
 
 @WebService
 public interface SoapUserServiceInterface {
-//    @WebMethod
-//    public Map<String, UserSoap> getUsers();
-//
-//    @WebMethod
-//    public Map<String, UserSoap> getFilteredUsers(String input);
-//
-//    @WebMethod
-//    public Map<String, ClientSoap> getClients();
-//
-//    @WebMethod
-//    public UserSoap getUser(String login);
+    @WebMethod
+    public ArrayList<UserSoap> getUsers();
+
+    @WebMethod
+    ArrayList<UserSoap> getFilteredUsers(String input);
+
+    @WebMethod
+    ArrayList<ClientSoap> getClients();
+
+    @WebMethod
+    public UserSoap getUser(String login);
 
     @WebMethod
     public void addClient(ClientSoap client);

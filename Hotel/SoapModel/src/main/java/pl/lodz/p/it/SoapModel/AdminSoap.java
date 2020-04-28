@@ -1,8 +1,6 @@
 package pl.lodz.p.it.SoapModel;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class AdminSoap extends UserSoap
 {
     public AdminSoap() {}
