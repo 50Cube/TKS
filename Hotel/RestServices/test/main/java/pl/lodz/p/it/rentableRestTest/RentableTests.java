@@ -1,4 +1,4 @@
-package pl.lod.p.it.RentTests;
+package pl.lodz.p.it.rentableRestTest;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -35,7 +35,7 @@ public class RentableTests {
                             .from("payara/micro:jdk11")
                             .copy("UIControllers.war", "/opt/payara/deployments")
                             .build())
-                    .withFileFromPath("UIControllers.war", Path.of("target", "UIControllers-1.0-SNAPSHOT.war"))
+                    .withFileFromPath("UIControllers.war", Path.of("../UserInterface/UIControllers/target", "UIControllers-1.0-SNAPSHOT.war"))
     )
             .withExposedPorts(8080, 4848, 6900)
             .waitingFor(Wait.forHttp("/Store/resources/model/rentables").forPort(8080).forStatusCode(200))
