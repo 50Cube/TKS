@@ -1,5 +1,5 @@
 
-package pl.lodz.p.it.implementation;
+package pl.lodz.p.it.impl;
 
 import java.util.List;
 import javax.jws.WebMethod;

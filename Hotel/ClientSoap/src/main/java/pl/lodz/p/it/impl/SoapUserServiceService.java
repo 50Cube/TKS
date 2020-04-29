@@ -1,5 +1,5 @@
 
-package pl.lodz.p.it.implementation;
+package pl.lodz.p.it.impl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,20 +17,20 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "SoapUserServiceService", targetNamespace = "http://implementation.it.p.lodz.pl/", wsdlLocation = "http://desktop-673aqgf:8080/Store/SoapUserServiceService?wsdl")
+@WebServiceClient(name = "SoapUserServiceService", targetNamespace = "http://impl.it.p.lodz.pl/", wsdlLocation = "http://localhost:8080/Store/SoapUserServiceService?wsdl")
 public class SoapUserServiceService
     extends Service
 {
 
     private final static URL SOAPUSERSERVICESERVICE_WSDL_LOCATION;
     private final static WebServiceException SOAPUSERSERVICESERVICE_EXCEPTION;
-    private final static QName SOAPUSERSERVICESERVICE_QNAME = new QName("http://implementation.it.p.lodz.pl/", "SoapUserServiceService");
+    private final static QName SOAPUSERSERVICESERVICE_QNAME = new QName("http://impl.it.p.lodz.pl/", "SoapUserServiceService");
 
     static {
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://desktop-673aqgf:8080/Store/SoapUserServiceService?wsdl");
+            url = new URL("http://localhost:8080/Store/SoapUserServiceService?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -69,7 +69,7 @@ public class SoapUserServiceService
      */
     @WebEndpoint(name = "SoapUserServicePort")
     public SoapUserServiceInterface getSoapUserServicePort() {
-        return super.getPort(new QName("http://implementation.it.p.lodz.pl/", "SoapUserServicePort"), SoapUserServiceInterface.class);
+        return super.getPort(new QName("http://impl.it.p.lodz.pl/", "SoapUserServicePort"), SoapUserServiceInterface.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class SoapUserServiceService
      */
     @WebEndpoint(name = "SoapUserServicePort")
     public SoapUserServiceInterface getSoapUserServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://implementation.it.p.lodz.pl/", "SoapUserServicePort"), SoapUserServiceInterface.class, features);
+        return super.getPort(new QName("http://impl.it.p.lodz.pl/", "SoapUserServicePort"), SoapUserServiceInterface.class, features);
     }
 
     private static URL __getWsdlLocation() {
