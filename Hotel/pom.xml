@@ -16,6 +16,7 @@
         <module>SoapPorts</module>
         <module>RestServices</module>
         <module>SoapServices</module>
+        <module>ClientSoap</module>
     </modules>
     <packaging>pom</packaging>
     <name>Hotel-1.0-SNAPSHOT</name>
