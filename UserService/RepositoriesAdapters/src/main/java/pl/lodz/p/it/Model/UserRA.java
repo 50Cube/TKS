@@ -9,11 +9,11 @@ public class UserRA {
     private String name;
     private String surname;
     private Boolean isActive;
-    private String group;
+    private Group group;
 
     public UserRA() {}
 
-    public UserRA(String login, String password, String name, String surname, Boolean isActive, String group) {
+    public UserRA(String login, String password, String name, String surname, Boolean isActive, Group group) {
         this.login = login;
         this.password = password;
         this.name = name;
@@ -29,5 +29,11 @@ public class UserRA {
     public String activeString() {
         if(this.isActive) return "Active";
         else return "Inactive";
+    }
+
+    public enum Group{
+        MANAGER,
+        ADMIN,
+        CLIENT
     }
 }
