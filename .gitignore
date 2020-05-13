@@ -45,3 +45,11 @@ Hotel/RepositoriesAdapters/target/
 Hotel/SoapServices/target/
 
 Hotel/SoapModel/target/
+
+UserService/ApplicationCore/ApplicationServices/target/
+
+UserService/ApplicationPorts/target/
+
+UserService/RepositoriesAdapters/target/
+
+UserService/ApplicationCore/DomainModel/target/
