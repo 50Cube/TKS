@@ -4,6 +4,8 @@ import pl.lodz.p.it.Model.UserRA;
 import pl.lodz.p.it.User;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.HashMap;
+import java.util.Map;
 
 @ApplicationScoped
 public class UserConverter {
@@ -15,7 +17,7 @@ public class UserConverter {
                 user.getName(),
                 user.getSurname(),
                 user.getIsActive(),
-                user.getGroup()
+                user.getGroup().toString()
         );
     }
 
@@ -26,7 +28,16 @@ public class UserConverter {
                 user.getName(),
                 user.getSurname(),
                 user.getIsActive(),
-                user.getGroup()
+                user.getGroup().toString()
         );
+    }
+
+    public Map<String, User> convertUserMapToDomain(Map<String, UserRA> userRAMap) {
+        Map<String, User> userMap = new HashMap<>();
+        for(Map.Entry<String, UserRA> entry : userRAMap.entrySet()) {
+            User user = convertToDomain(entry.getValue());
+            userMap.put(entry.getKey(), user);
+        }
+        return userMap;
     }
 }

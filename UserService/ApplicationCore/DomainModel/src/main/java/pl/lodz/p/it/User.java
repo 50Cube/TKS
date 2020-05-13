@@ -13,13 +13,13 @@ public class User {
 
     public User() {}
 
-    public User(String login, String password, String name, String surname, Boolean isActive, Group group) {
+    public User(String login, String password, String name, String surname, Boolean isActive, String group) {
         this.login = login;
         this.password = password;
         this.name = name;
         this.surname = surname;
         this.isActive = isActive;
-        this.group = group;
+        this.group = Group.valueOf(group);
     }
 
     public enum Group{

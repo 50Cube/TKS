@@ -24,12 +24,12 @@ public class UserRepository {
         users.put(user.getLogin(), user);
     }
 
-    public synchronized void updateUser(UserRA user)
+    public synchronized void updateUser(UserRA user, String newPassword, String newName, String newSurname)
     {
         UserRA localUser = getUser(user.getLogin());
-        localUser.setPassword(user.getPassword());
-        localUser.setName(user.getName());
-        localUser.setSurname(user.getSurname());
+        localUser.setPassword(newPassword);
+        localUser.setName(newName);
+        localUser.setSurname(newSurname);
     }
 
     public void activateUser(UserRA user)
