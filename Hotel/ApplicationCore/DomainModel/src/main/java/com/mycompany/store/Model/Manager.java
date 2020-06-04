@@ -2,8 +2,8 @@ package com.mycompany.store.Model;
 
 public class Manager extends User
 {
-    public Manager(String login, String password, String name, String surname, boolean active) {
-        super(login, password, name, surname, active);
+    public Manager(String login, String name, String surname, boolean active) {
+        super(login, name, surname, active);
     }
     
     @Override

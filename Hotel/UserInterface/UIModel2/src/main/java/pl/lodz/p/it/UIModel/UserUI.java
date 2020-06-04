@@ -5,16 +5,14 @@ import lombok.Data;
 @Data
 public abstract class UserUI {
     private String login;
-    private String password;
     private String name;
     private String surname;
     private Boolean isActive;
     
-    public UserUI(String login, String password, String name, String surname, boolean active) {
+    public UserUI(String login, String name, String surname, boolean active) {
         this.name = name;
         this.surname = surname;
         this.login = login;
-        this.password = password;
         this.isActive = active;
     }
     

@@ -17,7 +17,6 @@ public class addUserController implements Serializable{
 
     private String userType;
     private String login;
-    private String password;
     private String name;
     private String surname;
     private String activeString = "false";
@@ -46,14 +45,6 @@ public class addUserController implements Serializable{
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getName() {
@@ -120,11 +111,11 @@ public class addUserController implements Serializable{
     public String addUserConfirm() throws Exception {
         this.setIsActive();
         if (userType.equals("Client"))
-            userService.addClient(login, password, name, surname, isActive);
+            userService.addClient(login, name, surname, isActive);
         else if (userType.equals("Manager"))
-            userService.addManager(login, password, name, surname, isActive);
+            userService.addManager(login, name, surname, isActive);
         else if (userType.equals("Admin"))
-            userService.addAdmin(login, password, name, surname, isActive);
+            userService.addAdmin(login, name, surname, isActive);
         
         conversation.end();
         return "home";

@@ -8,16 +8,14 @@ import javax.validation.constraints.NotBlank;
 public abstract class User {
     @NotBlank
     private String login;
-    private String password;
     private String name;
     private String surname;
     private Boolean isActive;
     
-    public User(String login, String password, String name, String surname, boolean active) {
+    public User(String login, String name, String surname, boolean active) {
         this.name = name;
         this.surname = surname;
         this.login = login;
-        this.password = password;
         this.isActive = active;
     }
     

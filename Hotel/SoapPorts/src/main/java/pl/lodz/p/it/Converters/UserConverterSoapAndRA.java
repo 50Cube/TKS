@@ -18,7 +18,6 @@ public class UserConverterSoapAndRA {
         if (user instanceof AdminRA) {
             return new AdminSoap(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -28,7 +27,6 @@ public class UserConverterSoapAndRA {
         if (user instanceof ManagerRA) {
             return new ManagerSoap(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -38,7 +36,6 @@ public class UserConverterSoapAndRA {
         if (user instanceof ClientRA) {
             return new ClientSoap(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -51,7 +48,6 @@ public class UserConverterSoapAndRA {
         if (user instanceof AdminSoap) {
             return new AdminRA(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -61,7 +57,6 @@ public class UserConverterSoapAndRA {
         if (user instanceof ManagerSoap) {
             return new ManagerRA(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -71,7 +66,6 @@ public class UserConverterSoapAndRA {
         if (user instanceof ClientSoap) {
             return new ClientRA(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()

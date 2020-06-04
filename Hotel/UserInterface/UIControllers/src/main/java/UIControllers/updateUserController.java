@@ -31,11 +31,11 @@ public class updateUserController implements Serializable {
     @PostConstruct
     private void init() {
         if(dh.getUser().getType().equals("Admin"))
-            user = new AdminUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+            user = new AdminUI(dh.getUser().getLogin(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
         else if(dh.getUser().getType().equals("Manager"))
-            user = new ManagerUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+            user = new ManagerUI(dh.getUser().getLogin(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
         else if(dh.getUser().getType().equals("Client"))
-            user = new ClientUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+            user = new ClientUI(dh.getUser().getLogin(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
     }
     
     public UserUI getUser() {
@@ -43,7 +43,7 @@ public class updateUserController implements Serializable {
     }
     
     public String updateUser() {
-        userService.updateUser(user.getLogin(), user.getPassword(), user.getName(), user.getSurname());
+        userService.updateUser(user.getLogin(), user.getName(), user.getSurname());
         return "listUsers";
     }
 }

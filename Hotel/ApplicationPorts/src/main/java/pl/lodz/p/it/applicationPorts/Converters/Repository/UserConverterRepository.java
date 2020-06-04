@@ -20,7 +20,6 @@ public class UserConverterRepository {
         if (user instanceof Admin) {
             return new AdminRA(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -30,7 +29,6 @@ public class UserConverterRepository {
         if (user instanceof Manager) {
             return new ManagerRA(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -40,7 +38,6 @@ public class UserConverterRepository {
         if (user instanceof Client) {
             return new ClientRA(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -53,7 +50,6 @@ public class UserConverterRepository {
         if (user instanceof AdminRA) {
             return new Admin(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -63,7 +59,6 @@ public class UserConverterRepository {
         if (user instanceof ManagerRA) {
             return new Manager(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -73,7 +68,6 @@ public class UserConverterRepository {
         if (user instanceof ClientRA) {
             return new Client(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()

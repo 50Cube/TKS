@@ -53,10 +53,9 @@ public class UserRepositoryRA {
         users.put(manager.getLogin(), manager);
     }
     
-    public synchronized void updateUser(UserRA user, String newPassword, String newName, String newSurname)
+    public synchronized void updateUser(UserRA user, String newName, String newSurname)
     {
         UserRA localUser = getUser(user.getLogin());
-        localUser.setPassword(newPassword);
         localUser.setName(newName);
         localUser.setSurname(newSurname);
     }
@@ -97,13 +96,13 @@ public class UserRepositoryRA {
     @PostConstruct
     private void initDataUser()
     {
-        AdminRA admin = new AdminRA("admin", "1", "Norbercki", "Gierczak", true);
-        AdminRA admin2 = new AdminRA("4", "4", "Norbi", "Gierczak", true);
+        AdminRA admin = new AdminRA("admin", "Norbercki", "Gierczak", true);
+        AdminRA admin2 = new AdminRA("4", "Norbi", "Gierczak", true);
 
-        ManagerRA manager = new ManagerRA("manager", "2", "Marcin", "Krasucki", true);
-        ClientRA client1 = new ClientRA("client1", "3", "Gabriel", "Nowak", true);
-        ClientRA client2 = new ClientRA("client2", "4", "Jakub", "Bogdan", true);
-        ClientRA client3 = new ClientRA("client3", "5", "Szymon", "Rutkowski", false);
+        ManagerRA manager = new ManagerRA("manager", "Marcin", "Krasucki", true);
+        ClientRA client1 = new ClientRA("client1", "Gabriel", "Nowak", true);
+        ClientRA client2 = new ClientRA("client2","Jakub", "Bogdan", true);
+        ClientRA client3 = new ClientRA("client3", "Szymon", "Rutkowski", false);
         
         users.put(admin.getLogin(), admin);
         users.put(admin2.getLogin(), admin2);

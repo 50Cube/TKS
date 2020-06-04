@@ -19,7 +19,7 @@ import javax.security.enterprise.identitystore.IdentityStore;
 
 @ApplicationScoped
 public class CustomIdentityStore implements IdentityStore {
-    
+
     @Inject
     private UserAdapterUI users;
 
@@ -34,7 +34,7 @@ public class CustomIdentityStore implements IdentityStore {
         else if (caller.getPassword().equals(login.getPasswordAsString())){
 
              return new CredentialValidationResult(caller.getLogin(), new HashSet<>(Arrays.asList(caller.getType())));
-        } 
-        return CredentialValidationResult.NOT_VALIDATED_RESULT;         
+        }
+        return CredentialValidationResult.NOT_VALIDATED_RESULT;
     }
 }

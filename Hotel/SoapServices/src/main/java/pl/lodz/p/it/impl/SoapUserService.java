@@ -63,6 +63,6 @@ public class SoapUserService implements SoapUserServiceInterface {
 
     @Override
     public void updateUser(UserSoap user) {
-        userAdapter.updateUser(user, user.getPassword(), user.getName(), user.getSurname());
+        userAdapter.updateUser(user, user.getName(), user.getSurname());
     }
 }

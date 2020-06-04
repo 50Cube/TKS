@@ -74,7 +74,7 @@ public class UserAdapterSoapAndRA implements AddUserPort, ChangeUserActivenessPo
     }
 
     @Override
-    public void updateUser(UserSoap user, String newPassword, String newName, String newSurname) {
-        userRepository.updateUser(converter.convertToRA(user), newPassword, newName, newSurname);
+    public void updateUser(UserSoap user, String newName, String newSurname) {
+        userRepository.updateUser(converter.convertToRA(user), newName, newSurname);
     }
 }

@@ -2,6 +2,7 @@ package pl.lodz.p.it.Repositories;
 
 import pl.lodz.p.it.Model.UserRA;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,5 +53,24 @@ public class UserRepository {
         });
 
         return tmp;
+    }
+
+    @PostConstruct
+    private void initDataUser()
+    {
+        UserRA admin = new UserRA("admin", "1", "Norbercki", "Gierczak", true, "ADMIN");
+        UserRA admin2 = new UserRA("4", "4", "Norbi", "Gierczak", true, "ADMIN");
+
+        UserRA manager = new UserRA("manager", "2", "Marcin", "Krasucki", true, "MANAGER");
+        UserRA client1 = new UserRA("client1", "3", "Gabriel", "Nowak", true, "CLIENT");
+        UserRA client2 = new UserRA("client2", "4", "Jakub", "Bogdan", true, "CLIENT");
+        UserRA client3 = new UserRA("client3", "5", "Szymon", "Rutkowski", false, "CLIENT");
+
+        users.put(admin.getLogin(), admin);
+        users.put(admin2.getLogin(), admin2);
+        users.put(manager.getLogin(), manager);
+        users.put(client1.getLogin(), client1);
+        users.put(client2.getLogin(), client2);
+        users.put(client3.getLogin(), client3);
     }
 }

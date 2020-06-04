@@ -85,8 +85,8 @@ public class UserAdapter implements AddUserPort, ChangeUserActivenessPort, Updat
     }
 
     @Override
-    public void updateUser(User user, String newPassword, String newName, String newSurname) {
+    public void updateUser(User user, String newName, String newSurname) {
         UserRA userRA = converter.convertToRepository(user);
-        userRepository.updateUser(userRA,newPassword,newName,newSurname);
+        userRepository.updateUser(userRA,newName,newSurname);
     }
 }

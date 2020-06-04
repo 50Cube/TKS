@@ -34,27 +34,27 @@ public class UserService implements Serializable{
         return userAdapter.getUser(login);
     }
 
-    public void addClient(String login, String password, String name, String surname, boolean active) throws Exception {
+    public void addClient(String login, String name, String surname, boolean active) throws Exception {
         if(!userAdapter.getUsers().containsKey(login))
-            userAdapter.addUser(new Client(login,password,name,surname,active));
+            userAdapter.addUser(new Client(login,name,surname,active));
         else throw new Exception("User already exists");
     }
     
-    public void addManager(String login, String password, String name, String surname, boolean active) throws Exception {
+    public void addManager(String login, String name, String surname, boolean active) throws Exception {
         if(!userAdapter.getUsers().containsKey(login))
-            userAdapter.addUser(new Manager(login,password,name,surname,active));
+            userAdapter.addUser(new Manager(login,name,surname,active));
          else throw new Exception("User already exists");
     }
     
-    public void addAdmin(String login, String password, String name, String surname, boolean active) throws Exception {
+    public void addAdmin(String login, String name, String surname, boolean active) throws Exception {
         if(!userAdapter.getUsers().containsKey(login))
-            userAdapter.addUser(new Admin(login,password,name,surname,active));
+            userAdapter.addUser(new Admin(login,name,surname,active));
         else throw new Exception("User already exists");
     }
     
-    public void updateUser(String login, String newPassword, String newName, String newSurname)
+    public void updateUser(String login, String newName, String newSurname)
     {
-        userAdapter.updateUser(userAdapter.getUser(login), newPassword, newName, newSurname);
+        userAdapter.updateUser(userAdapter.getUser(login), newName, newSurname);
     }
     
     public void activateUser(String login)

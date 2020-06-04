@@ -40,21 +40,21 @@ public class UserAdapterUI implements AddUserPort, ChangeUserActivenessPort, Get
         return converter.convertToUI(userService.getUser(login));
     }
     @Override
-    public void addClient(String login, String password, String name, String surname, boolean active) throws  Exception{
-        userService.addClient(login,password,name,surname,active);
+    public void addClient(String login, String name, String surname, boolean active) throws  Exception{
+        userService.addClient(login,name,surname,active);
     }
     @Override
-    public void addManager(String login, String password, String name, String surname, boolean active) throws  Exception{
-        userService.addManager(login,password,name,surname,active);
+    public void addManager(String login, String name, String surname, boolean active) throws  Exception{
+        userService.addManager(login,name,surname,active);
     }
     @Override
-    public void addAdmin(String login, String password, String name, String surname, boolean active) throws  Exception{
-        userService.addAdmin(login,password,name,surname,active);
+    public void addAdmin(String login, String name, String surname, boolean active) throws  Exception{
+        userService.addAdmin(login,name,surname,active);
     }
     @Override
-    public void updateUser(String login, String newPassword, String newName, String newSurname)
+    public void updateUser(String login, String newName, String newSurname)
     {
-        userService.updateUser(login,newPassword,newName,newSurname);
+        userService.updateUser(login,newName,newSurname);
     }
     @Override
     public void activateUser(String login)

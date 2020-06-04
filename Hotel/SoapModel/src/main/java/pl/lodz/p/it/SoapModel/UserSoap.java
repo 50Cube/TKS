@@ -14,8 +14,6 @@ public abstract class UserSoap {
     @XmlElement
     private String login;
     @XmlElement
-    private String password;
-    @XmlElement
     private String name;
     @XmlElement
     private String surname;
@@ -24,11 +22,10 @@ public abstract class UserSoap {
 
     public UserSoap() {}
 
-    public UserSoap(String login, String password, String name, String surname, boolean active) {
+    public UserSoap(String login, String name, String surname, boolean active) {
         this.name = name;
         this.surname = surname;
         this.login = login;
-        this.password = password;
         this.isActive = active;
     }
 

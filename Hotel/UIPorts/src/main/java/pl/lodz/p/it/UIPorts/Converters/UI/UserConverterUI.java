@@ -23,7 +23,6 @@ public class UserConverterUI {
         if (user instanceof Admin) {
             return new AdminUI(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -33,7 +32,6 @@ public class UserConverterUI {
         if (user instanceof Manager) {
             return new ManagerUI(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -43,7 +41,6 @@ public class UserConverterUI {
         if (user instanceof Client) {
             return new ClientUI(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -56,7 +53,6 @@ public class UserConverterUI {
         if (user instanceof AdminUI) {
             return new Admin(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -66,7 +62,6 @@ public class UserConverterUI {
         if (user instanceof ManagerUI) {
             return new Manager(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -76,7 +71,6 @@ public class UserConverterUI {
         if (user instanceof ClientUI) {
             return new Client(
                     user.getLogin(),
-                    user.getPassword(),
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -88,7 +82,6 @@ public class UserConverterUI {
     public Client convertClientToDomain(ClientUI user){
         return new Client(
                 user.getLogin(),
-                user.getPassword(),
                 user.getName(),
                 user.getSurname(),
                 user.getIsActive()
