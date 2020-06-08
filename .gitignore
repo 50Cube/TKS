@@ -53,3 +53,5 @@ UserService/ApplicationPorts/target/
 UserService/RepositoriesAdapters/target/
 
 UserService/ApplicationCore/DomainModel/target/
+
+UserService/MQController/target/
