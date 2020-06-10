@@ -7,16 +7,21 @@ import com.rabbitmq.client.DeliverCallback;
 import lombok.extern.java.Log;
 
 import javax.annotation.PostConstruct;
+
+import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Destroyed;
+import javax.enterprise.context.Initialized;
+import javax.enterprise.event.Observes;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
-@Log
 @Startup
-@ApplicationScoped
+@Singleton
+@Log
 public class Receiver {
 
     Properties properties = new Properties();
@@ -25,7 +30,7 @@ public class Receiver {
     private Channel channel;
 
     @PostConstruct
-    public void init()  {
+    public void init() {
         connectionFactory = new ConnectionFactory();
 //        connectionFactory.setHost(properties.getProperty("host_name"));
         connectionFactory.setHost("localhost");
@@ -49,8 +54,9 @@ public class Receiver {
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(delivery.getEnvelope().getRoutingKey() + " " + message);
-            log.info("HERB " + message);
+            log.info("User create request " + message);
         };
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {});
     }
+
 }
