@@ -17,6 +17,7 @@
         <module>RestServices</module>
         <module>SoapServices</module>
         <module>ClientSoap</module>
+        <module>MQController</module>
     </modules>
     <packaging>pom</packaging>
     <name>Hotel-1.0-SNAPSHOT</name>
@@ -113,12 +114,6 @@
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>rt</artifactId>
             <version>2.3.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.rabbitmq</groupId>
-            <artifactId>amqp-client</artifactId>
-            <version>5.9.0</version>
         </dependency>
 
     </dependencies>

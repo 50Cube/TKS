@@ -1,5 +1,7 @@
 package UIControllers;
 
+import pl.lodz.p.it.Publisher;
+import pl.lodz.p.it.UIModel.UserUI;
 import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.io.Serializable;
@@ -17,6 +19,7 @@ public class addUserController implements Serializable{
 
     private String userType;
     private String login;
+    private String password;
     private String name;
     private String surname;
     private String activeString = "false";
@@ -27,6 +30,9 @@ public class addUserController implements Serializable{
     
     @Inject
     private Conversation conversation;
+
+    @Inject
+    private Publisher publisher;
     
     public addUserController() {
     }
@@ -45,6 +51,14 @@ public class addUserController implements Serializable{
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -116,7 +130,8 @@ public class addUserController implements Serializable{
             userService.addManager(login, name, surname, isActive);
         else if (userType.equals("Admin"))
             userService.addAdmin(login, name, surname, isActive);
-        
+
+        publisher.createUser(userType, login, name, surname, isActive, password);
         conversation.end();
         return "home";
     }

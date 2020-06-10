@@ -55,3 +55,5 @@ UserService/RepositoriesAdapters/target/
 UserService/ApplicationCore/DomainModel/target/
 
 UserService/MQController/target/
+
+Hotel/MQController/target/
