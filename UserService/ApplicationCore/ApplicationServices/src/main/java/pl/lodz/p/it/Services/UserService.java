@@ -5,11 +5,9 @@ import pl.lodz.p.it.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Map;
 
-@Named
 @ApplicationScoped
 public class UserService implements Serializable {
 
@@ -17,6 +15,10 @@ public class UserService implements Serializable {
     private UserAdapter userAdapter;
 
     public UserService() {}
+
+    public void addUser(String group, String login, String name, String surname, boolean isActive, String password) {
+        userAdapter.addUser(new User(login, password, name, surname, isActive, group));
+    }
 
     public Map<String, User> getUsers() {
         return userAdapter.getUsers();

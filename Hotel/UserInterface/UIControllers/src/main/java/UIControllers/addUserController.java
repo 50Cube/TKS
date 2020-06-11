@@ -1,7 +1,6 @@
 package UIControllers;
 
 import pl.lodz.p.it.Publisher;
-import pl.lodz.p.it.UIModel.UserUI;
 import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.io.Serializable;
@@ -11,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.json.Json;
 
 
 @Named(value = "addUserController")
@@ -131,7 +131,14 @@ public class addUserController implements Serializable{
         else if (userType.equals("Admin"))
             userService.addAdmin(login, name, surname, isActive);
 
-        publisher.createUser(userType, login, name, surname, isActive, password);
+        String json = Json.createObjectBuilder()
+                .add("userType", userType)
+                .add("login", login)
+                .add("name", name)
+                .add("surname", surname)
+                .add("isActive", isActive)
+                .add("password", password).build().toString();
+        publisher.createUser(json);
         conversation.end();
         return "home";
     }

@@ -33,10 +33,10 @@ public class Publisher {
         }
     }
 
-    public void createUser(String role, String login, String name, String surname, boolean isActive, String password) throws IOException {
-        StringBuilder object = new StringBuilder();
-        object.append(role).append(";").append(login).append(";").append(name).append(";")
-                .append(surname).append(";").append(isActive).append(";").append(password).append(";");
-        channel.basicPublish(EXCHANGE_NAME, "user.create" ,null, object.toString().getBytes(StandardCharsets.UTF_8));
+    public void createUser(String json) throws IOException {
+//        StringBuilder object = new StringBuilder();
+//        object.append(role).append(";").append(login).append(";").append(name).append(";")
+//                .append(surname).append(";").append(isActive).append(";").append(password).append(";");
+        channel.basicPublish(EXCHANGE_NAME, "user.create" ,null, json.getBytes(StandardCharsets.UTF_8));
     }
 }
