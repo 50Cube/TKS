@@ -16,6 +16,9 @@ public class Publisher {
     private final String EXCHANGE_NAME = "exchange_topic";
     private final String EXCHANGE_TYPE = "topic";
 
+    private final String CREATE_USER_KEY = "user.create";
+    private final String UPDATE_USER_KEY = "user.update";
+
     private ConnectionFactory connectionFactory;
     private Connection connection;
     private Channel channel;
@@ -34,9 +37,10 @@ public class Publisher {
     }
 
     public void createUser(String json) throws IOException {
-//        StringBuilder object = new StringBuilder();
-//        object.append(role).append(";").append(login).append(";").append(name).append(";")
-//                .append(surname).append(";").append(isActive).append(";").append(password).append(";");
-        channel.basicPublish(EXCHANGE_NAME, "user.create" ,null, json.getBytes(StandardCharsets.UTF_8));
+        channel.basicPublish(EXCHANGE_NAME, CREATE_USER_KEY ,null, json.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public void updateUser(String json) throws IOException {
+        channel.basicPublish(EXCHANGE_NAME, UPDATE_USER_KEY, null, json.getBytes(StandardCharsets.UTF_8));
     }
 }

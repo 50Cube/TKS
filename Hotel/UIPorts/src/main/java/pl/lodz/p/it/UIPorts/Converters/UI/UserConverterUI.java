@@ -23,6 +23,7 @@ public class UserConverterUI {
         if (user instanceof Admin) {
             return new AdminUI(
                     user.getLogin(),
+                    "",
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -32,6 +33,7 @@ public class UserConverterUI {
         if (user instanceof Manager) {
             return new ManagerUI(
                     user.getLogin(),
+                    "",
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()
@@ -41,6 +43,7 @@ public class UserConverterUI {
         if (user instanceof Client) {
             return new ClientUI(
                     user.getLogin(),
+                    "",
                     user.getName(),
                     user.getSurname(),
                     user.getIsActive()

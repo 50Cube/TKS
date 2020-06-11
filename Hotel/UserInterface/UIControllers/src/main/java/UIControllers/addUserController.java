@@ -122,23 +122,27 @@ public class addUserController implements Serializable{
         return "addUser";
     }
     
-    public String addUserConfirm() throws Exception {
+    public String addUserConfirm() {
         this.setIsActive();
-        if (userType.equals("Client"))
-            userService.addClient(login, name, surname, isActive);
-        else if (userType.equals("Manager"))
-            userService.addManager(login, name, surname, isActive);
-        else if (userType.equals("Admin"))
-            userService.addAdmin(login, name, surname, isActive);
+        try {
+            if (userType.equals("Client"))
+                userService.addClient(login, name, surname, isActive);
+            else if (userType.equals("Manager"))
+                userService.addManager(login, name, surname, isActive);
+            else if (userType.equals("Admin"))
+                userService.addAdmin(login, name, surname, isActive);
 
-        String json = Json.createObjectBuilder()
-                .add("userType", userType.toUpperCase())
-                .add("login", login)
-                .add("name", name)
-                .add("surname", surname)
-                .add("isActive", isActive)
-                .add("password", password).build().toString();
-        publisher.createUser(json);
+            String json = Json.createObjectBuilder()
+                    .add("userType", userType.toUpperCase())
+                    .add("login", login)
+                    .add("name", name)
+                    .add("surname", surname)
+                    .add("isActive", isActive)
+                    .add("password", password).build().toString();
+            publisher.createUser(json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         conversation.end();
         return "home";
     }

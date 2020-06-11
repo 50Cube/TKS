@@ -31,6 +31,9 @@ public class Receiver {
     private final String EXCHANGE_NAME = "exchange_topic";
     private final String EXCHANGE_TYPE = "topic";
 
+    private final String CREATE_USER_KEY = "user.create";
+    private final String UPDATE_USER_KEY = "user.update";
+
     private ConnectionFactory connectionFactory;
     private Connection connection;
     private Channel channel;
@@ -53,18 +56,18 @@ public class Receiver {
     }
 
     private void bindKeys() throws IOException {
-        channel.queueBind(queueName, EXCHANGE_NAME, "user.create");
-        channel.queueBind(queueName, EXCHANGE_NAME, "user.update");
+        channel.queueBind(queueName, EXCHANGE_NAME, CREATE_USER_KEY);
+        channel.queueBind(queueName, EXCHANGE_NAME, UPDATE_USER_KEY);
     }
 
     private void getMessage() throws IOException {
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             switch (delivery.getEnvelope().getRoutingKey()) {
-                case "user.create": {
+                case CREATE_USER_KEY: {
                     createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     break;
                 }
-                case "user-update": {
+                case UPDATE_USER_KEY: {
                     updateUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     break;
                 }
@@ -92,6 +95,13 @@ public class Receiver {
     private void updateUser(String message) {
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
+        log.info("Method updateUser invoked with parameter: " + message);
+        userService.updateUser(
+                jsonObject.getString("login"),
+                jsonObject.getString("password"),
+                jsonObject.getString("name"),
+                jsonObject.getString("surname")
+        );
     }
 
 }
