@@ -19,7 +19,7 @@ public class UserRA {
         this.name = name;
         this.surname = surname;
         this.isActive = isActive;
-        this.group = Group.valueOf(group);
+        this.group = Group.valueOf(group.toUpperCase());
     }
 
     public String toFilterString() {

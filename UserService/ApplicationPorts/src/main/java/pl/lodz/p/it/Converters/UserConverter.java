@@ -17,7 +17,7 @@ public class UserConverter {
                 user.getName(),
                 user.getSurname(),
                 user.getIsActive(),
-                user.getGroup().toString()
+                user.getGroup().toString().toUpperCase()
         );
     }
 
@@ -28,7 +28,7 @@ public class UserConverter {
                 user.getName(),
                 user.getSurname(),
                 user.getIsActive(),
-                user.getGroup().toString()
+                user.getGroup().toString().toUpperCase()
         );
     }
 

@@ -132,7 +132,7 @@ public class addUserController implements Serializable{
             userService.addAdmin(login, name, surname, isActive);
 
         String json = Json.createObjectBuilder()
-                .add("userType", userType)
+                .add("userType", userType.toUpperCase())
                 .add("login", login)
                 .add("name", name)
                 .add("surname", surname)

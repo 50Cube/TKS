@@ -19,7 +19,7 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.isActive = isActive;
-        this.group = Group.valueOf(group);
+        this.group = Group.valueOf(group.toUpperCase());
     }
 
     public enum Group{

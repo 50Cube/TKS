@@ -5,7 +5,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 import lombok.extern.java.Log;
-//import pl.lodz.p.it.Services.UserService;
+import pl.lodz.p.it.Services.UserService;
 
 import javax.annotation.PostConstruct;
 
@@ -23,9 +23,9 @@ import java.nio.charset.StandardCharsets;
 @Startup
 @Singleton
 public class Receiver {
-//
-//    @Inject
-//    private UserService userService;
+
+    @Inject
+    private UserService userService;
 
     private final String HOST_NAME = "localhost";
     private final String EXCHANGE_NAME = "exchange_topic";
@@ -80,18 +80,18 @@ public class Receiver {
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
         log.info("Method createUser invoked with parameter: " + message);
-//        userService.addUser(
-//                jsonObject.getString("userType"),
-//                jsonObject.getString("login"),
-//                jsonObject.getString("name"),
-//                jsonObject.getString("surname"),
-//                jsonObject.getBoolean("isActive"),
-//                jsonObject.getString("password"));
-//        log.info("USERS = " + userService.getUsers().values());
+        userService.addUser(
+                jsonObject.getString("userType"),
+                jsonObject.getString("login"),
+                jsonObject.getString("name"),
+                jsonObject.getString("surname"),
+                jsonObject.getBoolean("isActive"),
+                jsonObject.getString("password"));
     }
 
     private void updateUser(String message) {
-
+        JsonReader reader = Json.createReader(new StringReader(message));
+        JsonObject jsonObject = reader.readObject();
     }
 
 }

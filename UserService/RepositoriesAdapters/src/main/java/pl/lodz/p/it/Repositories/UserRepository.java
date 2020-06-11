@@ -12,8 +12,12 @@ public class UserRepository {
 
     private Map<String, UserRA> users;
 
+    public UserRepository() {
+        users = new HashMap<>();
+    }
+
     public Map<String, UserRA> getUsers() {
-        return new HashMap<>();
+        return new HashMap<>(users);
     }
 
     public UserRA getUser(String login) {
