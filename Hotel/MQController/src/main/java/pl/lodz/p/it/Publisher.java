@@ -3,13 +3,14 @@ package pl.lodz.p.it;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import lombok.SneakyThrows;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
-import java.util.concurrent.TimeoutException;
 
 @RequestScoped
 public class Publisher {
@@ -19,28 +20,21 @@ public class Publisher {
     private Connection connection;
     private Channel channel;
 
+    @SneakyThrows
     @PostConstruct
     public void init() {
+        properties.load(new FileInputStream("MQController/src/main/resources/rabbit.properties"));
         connectionFactory = new ConnectionFactory();
-//        connectionFactory.setHost(properties.getProperty("host_name"));
-        connectionFactory.setHost("localhost");
-
-
-        try {
-            connection = connectionFactory.newConnection();
-            channel = connection.createChannel();
-            channel.exchangeDeclare("topic_exchange", "topic");
-//            channel.exchangeDeclare(properties.getProperty("exchange_name"), properties.getProperty("exchange_type"));
-        } catch (IOException | TimeoutException e) {
-            e.printStackTrace();
-        }
+        connectionFactory.setHost(properties.getProperty("host_name"));
+        connection = connectionFactory.newConnection();
+        channel = connection.createChannel();
+        channel.exchangeDeclare(properties.getProperty("exchange_name"), properties.getProperty("exchange_type"));
     }
 
     public void createUser(String role, String login, String name, String surname, boolean isActive, String password) throws IOException {
-//        channel.basicPublish(properties.getProperty("exchange_name"), "user.create" ,null, message.getBytes(StandardCharsets.UTF_8));
         StringBuilder object = new StringBuilder();
         object.append(role).append(";").append(login).append(";").append(name).append(";")
                 .append(surname).append(";").append(isActive).append(";").append(password).append(";");
-        channel.basicPublish("topic_exchange", "user.create" ,null, object.toString().getBytes(StandardCharsets.UTF_8));
+        channel.basicPublish(properties.getProperty("exchange_name"), "user.create" ,null, object.toString().getBytes(StandardCharsets.UTF_8));
     }
 }
