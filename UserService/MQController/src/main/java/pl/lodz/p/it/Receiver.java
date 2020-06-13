@@ -9,8 +9,9 @@ import pl.lodz.p.it.Services.UserService;
 
 import javax.annotation.PostConstruct;
 
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Initialized;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -18,10 +19,10 @@ import javax.json.JsonReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 @Log
-@Startup
-@Singleton
+@ApplicationScoped
 public class Receiver {
 
     @Inject
@@ -40,13 +41,14 @@ public class Receiver {
     private String queueName;
 
     @PostConstruct
-    public void init() {
+    public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
         try {
             connectionFactory = new ConnectionFactory();
             connectionFactory.setHost(HOST_NAME);
             connection = connectionFactory.newConnection();
             channel = connection.createChannel();
             channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
+            channel.basicQos(1);
             queueName = channel.queueDeclare().getQueue();
             bindKeys();
             getMessage();
@@ -75,8 +77,9 @@ public class Receiver {
                     break;
                 }
             }
+            channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         };
-        channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {});
+        channel.basicConsume(queueName, false, deliverCallback, consumerTag -> {});
     }
 
     private void createUser(String message) {

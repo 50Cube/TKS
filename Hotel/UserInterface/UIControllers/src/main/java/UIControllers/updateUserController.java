@@ -1,6 +1,5 @@
 package UIControllers;
 
-import com.mycompany.store.Services.UserService;
 import pl.lodz.p.it.Publisher;
 import pl.lodz.p.it.UIModel.AdminUI;
 import pl.lodz.p.it.UIModel.ClientUI;
