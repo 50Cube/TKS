@@ -1,5 +1,7 @@
 package UIControllers;
 
+import lombok.extern.java.Log;
+import pl.lodz.p.it.Publisher;
 import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 import pl.lodz.p.it.UIModel.UserUI;
 
@@ -10,17 +12,19 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 
-
+@Log
 @Named(value = "listUsersController")
 @ViewScoped
 public class listUsersController implements Serializable{
-    
-        
+
     @Inject
     private UserAdapterUI userService;
     
     @Inject
     private DataHolder dh;
+
+    @Inject
+    private Publisher publisher;
 
     private Map<String, UserUI> users;
     private String filter;
@@ -32,6 +36,12 @@ public class listUsersController implements Serializable{
     public void loadUsers()
     {
         users = userService.getUsers();
+//        try {
+//            String users = publisher.getUsers();
+//            log.info("Users " + users);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
     
     public Map<String, UserUI> getUsers()

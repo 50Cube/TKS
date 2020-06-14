@@ -35,12 +35,18 @@ public class updateUserController implements Serializable {
     
     @PostConstruct
     private void init() {
-        if(dh.getUser().getType().equals("Admin"))
-            user = new AdminUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
-        else if(dh.getUser().getType().equals("Manager"))
-            user = new ManagerUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
-        else if(dh.getUser().getType().equals("Client"))
-            user = new ClientUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+//        if(dh.getUser().getType().equals("Admin"))
+//            user = new AdminUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+//        else if(dh.getUser().getType().equals("Manager"))
+//            user = new ManagerUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+//        else if(dh.getUser().getType().equals("Client"))
+//            user = new ClientUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
+
+        try {
+            user = publisher.getUser(dh.getUser().getLogin());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public UserUI getUser() {

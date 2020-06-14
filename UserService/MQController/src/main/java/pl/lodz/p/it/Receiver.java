@@ -9,6 +9,7 @@ import pl.lodz.p.it.Services.UserService;
 
 import javax.annotation.PostConstruct;
 
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
@@ -19,7 +20,6 @@ import javax.json.JsonReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 @Log
 @ApplicationScoped
@@ -28,12 +28,12 @@ public class Receiver {
     @Inject
     private UserService userService;
 
-    private final String HOST_NAME = "localhost";
-    private final String EXCHANGE_NAME = "exchange_topic";
-    private final String EXCHANGE_TYPE = "topic";
+    private static final String HOST_NAME = "localhost";
+    private static final String EXCHANGE_NAME = "exchange_topic";
+    private static final String EXCHANGE_TYPE = "topic";
 
-    private final String CREATE_USER_KEY = "user.create";
-    private final String UPDATE_USER_KEY = "user.update";
+    private static final String CREATE_USER_KEY = "user.create";
+    private static final String UPDATE_USER_KEY = "user.update";
 
     private ConnectionFactory connectionFactory;
     private Connection connection;
@@ -53,6 +53,15 @@ public class Receiver {
             bindKeys();
             getMessage();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @PreDestroy
+    public void closeConnection() {
+        try {
+            connection.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -106,5 +115,4 @@ public class Receiver {
                 jsonObject.getString("surname")
         );
     }
-
 }
