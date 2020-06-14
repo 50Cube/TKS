@@ -76,11 +76,9 @@ public class ReceiverRPC {
                         .add("surname", user.getSurname())
                         .add("isActive", user.getIsActive())
                         .add("group", user.getGroup().toString()).build().toString();
-                log.info("RESPONSE U CLIENTA = " + response);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                log.info("FINALLY");
                 channel.basicPublish("", delivery.getProperties().getReplyTo(), properties, response.getBytes(StandardCharsets.UTF_8));
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
                 synchronized (monitor) {
@@ -91,30 +89,30 @@ public class ReceiverRPC {
 
         channel.basicConsume(RPC_QUEUE, false, deliverCallback, (consumerTag -> {}));
 
-////        while (true) {
-////            synchronized (monitor) {
-////                try {
-////                    monitor.wait();
-////                } catch (InterruptedException e) {
-////                    e.printStackTrace();
-////                }
-////            }
-////        }
-//    }
-//
-//    private JsonArrayBuilder getUsers() {
-//        Map<String, User> map = userService.getUsers();
-//        JsonArrayBuilder jsonArray = Json.createArrayBuilder();
-//        for(User u: map.values()) {
-//            String json = Json.createObjectBuilder()
-//                    .add("login", u.getLogin())
-//                    .add("password", u.getPassword())
-//                    .add("name", u.getName())
-//                    .add("surname", u.getSurname())
-//                    .add("isActive", u.getIsActive())
-//                    .add("group", u.getGroup().toString()).build().toString();
-//            jsonArray.add(json);
+//        while (true) {
+//            synchronized (monitor) {
+//                try {
+//                    monitor.wait();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
 //        }
-//        return jsonArray;
+    }
+
+    private JsonArrayBuilder getUsers() {
+        Map<String, User> map = userService.getUsers();
+        JsonArrayBuilder jsonArray = Json.createArrayBuilder();
+        for(User u: map.values()) {
+            String json = Json.createObjectBuilder()
+                    .add("login", u.getLogin())
+                    .add("password", u.getPassword())
+                    .add("name", u.getName())
+                    .add("surname", u.getSurname())
+                    .add("isActive", u.getIsActive())
+                    .add("group", u.getGroup().toString()).build().toString();
+            jsonArray.add(json);
+        }
+        return jsonArray;
     }
 }

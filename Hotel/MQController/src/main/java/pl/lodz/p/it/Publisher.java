@@ -19,7 +19,6 @@ import javax.json.JsonReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -107,19 +106,16 @@ public class Publisher {
 
         String ctag = channel.basicConsume(replyQueueName, true, (consumerTag, delivery) -> {
             if(delivery.getProperties().getCorrelationId().equals(correlationID)) {
-                log.info("RESPONSE1 " + response);
                 response.offer(prepareUser(delivery.getBody()));
-                log.info("RESPONSE2 " + response);
             }
         }, consumerTag -> {});
         UserUI result = response.take();
         channel.basicCancel(ctag);
-        log.info("RESULT " + result);
         return result;
     }
 
     private UserUI prepareUser(byte[] bytes) {
-        String message = Base64.getEncoder().encodeToString(bytes);
+        String message = new String(bytes);
         log.info("MESSAGE " + message);
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
