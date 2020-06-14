@@ -68,14 +68,13 @@ public class ReceiverRPC {
             String response = "";
             try {
                 String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-                User user = userService.getUser(message);
-                response = Json.createObjectBuilder()
-                        .add("login", user.getLogin())
-                        .add("password", user.getPassword())
-                        .add("name", user.getName())
-                        .add("surname", user.getSurname())
-                        .add("isActive", user.getIsActive())
-                        .add("group", user.getGroup().toString()).build().toString();
+                if(message.contains("getAll")) {
+                    response = getUsers();
+                } else if (message.contains("getOne")) {
+                    response = getUser(message.substring(message.indexOf('.') + 1));
+                } else if (message.contains("getFiltered")) {
+                    response = getFilteredUsers(message.substring(message.indexOf('.') + 1));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -86,33 +85,37 @@ public class ReceiverRPC {
                 }
             }
         };
-
         channel.basicConsume(RPC_QUEUE, false, deliverCallback, (consumerTag -> {}));
-
-//        while (true) {
-//            synchronized (monitor) {
-//                try {
-//                    monitor.wait();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
     }
 
-    private JsonArrayBuilder getUsers() {
+    private String prepareJsonObject(User user) {
+        return Json.createObjectBuilder()
+                .add("login", user.getLogin())
+                .add("password", user.getPassword())
+                .add("name", user.getName())
+                .add("surname", user.getSurname())
+                .add("isActive", user.getIsActive())
+                .add("group", user.getGroup().toString()).build().toString();
+    }
+
+    private String getUser(String message) {
+        User user = userService.getUser(message);
+        return prepareJsonObject(user);
+    }
+
+    private String getUsers() {
         Map<String, User> map = userService.getUsers();
         JsonArrayBuilder jsonArray = Json.createArrayBuilder();
-        for(User u: map.values()) {
-            String json = Json.createObjectBuilder()
-                    .add("login", u.getLogin())
-                    .add("password", u.getPassword())
-                    .add("name", u.getName())
-                    .add("surname", u.getSurname())
-                    .add("isActive", u.getIsActive())
-                    .add("group", u.getGroup().toString()).build().toString();
-            jsonArray.add(json);
-        }
-        return jsonArray;
+        for(User user: map.values())
+            jsonArray.add(prepareJsonObject(user));
+        return jsonArray.build().toString();
+    }
+
+    private String getFilteredUsers(String filter) {
+        Map<String, User> map = userService.getFilterUsers(filter);
+        JsonArrayBuilder jsonArray = Json.createArrayBuilder();
+        for(User user: map.values())
+            jsonArray.add(prepareJsonObject(user));
+        return jsonArray.toString();
     }
 }

@@ -19,6 +19,8 @@ import javax.json.JsonReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -70,7 +72,11 @@ public class Publisher {
         channel.basicPublish(EXCHANGE_NAME, UPDATE_USER_KEY, null, json.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String getUsers() throws IOException, InterruptedException {
+    private void send() {
+
+    }
+
+    public Map<String, UserUI> getUsers(String message) throws IOException, InterruptedException {
         final String correlationID = UUID.randomUUID().toString();
         String replyQueueName = channel.queueDeclare().getQueue();
         AMQP.BasicProperties properties = new AMQP.BasicProperties
@@ -79,15 +85,15 @@ public class Publisher {
                 .correlationId(correlationID)
                 .replyTo(replyQueueName)
                 .build();
-        channel.basicPublish("", RPC_QUEUE, properties, null);
-        final BlockingQueue<String> response = new ArrayBlockingQueue<>(1);
+        channel.basicPublish("", RPC_QUEUE, properties, message.getBytes(StandardCharsets.UTF_8));
+        final BlockingQueue<Map<String, UserUI>> response = new ArrayBlockingQueue<>(1);
 
         String ctag = channel.basicConsume(replyQueueName, true, (consumerTag, delivery) -> {
             if(delivery.getProperties().getCorrelationId().equals(correlationID)) {
-                response.offer(new String(delivery.getBody(), StandardCharsets.UTF_8));
+                response.offer(prepareUserMap(delivery.getBody()));
             }
         }, consumerTag -> {});
-        String result = response.take();
+        Map<String, UserUI> result = response.take();
         channel.basicCancel(ctag);
         return result;
     }
@@ -116,7 +122,7 @@ public class Publisher {
 
     private UserUI prepareUser(byte[] bytes) {
         String message = new String(bytes);
-        log.info("MESSAGE " + message);
+        log.info("MESSAGE GetUser " + message);
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
 
@@ -139,5 +145,14 @@ public class Publisher {
                     jsonObject.getString("surname"),
                     jsonObject.getBoolean("isActive"));
         }
+    }
+
+    private Map<String, UserUI> prepareUserMap(byte[] bytes) {
+        String message = new String(bytes);
+        log.info("MESSAGE GetUsers " + message);
+
+        Map<String, UserUI> map = new HashMap<>();
+
+        return map;
     }
 }

@@ -35,13 +35,13 @@ public class listUsersController implements Serializable{
     @PostConstruct
     public void loadUsers()
     {
-        users = userService.getUsers();
-//        try {
-//            String users = publisher.getUsers();
-//            log.info("Users " + users);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+//        users = userService.getUsers();
+        try {
+            users = publisher.getUsers("getAll.");
+            log.info("Users " + users);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public Map<String, UserUI> getUsers()

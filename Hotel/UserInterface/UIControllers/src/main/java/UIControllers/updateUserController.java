@@ -43,7 +43,7 @@ public class updateUserController implements Serializable {
 //            user = new ClientUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
 
         try {
-            user = publisher.getUser(dh.getUser().getLogin());
+            user = publisher.getUser("getOne." + dh.getUser().getLogin());
         } catch (Exception e) {
             e.printStackTrace();
         }
