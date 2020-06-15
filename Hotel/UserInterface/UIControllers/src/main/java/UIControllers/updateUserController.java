@@ -1,5 +1,6 @@
 package UIControllers;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import pl.lodz.p.it.Publisher;
 import pl.lodz.p.it.UIModel.UserUI;
 
@@ -42,7 +43,7 @@ public class updateUserController implements Serializable {
     public String updateUser() {
         String json = Json.createObjectBuilder()
                 .add("login", user.getLogin())
-                .add("password", user.getPassword())
+                .add("password", DigestUtils.sha256Hex(user.getPassword()))
                 .add("name", user.getName())
                 .add("surname", user.getSurname()).build().toString();
 

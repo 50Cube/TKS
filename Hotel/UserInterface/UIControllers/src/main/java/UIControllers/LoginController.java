@@ -1,5 +1,7 @@
 package UIControllers;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -64,7 +66,7 @@ public class LoginController {
     private AuthenticationStatus continueAuthentication() {
         return securityContext.authenticate((HttpServletRequest) externalContext.getRequest(),
                 (HttpServletResponse) externalContext.getResponse(),
-                AuthenticationParameters.withParams().credential(new UsernamePasswordCredential(name, password))
+                AuthenticationParameters.withParams().credential(new UsernamePasswordCredential(name, DigestUtils.sha256Hex(password)))
         );
     }
 
