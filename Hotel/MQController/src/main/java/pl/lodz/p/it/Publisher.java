@@ -1,9 +1,6 @@
 package pl.lodz.p.it;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.*;
 import lombok.extern.java.Log;
 import pl.lodz.p.it.UIModel.AdminUI;
 import pl.lodz.p.it.UIModel.ClientUI;
@@ -21,8 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.*;
 
 @Log
 @RequestScoped
@@ -39,6 +35,7 @@ public class Publisher {
     private ConnectionFactory connectionFactory;
     private Connection connection;
     private Channel channel;
+    ConcurrentNavigableMap<Long, String> outstandingConfirms = new ConcurrentSkipListMap<>();
 
     private String correlationID;
     private String replyQueueName;
@@ -51,10 +48,27 @@ public class Publisher {
             connectionFactory.setHost(HOST_NAME);
             connection = connectionFactory.newConnection();
             channel = connection.createChannel();
+            channel.confirmSelect();
+            channel.addConfirmListener(cleanOutstandingConfirms,
+             (sequenceNumber, multiple) -> {
+                log.severe("Message number: " + sequenceNumber + "failed");
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    ConfirmCallback cleanOutstandingConfirms = (sequenceNumber, multiple) -> {
+        log.info("Message number: " + sequenceNumber + "success");
+        if (multiple) {
+            ConcurrentNavigableMap<Long, String> confirmed = outstandingConfirms.headMap(
+                    sequenceNumber, true
+            );
+            confirmed.clear();
+        } else {
+            outstandingConfirms.remove(sequenceNumber);
+        }
+    };
 
     @PreDestroy
     public void closeConnection() {
@@ -65,8 +79,10 @@ public class Publisher {
         }
     }
 
-    public void createUser(String json) throws IOException {
+    public void createUser(String json) throws IOException, TimeoutException, InterruptedException {
         channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
+        long sequenceNumber = channel.getNextPublishSeqNo();
+        outstandingConfirms.put(sequenceNumber,json);
         channel.basicPublish(EXCHANGE_NAME, CREATE_USER_KEY,null, json.getBytes(StandardCharsets.UTF_8));
     }
 

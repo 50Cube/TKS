@@ -1,8 +1,11 @@
 package UIControllers;
 
+import lombok.extern.java.Log;
+import org.apache.commons.codec.digest.DigestUtils;
 import pl.lodz.p.it.Publisher;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeoutException;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
@@ -13,6 +16,7 @@ import javax.json.Json;
 
 @Named(value = "addUserController")
 @ConversationScoped
+@Log
 public class addUserController implements Serializable{
 
     private String userType;
@@ -126,9 +130,12 @@ public class addUserController implements Serializable{
                     .add("name", name)
                     .add("surname", surname)
                     .add("isActive", isActive)
-                    .add("password", password).build().toString();
+                    .add("password", DigestUtils.sha256Hex(password)).build().toString();
             publisher.createUser(json);
-        } catch (Exception e) {
+        }catch (TimeoutException | InterruptedException ex) {
+            log.severe("User creation failed");
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         conversation.end();
