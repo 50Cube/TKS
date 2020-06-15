@@ -1,9 +1,6 @@
 package UIControllers;
 
 import pl.lodz.p.it.Publisher;
-import pl.lodz.p.it.UIModel.AdminUI;
-import pl.lodz.p.it.UIModel.ClientUI;
-import pl.lodz.p.it.UIModel.ManagerUI;
 import pl.lodz.p.it.UIModel.UserUI;
 import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
@@ -35,13 +32,6 @@ public class updateUserController implements Serializable {
     
     @PostConstruct
     private void init() {
-//        if(dh.getUser().getType().equals("Admin"))
-//            user = new AdminUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
-//        else if(dh.getUser().getType().equals("Manager"))
-//            user = new ManagerUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
-//        else if(dh.getUser().getType().equals("Client"))
-//            user = new ClientUI(dh.getUser().getLogin(), dh.getUser().getPassword(), dh.getUser().getName(), dh.getUser().getSurname(), dh.getUser().getIsActive());
-
         try {
             user = publisher.getUser("getOne." + dh.getUser().getLogin());
         } catch (Exception e) {

@@ -56,8 +56,6 @@ public class ReceiverRPC {
     }
 
     private void waitForRequests() throws IOException {
-        System.out.println("Waiting for rpc requests");
-
         Object monitor = new Object();
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             AMQP.BasicProperties properties = new AMQP.BasicProperties
