@@ -13,14 +13,13 @@ import pl.lodz.p.it.UIModel.UserUI;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
+import javax.json.*;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -40,6 +39,10 @@ public class Publisher {
     private ConnectionFactory connectionFactory;
     private Connection connection;
     private Channel channel;
+
+    private String correlationID;
+    private String replyQueueName;
+    private AMQP.BasicProperties properties;
 
     @PostConstruct
     public void init() {
@@ -72,22 +75,21 @@ public class Publisher {
         channel.basicPublish(EXCHANGE_NAME, UPDATE_USER_KEY, null, json.getBytes(StandardCharsets.UTF_8));
     }
 
-    private void send() {
-
-    }
-
-    public Map<String, UserUI> getUsers(String message) throws IOException, InterruptedException {
-        final String correlationID = UUID.randomUUID().toString();
-        String replyQueueName = channel.queueDeclare().getQueue();
-        AMQP.BasicProperties properties = new AMQP.BasicProperties
+    private void prepareGetMethod(String message) throws IOException {
+        correlationID = UUID.randomUUID().toString();
+        replyQueueName = channel.queueDeclare().getQueue();
+        properties = new AMQP.BasicProperties
                 .Builder()
                 .deliveryMode(2)
                 .correlationId(correlationID)
                 .replyTo(replyQueueName)
                 .build();
         channel.basicPublish("", RPC_QUEUE, properties, message.getBytes(StandardCharsets.UTF_8));
-        final BlockingQueue<Map<String, UserUI>> response = new ArrayBlockingQueue<>(1);
+    }
 
+    public Map<String, UserUI> getUsers(String message) throws IOException, InterruptedException {
+        prepareGetMethod(message);
+        final BlockingQueue<Map<String, UserUI>> response = new ArrayBlockingQueue<>(1);
         String ctag = channel.basicConsume(replyQueueName, true, (consumerTag, delivery) -> {
             if(delivery.getProperties().getCorrelationId().equals(correlationID)) {
                 response.offer(prepareUserMap(delivery.getBody()));
@@ -99,20 +101,12 @@ public class Publisher {
     }
 
     public UserUI getUser(String message) throws IOException, InterruptedException {
-        final String correlationID = UUID.randomUUID().toString();
-        String replyQueueName = channel.queueDeclare().getQueue();
-        AMQP.BasicProperties properties = new AMQP.BasicProperties
-                .Builder()
-                .deliveryMode(2)
-                .correlationId(correlationID)
-                .replyTo(replyQueueName)
-                .build();
-        channel.basicPublish("", RPC_QUEUE, properties, message.getBytes(StandardCharsets.UTF_8));
+        prepareGetMethod(message);
         final BlockingQueue<UserUI> response = new ArrayBlockingQueue<>(1);
 
         String ctag = channel.basicConsume(replyQueueName, true, (consumerTag, delivery) -> {
             if(delivery.getProperties().getCorrelationId().equals(correlationID)) {
-                response.offer(prepareUser(delivery.getBody()));
+                response.offer(Objects.requireNonNull(prepareUser(new String(delivery.getBody()))));
             }
         }, consumerTag -> {});
         UserUI result = response.take();
@@ -120,9 +114,7 @@ public class Publisher {
         return result;
     }
 
-    private UserUI prepareUser(byte[] bytes) {
-        String message = new String(bytes);
-        log.info("MESSAGE GetUser " + message);
+    private UserUI prepareUser(String message) {
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
 
@@ -132,27 +124,34 @@ public class Publisher {
                     jsonObject.getString("name"),
                     jsonObject.getString("surname"),
                     jsonObject.getBoolean("isActive"));
-        } else if (jsonObject.getString("userType").equalsIgnoreCase("manager")) {
+        } else if (jsonObject.getString("group").equalsIgnoreCase("manager")) {
             return new ManagerUI(jsonObject.getString("login"),
                     jsonObject.getString("password"),
                     jsonObject.getString("name"),
                     jsonObject.getString("surname"),
                     jsonObject.getBoolean("isActive"));
-        } else {
+        } else if (jsonObject.getString("group").equalsIgnoreCase("admin")) {
             return new AdminUI(jsonObject.getString("login"),
                     jsonObject.getString("password"),
                     jsonObject.getString("name"),
                     jsonObject.getString("surname"),
                     jsonObject.getBoolean("isActive"));
         }
+        return null;
     }
 
     private Map<String, UserUI> prepareUserMap(byte[] bytes) {
-        String message = new String(bytes);
-        log.info("MESSAGE GetUsers " + message);
-
         Map<String, UserUI> map = new HashMap<>();
+        String message = new String(bytes);
+        message = message.replace("\\", "").replace("\"{\"", "{\"").replace("\"}\"", "\"}");
 
+        JsonReader reader = Json.createReader(new StringReader(message));
+        JsonArray jsonArray = reader.readArray();
+
+        for(JsonValue jsonValue : jsonArray) {
+            JsonObject jsonObject = jsonValue.asJsonObject();
+            map.put(jsonObject.getString("login"), prepareUser(jsonObject.toString()));
+        }
         return map;
     }
 }

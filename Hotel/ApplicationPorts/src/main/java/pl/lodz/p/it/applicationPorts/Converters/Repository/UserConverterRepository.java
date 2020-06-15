@@ -5,6 +5,7 @@ import com.mycompany.store.Model.Admin;
 import com.mycompany.store.Model.Client;
 import com.mycompany.store.Model.Manager;
 import com.mycompany.store.Model.User;
+import lombok.extern.java.Log;
 import pl.lodz.p.it.RA.Model.AdminRA;
 import pl.lodz.p.it.RA.Model.ClientRA;
 import pl.lodz.p.it.RA.Model.ManagerRA;
@@ -13,10 +14,12 @@ import pl.lodz.p.it.RA.Model.UserRA;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
+@Log
 @Named
 @ApplicationScoped
 public class UserConverterRepository {
     public UserRA convertToRepository(User user){
+        log.info("HERB " + user);
         if (user instanceof Admin) {
             return new AdminRA(
                     user.getLogin(),
