@@ -2,7 +2,6 @@ package UIControllers;
 
 import pl.lodz.p.it.Publisher;
 import pl.lodz.p.it.UIModel.UserUI;
-import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -18,9 +17,6 @@ public class updateUserController implements Serializable {
 
     @Inject
     DataHolder dh;
-    
-    @Inject
-    private UserAdapterUI userService;
 
     @Inject
     private Publisher publisher;
@@ -42,10 +38,8 @@ public class updateUserController implements Serializable {
     public UserUI getUser() {
         return this.user;
     }
-    
-    public String updateUser() {
-        userService.updateUser(user.getLogin(), user.getName(), user.getSurname());
 
+    public String updateUser() {
         String json = Json.createObjectBuilder()
                 .add("login", user.getLogin())
                 .add("password", user.getPassword())

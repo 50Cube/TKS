@@ -114,6 +114,6 @@ public class ReceiverRPC {
         JsonArrayBuilder jsonArray = Json.createArrayBuilder();
         for(User user: map.values())
             jsonArray.add(prepareJsonObject(user));
-        return jsonArray.toString();
+        return jsonArray.build().toString();
     }
 }

@@ -1,7 +1,6 @@
 package UIControllers;
 
 import pl.lodz.p.it.Publisher;
-import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import java.io.Serializable;
 import javax.enterprise.context.Conversation;
@@ -11,7 +10,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.json.Json;
-
 
 @Named(value = "addUserController")
 @ConversationScoped
@@ -24,9 +22,6 @@ public class addUserController implements Serializable{
     private String surname;
     private String activeString = "false";
     private boolean isActive;
-    
-    @Inject
-    private UserAdapterUI userService;
     
     @Inject
     private Conversation conversation;
@@ -125,13 +120,6 @@ public class addUserController implements Serializable{
     public String addUserConfirm() {
         this.setIsActive();
         try {
-            if (userType.equals("Client"))
-                userService.addClient(login, name, surname, isActive);
-            else if (userType.equals("Manager"))
-                userService.addManager(login, name, surname, isActive);
-            else if (userType.equals("Admin"))
-                userService.addAdmin(login, name, surname, isActive);
-
             String json = Json.createObjectBuilder()
                     .add("userType", userType.toUpperCase())
                     .add("login", login)

@@ -33,7 +33,6 @@ public class listUsersController implements Serializable{
     @PostConstruct
     public void loadUsers()
     {
-//        users = userService.getUsers();
         try {
             users = publisher.getUsers("getAll.");
         } catch (Exception e) {
@@ -57,7 +56,11 @@ public class listUsersController implements Serializable{
     }
     
     public void getFilteredUsers() {
-        users = userService.getFilterUsers(this.filter);
+        try {
+            users = publisher.getUsers("getFiltered." + this.filter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public String getFilter() {

@@ -19,7 +19,6 @@ import javax.inject.Named;
 @ApplicationScoped
 public class UserConverterRepository {
     public UserRA convertToRepository(User user){
-        log.info("HERB " + user);
         if (user instanceof Admin) {
             return new AdminRA(
                     user.getLogin(),
