@@ -132,8 +132,6 @@ public class addUserController implements Serializable{
                     .add("isActive", isActive)
                     .add("password", DigestUtils.sha256Hex(password)).build().toString();
             publisher.createUser(json);
-        }catch (TimeoutException | InterruptedException ex) {
-            log.severe("User creation failed");
         }
         catch (Exception e) {
             e.printStackTrace();

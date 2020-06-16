@@ -30,6 +30,7 @@ public class Publisher {
     private static final String RPC_QUEUE = "rpc_queue";
 
     private static final String CREATE_USER_KEY = "user.create";
+    private static final String REMOVE_USER_KEY = "user.remove";
     private static final String UPDATE_USER_KEY = "user.update";
 
     private ConnectionFactory connectionFactory;
@@ -79,7 +80,14 @@ public class Publisher {
         }
     }
 
-    public void createUser(String json) throws IOException, TimeoutException, InterruptedException {
+    public void removeUser(String login) throws IOException {
+        channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
+        long sequenceNumber = channel.getNextPublishSeqNo();
+        outstandingConfirms.put(sequenceNumber,login);
+        channel.basicPublish(EXCHANGE_NAME, REMOVE_USER_KEY,null, login.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public void createUser(String json) throws IOException{
         channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
         long sequenceNumber = channel.getNextPublishSeqNo();
         outstandingConfirms.put(sequenceNumber,json);

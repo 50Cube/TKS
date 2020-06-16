@@ -34,6 +34,7 @@ public class Receiver {
 
     private static final String CREATE_USER_KEY = "user.create";
     private static final String UPDATE_USER_KEY = "user.update";
+    private static final String REMOVE_USER_KEY = "user.remove";
 
     private ConnectionFactory connectionFactory;
     private Connection connection;
@@ -82,6 +83,9 @@ public class Receiver {
                     updateUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     break;
                 }
+                case REMOVE_USER_KEY: {
+                    removeUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
+                }
                 default: {
                     break;
                 }
@@ -114,5 +118,9 @@ public class Receiver {
                 jsonObject.getString("name"),
                 jsonObject.getString("surname")
         );
+    }
+
+    private void removeUser(String message) {
+        userService.removeUser(message);
     }
 }
