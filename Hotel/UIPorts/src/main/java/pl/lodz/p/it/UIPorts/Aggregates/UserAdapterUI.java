@@ -90,4 +90,7 @@ public class UserAdapterUI implements AddUserPort, ChangeUserActivenessPort, Get
         return result;
     }
 
+    public void removeUser(String message) {
+        userService.removeUser(message);
+    }
 }

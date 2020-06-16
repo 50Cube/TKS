@@ -2,6 +2,7 @@ package pl.lodz.p.it;
 
 import com.rabbitmq.client.*;
 import lombok.extern.java.Log;
+import pl.lodz.p.it.Aggregates.UserAdapter;
 import pl.lodz.p.it.Services.UserService;
 
 import javax.annotation.PostConstruct;

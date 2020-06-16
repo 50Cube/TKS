@@ -9,7 +9,10 @@ import pl.lodz.p.it.UIModel.UserUI;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Initialized;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.event.Observes;
 import javax.json.*;
 import java.io.IOException;
 import java.io.StringReader;
@@ -21,7 +24,7 @@ import java.util.UUID;
 import java.util.concurrent.*;
 
 @Log
-@RequestScoped
+@ApplicationScoped
 public class Publisher {
 
     private static final String HOST_NAME = "localhost";
@@ -43,7 +46,7 @@ public class Publisher {
     private AMQP.BasicProperties properties;
 
     @PostConstruct
-    public void init() {
+    public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
         try {
             connectionFactory = new ConnectionFactory();
             connectionFactory.setHost(HOST_NAME);

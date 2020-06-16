@@ -27,6 +27,8 @@ public class Receiver {
 
     @Inject
     private UserService userService;
+    @Inject
+    private Publisher publisher;
 
     private static final String HOST_NAME = "localhost";
     private static final String EXCHANGE_NAME = "exchange_topic";
@@ -70,13 +72,25 @@ public class Receiver {
     private void bindKeys() throws IOException {
         channel.queueBind(queueName, EXCHANGE_NAME, CREATE_USER_KEY);
         channel.queueBind(queueName, EXCHANGE_NAME, UPDATE_USER_KEY);
+        channel.queueBind(queueName, EXCHANGE_NAME, REMOVE_USER_KEY);
     }
 
     private void getMessage() throws IOException {
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             switch (delivery.getEnvelope().getRoutingKey()) {
                 case CREATE_USER_KEY: {
-                    createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
+                    try{
+                        log.info("Creating user");
+                        createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
+                    }
+                    catch (Exception e){
+
+                        JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
+                        JsonObject jsonObject = reader.readObject();
+                        String login = jsonObject.getString("login");
+                        log.info("Exception when creating user, sending remove message with login: " + login);
+                        publisher.removeUser(login);
+                    }
                     break;
                 }
                 case UPDATE_USER_KEY: {
@@ -95,7 +109,7 @@ public class Receiver {
         channel.basicConsume(queueName, false, deliverCallback, consumerTag -> {});
     }
 
-    private void createUser(String message) {
+    private void createUser(String message) throws Exception {
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
         log.info("Method createUser invoked with parameter: " + message);
