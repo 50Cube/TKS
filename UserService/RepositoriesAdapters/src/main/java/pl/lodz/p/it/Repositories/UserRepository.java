@@ -1,5 +1,6 @@
 package pl.lodz.p.it.Repositories;
 
+import lombok.extern.java.Log;
 import pl.lodz.p.it.Model.UserRA;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ApplicationScoped
+@Log
 public class UserRepository {
 
     private Map<String, UserRA> users;
@@ -76,5 +78,10 @@ public class UserRepository {
         users.put(client1.getLogin(), client1);
         users.put(client2.getLogin(), client2);
         users.put(client3.getLogin(), client3);
+    }
+
+    public void removeUser(String login) {
+        log.info("UserService:Attempting to remove user" + login);
+        users.remove(login);
     }
 }

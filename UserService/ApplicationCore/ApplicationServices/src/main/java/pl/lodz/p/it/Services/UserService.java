@@ -49,4 +49,8 @@ public class UserService implements Serializable {
     public Map<String, User> getFilterUsers(String input) {
         return userAdapter.getFilteredUsers(input);
     }
+
+    public void removeUser(String login){
+        userAdapter.removeUser(login);
+    }
 }

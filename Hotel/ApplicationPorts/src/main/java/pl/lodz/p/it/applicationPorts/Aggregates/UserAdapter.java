@@ -89,4 +89,8 @@ public class UserAdapter implements AddUserPort, ChangeUserActivenessPort, Updat
         UserRA userRA = converter.convertToRepository(user);
         userRepository.updateUser(userRA,newName,newSurname);
     }
+
+    public void removeUser(String login) {
+        userRepository.removeUser(login);
+    }
 }

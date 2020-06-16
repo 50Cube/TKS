@@ -1,5 +1,6 @@
 package pl.lodz.p.it.RA.Repositories;
 
+import lombok.extern.java.Log;
 import pl.lodz.p.it.RA.Model.AdminRA;
 import pl.lodz.p.it.RA.Model.ClientRA;
 import pl.lodz.p.it.RA.Model.ManagerRA;
@@ -13,6 +14,7 @@ import java.util.Map;
 
 @Named(value = "userRepositoryRA")
 @ApplicationScoped
+@Log
 public class UserRepositoryRA {
 
     private Map<String, UserRA> users;
@@ -110,5 +112,10 @@ public class UserRepositoryRA {
         users.put(client1.getLogin(), client1);
         users.put(client2.getLogin(), client2);
         users.put(client3.getLogin(), client3);
+    }
+
+    public void removeUser(String login) {
+        log.info("Hotel:Attempting to remove user" + login);
+        users.remove(login);
     }
 }

@@ -68,6 +68,10 @@ public class UserService implements Serializable{
         if(userAdapter.getUser(login).getIsActive())
             userAdapter.deactivateUser(userAdapter.getUser(login));
     }
+
+    public void removeUser(String login){
+        userAdapter.removeUser(login);
+    }
     
     public Map<String, User> getFilterUsers(String input) {
         return userAdapter.getFilteredUsers(input);
