@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.validation.ValidationException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
@@ -83,12 +84,16 @@ public class Receiver {
                         log.info("UserService: Received create user message");
                         createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     }
-                    catch (Exception e){
+                    catch (ValidationException e) {
                         JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
                         JsonObject jsonObject = reader.readObject();
                         String login = jsonObject.getString("login");
+                        log.info(e.getMessage());
                         log.info("UserService:Exception when creating user, sending remove message with login: " + login);
                         publisher.removeUser(login);
+                    }
+                    catch (Exception e){
+                        log.severe(e.getMessage());
                     }
                     break;
                 }

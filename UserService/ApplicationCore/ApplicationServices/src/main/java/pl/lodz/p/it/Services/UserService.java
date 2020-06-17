@@ -17,8 +17,9 @@ public class UserService implements Serializable {
     public UserService() {}
 
     public void addUser(String group, String login, String name, String surname, boolean isActive, String password) throws Exception {
-//        userAdapter.addUser(new User(login, password, name, surname, isActive, group));
-        throw new Exception("Skopciło się ostro");
+        if(!userAdapter.getUsers().containsKey(login))
+            userAdapter.addUser(new User(login, password, name, surname, isActive, group));
+        else throw new IllegalArgumentException("User service: User with that login already exists");
     }
 
     public Map<String, User> getUsers() {

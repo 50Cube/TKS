@@ -2,8 +2,13 @@ package pl.lodz.p.it.Model;
 
 import lombok.Data;
 
+import javax.validation.constraints.Size;
+import javax.validation.executable.ValidateOnExecution;
+
+
 @Data
 public class UserRA {
+    @Size(min = 3)
     private String login;
     private String password;
     private String name;
@@ -13,7 +18,8 @@ public class UserRA {
 
     public UserRA() {}
 
-    public UserRA(String login, String password, String name, String surname, Boolean isActive, String group) {
+    @ValidateOnExecution
+    public UserRA(@Size(min = 3)String login, String password, String name, String surname, Boolean isActive, String group) {
         this.login = login;
         this.password = password;
         this.name = name;

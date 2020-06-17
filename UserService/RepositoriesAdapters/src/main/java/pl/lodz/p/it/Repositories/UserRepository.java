@@ -5,8 +5,10 @@ import pl.lodz.p.it.Model.UserRA;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.validation.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @ApplicationScoped
 @Log
@@ -28,7 +30,12 @@ public class UserRepository {
 
     public synchronized void addUser(UserRA user)
     {
-        users.put(user.getLogin(), user);
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator();
+        Set<ConstraintViolation<UserRA>> violations = validator.validate(user);
+        if(violations.isEmpty())
+            users.put(user.getLogin(), user);
+        else throw new ValidationException("User Service: Validation exception while creating user " + user.getLogin());
     }
 
     public synchronized void updateUser(UserRA user, String newPassword, String newName, String newSurname)
