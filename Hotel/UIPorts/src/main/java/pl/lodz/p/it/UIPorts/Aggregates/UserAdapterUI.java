@@ -40,15 +40,15 @@ public class UserAdapterUI implements AddUserPort, ChangeUserActivenessPort, Get
         return converter.convertToUI(userService.getUser(login));
     }
     @Override
-    public void addClient(String login, String name, String surname, boolean active) throws  Exception{
+    public void addClient(String login, String name, String surname, boolean active) throws  IllegalArgumentException{
         userService.addClient(login,name,surname,active);
     }
     @Override
-    public void addManager(String login, String name, String surname, boolean active) throws  Exception{
+    public void addManager(String login, String name, String surname, boolean active) throws  IllegalArgumentException{
         userService.addManager(login,name,surname,active);
     }
     @Override
-    public void addAdmin(String login, String name, String surname, boolean active) throws  Exception{
+    public void addAdmin(String login, String name, String surname, boolean active) throws  IllegalArgumentException{
         userService.addAdmin(login,name,surname,active);
     }
     @Override

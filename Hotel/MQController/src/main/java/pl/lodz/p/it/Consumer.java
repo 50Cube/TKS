@@ -19,6 +19,7 @@ import javax.json.JsonReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 
 @ApplicationScoped
 @Log
@@ -80,13 +81,16 @@ public class Consumer {
                 case CREATE_USER_KEY: {
                     try {
                         createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
-                    } catch (Exception e) {
-                        JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
-                        JsonObject jsonObject = reader.readObject();
-                        String login = jsonObject.getString("login");
-                        log.info("Hotel: Exception when creating user, sending remove message with login: " + login);
-                        publisher.removeUser(login);
-                    }
+                    } catch (IllegalArgumentException e) {
+                        log.info("Create user failed, login already exists");
+                    } catch (Exception e)
+                    {
+                    JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
+                    JsonObject jsonObject = reader.readObject();
+                    String login = jsonObject.getString("login");
+                    log.info("Hotel: Exception when creating user, sending remove message with login: " + login);
+                    publisher.removeUser(login);
+                }
                     break;
                 }
                 case UPDATE_USER_KEY: {
@@ -106,7 +110,7 @@ public class Consumer {
         channel.basicConsume(queueName, false, deliverCallback, consumerTag -> {});
     }
 
-    private void createUser(String message) throws Exception {
+    private void createUser(String message) throws IllegalArgumentException {
         log.info("Hotel: Attempting to create user");
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();

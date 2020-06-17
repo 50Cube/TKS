@@ -33,8 +33,7 @@ public class addUserController implements Serializable{
     @Inject
     private Publisher publisher;
     
-    public addUserController() {
-    }
+    public addUserController() { }
     
     public void setUserType(String type) {
         this.userType = type;
