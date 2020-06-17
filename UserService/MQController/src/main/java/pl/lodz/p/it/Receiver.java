@@ -88,7 +88,7 @@ public class Receiver {
                         JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
                         JsonObject jsonObject = reader.readObject();
                         String login = jsonObject.getString("login");
-                        log.info("Exception when creating user, sending remove message with login: " + login);
+                        log.info("UserService:Exception when creating user, sending remove message with login: " + login);
                         publisher.removeUser(login);
                     }
                     break;

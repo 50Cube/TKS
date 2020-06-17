@@ -4,6 +4,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
+import lombok.extern.java.Log;
 import pl.lodz.p.it.UIPorts.Aggregates.UserAdapterUI;
 
 import javax.annotation.PostConstruct;
@@ -20,10 +21,13 @@ import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 
 @ApplicationScoped
+@Log
 public class Consumer {
 
     @Inject
     private UserAdapterUI userService;
+
+    @Inject Publisher publisher;
 
     private static final String HOST_NAME = "localhost";
     private static final String EXCHANGE_NAME = "exchange_topic";
@@ -31,6 +35,7 @@ public class Consumer {
 
     private static final String CREATE_USER_KEY = "user.create";
     private static final String UPDATE_USER_KEY = "user.update";
+    private static final String REMOVE_USER_KEY = "user.remove";
 
     private ConnectionFactory connectionFactory;
     private Connection connection;
@@ -75,13 +80,21 @@ public class Consumer {
                     try {
                         createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
+                        JsonObject jsonObject = reader.readObject();
+                        String login = jsonObject.getString("login");
+                        log.info("Hotel: Exception when creating user, sending remove message with login: " + login);
+                        publisher.removeUser(login);
                     }
                     break;
                 }
                 case UPDATE_USER_KEY: {
                     updateUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     break;
+                }
+                case REMOVE_USER_KEY: {
+                    log.info("Hotel: Received remove message");
+                    removeUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                 }
                 default: {
                     break;
@@ -124,5 +137,10 @@ public class Consumer {
                 jsonObject.getString("name"),
                 jsonObject.getString("surname")
         );
+    }
+
+    private void removeUser(String message) {
+        log.info("Hotel: Removing user " + message);
+        userService.removeUser(message);
     }
 }

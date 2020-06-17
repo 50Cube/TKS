@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.json.*;
 import java.io.IOException;
@@ -55,7 +54,7 @@ public class Publisher {
             channel.confirmSelect();
             channel.addConfirmListener(cleanOutstandingConfirms,
              (sequenceNumber, multiple) -> {
-                log.severe("Message number: " + sequenceNumber + "failed");
+                log.severe("Hotel: Message number: " + sequenceNumber + " failed");
             });
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +62,7 @@ public class Publisher {
     }
 
     ConfirmCallback cleanOutstandingConfirms = (sequenceNumber, multiple) -> {
-        log.info("Message number: " + sequenceNumber + "success");
+        log.info("Hotel: Message number: " + sequenceNumber + " success");
         if (multiple) {
             ConcurrentNavigableMap<Long, String> confirmed = outstandingConfirms.headMap(
                     sequenceNumber, true
@@ -84,6 +83,7 @@ public class Publisher {
     }
 
     public void removeUser(String login) throws IOException {
+        log.info("Hotel: Sending remove message");
         channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
         long sequenceNumber = channel.getNextPublishSeqNo();
         outstandingConfirms.put(sequenceNumber,login);
