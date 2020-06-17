@@ -41,6 +41,7 @@ public class UserRepositoryRA {
     public synchronized void addUser(UserRA user)
     {
         users.put(user.getLogin(), user);
+        log.info("Hotel: user added " +user.getLogin());
     }
 
     public synchronized void addClient(ClientRA client) {
@@ -115,7 +116,7 @@ public class UserRepositoryRA {
     }
 
     public void removeUser(String login) {
-        log.info("Hotel:Attempting to remove user" + login);
         users.remove(login);
+        log.info("Hotel: user removed" + login);
     }
 }

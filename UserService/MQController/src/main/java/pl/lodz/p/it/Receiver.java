@@ -80,11 +80,10 @@ public class Receiver {
             switch (delivery.getEnvelope().getRoutingKey()) {
                 case CREATE_USER_KEY: {
                     try{
-                        log.info("Creating user");
+                        log.info("UserService: Received create user message");
                         createUser(new String(delivery.getBody(), StandardCharsets.UTF_8));
                     }
                     catch (Exception e){
-
                         JsonReader reader = Json.createReader(new StringReader(new String(delivery.getBody(), StandardCharsets.UTF_8)));
                         JsonObject jsonObject = reader.readObject();
                         String login = jsonObject.getString("login");

@@ -71,6 +71,7 @@ public class Consumer {
     private void bindKeys() throws IOException {
         channel.queueBind(queueName, EXCHANGE_NAME, CREATE_USER_KEY);
         channel.queueBind(queueName, EXCHANGE_NAME, UPDATE_USER_KEY);
+        channel.queueBind(queueName, EXCHANGE_NAME, REMOVE_USER_KEY);
     }
 
     private void getMessage() throws IOException {
@@ -106,6 +107,7 @@ public class Consumer {
     }
 
     private void createUser(String message) throws Exception {
+        log.info("Hotel: Attempting to create user");
         JsonReader reader = Json.createReader(new StringReader(message));
         JsonObject jsonObject = reader.readObject();
         if(jsonObject.getString("userType").equalsIgnoreCase("admin")) {
