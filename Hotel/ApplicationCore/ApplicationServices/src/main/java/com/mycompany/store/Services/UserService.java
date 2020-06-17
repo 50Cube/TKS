@@ -34,22 +34,22 @@ public class UserService implements Serializable{
         return userAdapter.getUser(login);
     }
 
-    public void addClient(String login, String name, String surname, boolean active) throws Exception {
+    public void addClient(String login, String name, String surname, boolean active) throws IllegalArgumentException {
         if(!userAdapter.getUsers().containsKey(login))
             userAdapter.addUser(new Client(login,name,surname,active));
-        else throw new Exception("User already exists");
+        else throw new IllegalArgumentException("User already exists");
     }
     
-    public void addManager(String login, String name, String surname, boolean active) throws Exception {
+    public void addManager(String login, String name, String surname, boolean active) throws IllegalArgumentException {
         if(!userAdapter.getUsers().containsKey(login))
             userAdapter.addUser(new Manager(login,name,surname,active));
-         else throw new Exception("User already exists");
+         else throw new IllegalArgumentException("User already exists");
     }
     
-    public void addAdmin(String login, String name, String surname, boolean active) throws Exception {
+    public void addAdmin(String login, String name, String surname, boolean active) throws IllegalArgumentException {
         if(!userAdapter.getUsers().containsKey(login))
             userAdapter.addUser(new Admin(login,name,surname,active));
-        else throw new Exception("User already exists");
+        else throw new IllegalArgumentException("User already exists");
     }
     
     public void updateUser(String login, String newName, String newSurname)
